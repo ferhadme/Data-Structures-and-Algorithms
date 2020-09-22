@@ -1,9 +1,12 @@
 package com.ferhad;
 
+/**
+ * Any function which calls itself is called recursive.
+ */
+
 public class Recursion {
 
-    /*
-     * Towers of Hanoi puzzle (for description of puzzle refer to https://en.wikipedia.org/wiki/Tower_of_Hanoi )
+    /* Towers of Hanoi puzzle (for description of puzzle refer to https://en.wikipedia.org/wiki/Tower_of_Hanoi )
      * Algorithm:
      * Move the top n-1 disks from Source to Auxiliary tower;
      * Move n^th disk from Source to Destination tower;
@@ -30,11 +33,22 @@ public class Recursion {
      * We should give 0 value to index parameter while calling function. We can write also 2 different functions for one
      * with @param arr, @param index, and the other one with only @param arr (one for calling, the other one for
      * recursive calling, but we needn't it)
+     * O(n) time complexity, and O(n) space complexity for recursive stack space
     */
     public boolean isArrayInSortedOrder(int[] arr, int index) {
         if (index == arr.length - 1) {
             return true;
         }
         return arr[index] <= arr[index + 1] && isArrayInSortedOrder(arr, index + 1);
+    }
+
+    /* Function for finding factorial of number
+     * O(n) time complexity, O(n) space complexity
+    */
+    public long factorial(int num) {
+        if (num == 0) {
+            return 1;
+        }
+        return num * factorial(num - 1);
     }
 }

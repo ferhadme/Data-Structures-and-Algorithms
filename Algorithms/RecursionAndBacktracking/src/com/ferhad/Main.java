@@ -1,14 +1,15 @@
 package com.ferhad;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
         Recursion rc = new Recursion();
-        // rc.towersOfHanoi(4, 'A', 'B', 'C');
+        // Testing functions...
 
-        // boolean isSorted = rc.isArrayInSortedOrder(new int[] {1, 2, 5, 3, 5, 6}, 0);
-        // System.out.println(isSorted);
-
+        Backtracking bc = new Backtracking();
+        // Testing functions...
 
     }
 }
