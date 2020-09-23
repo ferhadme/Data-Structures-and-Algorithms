@@ -13,11 +13,11 @@ import java.util.ArrayList;
 
 public class Backtracking {
 
-    /* The N Queen is the problem of placing N chess queens on an N×N chessboard so that no two queens attack each
+    /** The N Queen is the problem of placing N chess queens on an N×N chessboard so that no two queens attack each
      * other(vertically, horizontally, diagonally)
-     * @param perm is all permutations for solution of N Queens problem.
+     * @param perm is all permutations for solution of N Queens problem, and should be empty ArrayList, so we can put
+     *             coordinates of queens in to this array.
      * @param numOfQueens is number of queens that we want to place on the N*N chessboard
-     * @param perm should be empty ArrayList, so we can put coordinates of queens in to this array.
      * For Python code of this puzzle refer to my another Repository for Puzzles:
      * (https://github.com/ferhad2207/Puzzles/blob/master/NQueens/NQueens(Backtracking).py)
      */
