@@ -1,6 +1,7 @@
 package com.ferhad;
 
 /**
+ * @author Ferhad Mehdizade
  * Any function which calls itself is called recursive.
  */
 
@@ -29,10 +30,10 @@ public class Recursion {
         towersOfHanoi(n - 1, auxRod, toRod, fromRod);
     }
 
-    /* Function for checking if array is sorted or not
-     * We should give 0 value to index parameter while calling function. We can write also 2 different functions for one
-     * with @param arr, @param index, and the other one with only @param arr (one for calling, the other one for
-     * recursive calling, but we needn't it)
+    /** Function for checking if array is sorted or not
+     * @param arr Array
+     * @param index Index of elements of Array. Index should be 0 while function is calling.
+     * @return true or false according to Array is sorted or not.
      * O(n) time complexity, and O(n) space complexity for recursive stack space
     */
     public boolean isArrayInSortedOrder(int[] arr, int index) {

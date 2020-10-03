@@ -3,6 +3,7 @@ package com.ferhad;
 import java.util.ArrayList;
 
 /**
+ * @author Ferhad Mehdizade
  * Backtracking is an improvement of the brute force approach. It systematically searches for a
  * solution to a problem among all available options. In backtracking, we start with one possible
  * option out of many available options and try to solve the problem if we are able to solve the
