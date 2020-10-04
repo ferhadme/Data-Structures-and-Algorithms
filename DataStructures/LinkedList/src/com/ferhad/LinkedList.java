@@ -7,7 +7,7 @@ package com.ferhad;
  * Delete O(n) (in case of deleting from beginning time complexity is O(1))
  * Access O(n)
  * Search O(n)
- * Insertion and deletion process is better than dynamic array.
+ * Good for insertion and deletion process.
  */
 
 public class LinkedList {
