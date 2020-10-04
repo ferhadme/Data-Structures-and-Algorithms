@@ -1,2 +1,2 @@
 # Data-Structures-and-Algorithms
-Learning Data Structures and Algorithms using Java programming language 
+Implementation of Data Structures and Algorithms using Java programming language 
