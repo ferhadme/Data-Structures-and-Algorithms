@@ -114,4 +114,24 @@ public class LinkedList {
         }
     }
 
+    public void remove(int position) {
+        if (position < 0) {
+            position = 0;
+        } else if (position >= length) {
+            position = length - 1;
+        }
+
+        if (head == null) {
+            return;
+        } else if (position == 0) {
+            head = head.getNext();
+        } else {
+            ListNode temp = head;
+            for (int i = 0; i < position; i++) {
+                temp = temp.getNext();
+            }
+            temp.setNext(temp.getNext().getNext());
+        }
+        length--;
+    }
 }
