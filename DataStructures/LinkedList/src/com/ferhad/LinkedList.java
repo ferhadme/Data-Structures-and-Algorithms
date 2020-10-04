@@ -3,6 +3,11 @@ package com.ferhad;
 /**
  * @author Ferhad Mehdizade
  * Implementation of LinkedList
+ * Insert O(n) (in case of inserting to beginning time complexity is O(1))
+ * Delete O(n) (in case of deleting from beginning time complexity is O(1))
+ * Access O(n)
+ * Search O(n)
+ * Insertion and deletion process is better than dynamic array.
  */
 
 public class LinkedList {
@@ -134,4 +139,43 @@ public class LinkedList {
         }
         length--;
     }
+
+    public int length() {
+        return length;
+    }
+
+    public int getPosition(int data) {
+        int position = 0;
+        ListNode temp = head;
+        while (temp != null) {
+            if (data == temp.getData()) {
+                return position;
+            }
+            position++;
+            temp = temp.getNext();
+        }
+
+        // there is no position with this data, return -1;
+        return -1;
+    }
+
+    // String representation of this collection, in the form ["str1", "str2", ...].
+    @Override
+    public String toString() {
+        String result = "[";
+        result += head.getData();
+        ListNode temp = head.getNext();
+        while (temp != null) {
+            result += ", " + temp.getData();
+            temp = temp.getNext();
+        }
+        return result + "]";
+    }
+
+    // Remove all data from LinkedList
+    public void clearList() {
+        head = null;
+        length = 0;
+    }
+
 }
