@@ -18,17 +18,19 @@ public class LinkedList {
         this.length = 0;
     }
 
-    public synchronized ListNode getHead() {
-        return head;
+    public synchronized int getHead() {
+        return head.getData();
     }
 
-    public synchronized void insertAtBegin(ListNode node) {
+    public synchronized void insertAtBegin(int data) {
+        ListNode node = new ListNode(data);
         node.setNext(head);
         head = node;
         length++;
     }
 
-    public synchronized void insertAtEnd(ListNode node) {
+    public synchronized void insertAtEnd(int data) {
+        ListNode node = new ListNode(data);
         if (head == null) {
             head = node;
         } else {
@@ -42,16 +44,12 @@ public class LinkedList {
     public void insert(int data, int position) {
         if (position < 0) {
             position = 0;
-        } else if (position > length) {
-            position = length;
+        } else if (position >= length) {
+            position = length - 1;
         }
 
         if (head == null) {
             head = new ListNode(data);
-        } else if (position == 0) {
-            ListNode temp = new ListNode(data);
-            temp.setNext(head);
-            head = temp;
         } else {
             ListNode temp = head;
             for (int i = 0; i < position; i++) {
@@ -132,7 +130,7 @@ public class LinkedList {
             head = head.getNext();
         } else {
             ListNode temp = head;
-            for (int i = 0; i < position; i++) {
+            for (int i = 0; i < position - 1; i++) {
                 temp = temp.getNext();
             }
             temp.setNext(temp.getNext().getNext());
@@ -163,8 +161,11 @@ public class LinkedList {
     @Override
     public String toString() {
         String result = "[";
-        result += head.getData();
-        ListNode temp = head.getNext();
+        ListNode temp = null;
+        if (head != null) {
+            result += head.getData();
+            temp = head.getNext();
+        }
         while (temp != null) {
             result += ", " + temp.getData();
             temp = temp.getNext();

@@ -24,15 +24,4 @@ public class ListNode {
         return next;
     }
 
-    // O(n) time complexity, O(1) space complexity
-    public int listLength(ListNode head) {
-        int length = 0;
-        ListNode currentNode = head;
-        while (currentNode != null) {
-            length++;
-            currentNode = currentNode.getNext();
-        }
-        return length;
-    }
-
 }
