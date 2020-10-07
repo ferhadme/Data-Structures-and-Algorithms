@@ -26,5 +26,6 @@ public class Main {
         // []
 
         String listStr = myLinkedList.toString(); // String representation of LinkedList ([str1, str2, ...])
+
     }
 }

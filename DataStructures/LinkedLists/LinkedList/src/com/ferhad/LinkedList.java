@@ -2,7 +2,7 @@ package com.ferhad;
 
 /**
  * @author Ferhad Mehdizade
- * Implementation of LinkedList
+ * Implementation of Singly LinkedList
  * Insert O(n) (in case of inserting to beginning time complexity is O(1))
  * Delete O(n) (in case of deleting from beginning time complexity is O(1))
  * Access O(n)
@@ -43,23 +43,26 @@ public class LinkedList {
 
     public void insert(int data, int position) {
         if (position < 0) {
-            position = 0;
+            // Then insert data to the begin
+            insertAtBegin(data);
+            return;
         } else if (position >= length) {
-            position = length - 1;
+            // Then insert data to the end
+            insertAtEnd(data);
+            return;
         }
 
-        if (head == null) {
-            head = new ListNode(data);
-        } else {
-            ListNode temp = head;
-            for (int i = 0; i < position; i++) {
-                temp = temp.getNext();
-            }
-            ListNode newNode = new ListNode(data);
-            newNode.setNext(temp.getNext());
-            temp.setNext(newNode);
+//        if (head == null) {
+//            head = new ListNode(data);
+//        } else {
+        ListNode temp = head;
+        for (int i = 0; i < position; i++) {
+            temp = temp.getNext();
         }
-
+        ListNode newNode = new ListNode(data);
+        newNode.setNext(temp.getNext());
+        temp.setNext(newNode);
+//        }
         length++;
     }
 
@@ -119,9 +122,13 @@ public class LinkedList {
 
     public void remove(int position) {
         if (position < 0) {
-            position = 0;
+            // Then remove data from the beginning
+            removeAtBegin();
+            return;
         } else if (position >= length) {
-            position = length - 1;
+            // Then remove data from the end
+            removeFromEnd();
+            return;
         }
 
         if (head == null) {
