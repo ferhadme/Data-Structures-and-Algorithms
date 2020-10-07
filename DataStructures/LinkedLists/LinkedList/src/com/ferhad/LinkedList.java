@@ -52,9 +52,6 @@ public class LinkedList {
             return;
         }
 
-//        if (head == null) {
-//            head = new ListNode(data);
-//        } else {
         ListNode temp = head;
         for (int i = 0; i < position; i++) {
             temp = temp.getNext();
@@ -62,7 +59,7 @@ public class LinkedList {
         ListNode newNode = new ListNode(data);
         newNode.setNext(temp.getNext());
         temp.setNext(newNode);
-//        }
+
         length++;
     }
 
