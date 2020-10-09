@@ -12,14 +12,14 @@ public class Main {
         // [5, 3, 2]
         myLinkedList.insertAtBegin(0);
         // [0, 5, 3, 2]
-        myLinkedList.insert(10, 5);
-        // [0, 5, 3, 2, 10]
+        myLinkedList.insert(10, 2);
+        // [0, 5, 10, 3, 2]
         myLinkedList.removeAtBegin();
-        // [5, 3, 2, 10]
+        // [5, 10, 3, 2]
         myLinkedList.removeFromEnd();
-        // [5, 3, 2]
+        // [5, 10, 3]
         myLinkedList.remove(1);
-        // [5, 2]
+        // [5, 3]
         myLinkedList.get(1); // returning data at the position 1 (2)
         int positionOf5 = myLinkedList.getPosition(5); // returning position of 5
         int headOfList = myLinkedList.getHead(); // returning data of head

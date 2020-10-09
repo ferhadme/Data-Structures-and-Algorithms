@@ -42,7 +42,7 @@ public class LinkedList {
     }
 
     public void insert(int data, int position) {
-        if (position < 0) {
+        if (position <= 0 || head == null) {
             // Then insert data to the begin
             insertAtBegin(data);
             return;
@@ -53,7 +53,7 @@ public class LinkedList {
         }
 
         ListNode temp = head;
-        for (int i = 0; i < position; i++) {
+        for (int i = 0; i < position - 1; i++) {
             temp = temp.getNext();
         }
         ListNode newNode = new ListNode(data);
