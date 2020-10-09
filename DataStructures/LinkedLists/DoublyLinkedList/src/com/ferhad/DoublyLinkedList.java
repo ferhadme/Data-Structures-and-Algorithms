@@ -34,6 +34,7 @@ public class DoublyLinkedList {
             head.setPrev(node);
             head = node;
         }
+        length++;
     }
 
 
