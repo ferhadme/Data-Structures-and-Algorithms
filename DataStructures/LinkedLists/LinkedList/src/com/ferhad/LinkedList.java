@@ -146,6 +146,17 @@ public class LinkedList {
         return length;
     }
 
+    public int get(int position) {
+        if (position < 0 || position >= length) {
+            return Integer.MIN_VALUE;
+        }
+        ListNode temp = head;
+        for (int i = 0; i < position; i++) {
+            temp = temp.getNext();
+        }
+        return temp.getData();
+    }
+
     public int getPosition(int data) {
         int position = 0;
         ListNode temp = head;
