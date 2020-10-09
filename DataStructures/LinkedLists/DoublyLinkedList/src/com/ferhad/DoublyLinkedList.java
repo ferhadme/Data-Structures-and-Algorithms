@@ -37,7 +37,54 @@ public class DoublyLinkedList {
         length++;
     }
 
+    public void insertAtEnd(int data) {
+        if (head == null) {
+            insertAtBegin(data);
+            return;
+        }
+        ListNode node = new ListNode(data);
+        ListNode temp = head;
+        while (temp.getNext() != null) {
+            temp = temp.getNext();
+        }
+        temp.setNext(node);
+        node.setPrev(temp);
+        length++;
+    }
 
+    public void insert(int data, int position) {
+        if (position <= 0 || head == null) {
+            insertAtBegin(data);
+            return;
+        } else if (position >= length) {
+            insertAtEnd(data);
+            return;
+        }
+
+        ListNode node = new ListNode(data);
+        ListNode temp = head;
+        for (int i = 0; i < position - 1; i++) {
+            temp = temp.getNext();
+        }
+        node.setNext(temp.getNext());
+        node.setPrev(temp);
+        if (node.getNext() != null) {
+            node.getNext().setPrev(node);
+        }
+        temp.setNext(node);
+        length++;
+    }
+
+    public void removeAtBegin() {
+        if (head != null) {
+            head = head.getNext();
+            length--;
+        }
+    }
+
+    public int length() {
+        return length;
+    }
 
     @Override
     public String toString() {
