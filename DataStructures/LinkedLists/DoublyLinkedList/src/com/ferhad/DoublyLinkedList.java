@@ -14,5 +14,42 @@ package com.ferhad;
  */
 
 public class DoublyLinkedList {
+    private ListNode head;
+    private int length;
 
+    public DoublyLinkedList() {
+        this.length = 0;
+    }
+
+    public ListNode getHead() {
+        return head;
+    }
+
+    public void insertAtBegin(int data) {
+        if (head == null) {
+            head = new ListNode(data);
+        } else {
+            ListNode node = new ListNode(data);
+            node.setNext(head);
+            head.setPrev(node);
+            head = node;
+        }
+    }
+
+
+
+    @Override
+    public String toString() {
+        String result = "[";
+        ListNode temp = null;
+        if (head != null) {
+            result += head.getData();
+            temp = head.getNext();
+        }
+        while (temp != null) {
+            result += ", " + temp.getData();
+            temp = temp.getNext();
+        }
+        return result + "]";
+    }
 }
