@@ -82,6 +82,23 @@ public class DoublyLinkedList {
         }
     }
 
+    public void removeFromEnd() {
+        if (head != null) {
+            ListNode temp = head;
+            while (temp.getNext() != null) {
+                temp = temp.getNext();
+            }
+
+            if (temp.equals(head)) {
+                removeAtBegin();
+            } else {
+                temp.getPrev().setNext(null);
+                temp.setPrev(null);
+                length--;
+            }
+        }
+    }
+
     public int length() {
         return length;
     }

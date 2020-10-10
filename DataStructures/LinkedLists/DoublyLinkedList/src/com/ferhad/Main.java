@@ -12,6 +12,8 @@ public class Main {
         list.insertAtBegin(3);
         list.insertAtEnd(11);
         list.insert(33, 3);
+        list.removeAtBegin();
+        list.removeFromEnd();
         System.out.println(list.length());
         System.out.println(list);
 
