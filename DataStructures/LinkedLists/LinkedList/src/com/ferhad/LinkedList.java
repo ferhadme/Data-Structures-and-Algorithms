@@ -18,18 +18,18 @@ public class LinkedList {
         this.length = 0;
     }
 
-    public synchronized int getHead() {
+    public int getHead() {
         return head.getData();
     }
 
-    public synchronized void insertAtBegin(int data) {
+    public void insertAtBegin(int data) {
         ListNode node = new ListNode(data);
         node.setNext(head);
         head = node;
         length++;
     }
 
-    public synchronized void insertAtEnd(int data) {
+    public void insertAtEnd(int data) {
         ListNode node = new ListNode(data);
         if (head == null) {
             head = node;
@@ -63,7 +63,7 @@ public class LinkedList {
         length++;
     }
 
-    public synchronized ListNode removeAtBegin() {
+    public ListNode removeAtBegin() {
         ListNode node = head;
         if (node != null) {
             head = node.getNext();
@@ -73,7 +73,7 @@ public class LinkedList {
         return node;
     }
 
-    public synchronized ListNode removeFromEnd() {
+    public ListNode removeFromEnd() {
         if (head == null) {
             return null;
         }
@@ -96,7 +96,7 @@ public class LinkedList {
         return p;
     }
 
-    public synchronized void removeMatched(ListNode node) {
+    public void removeMatched(ListNode node) {
         if (head == null) {
             return;
         }

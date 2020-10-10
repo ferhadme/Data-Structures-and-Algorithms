@@ -12,10 +12,7 @@ public class Main {
         list.insertAtEnd(3);
         list.insertAtEnd(9);
         System.out.println(list);
-        list.remove(1);
-        System.out.println(list);
-        list.remove(3);
-        System.out.println(list);
+        System.out.println(list.getPosition(3));
 
     }
 }

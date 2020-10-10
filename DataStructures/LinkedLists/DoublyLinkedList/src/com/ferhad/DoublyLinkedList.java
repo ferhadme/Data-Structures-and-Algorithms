@@ -118,7 +118,50 @@ public class DoublyLinkedList {
         length--;
     }
 
-    //
+    public void removeMatched(ListNode node) {
+        if (head == null) {
+            return;
+        }
+        if (node.equals(head)) {
+            head = head.getNext();
+            length--;
+            return;
+        }
+
+        ListNode p = head, q = null;
+        while ((q = p.getNext()) != null) {
+            if (node.equals(q)) {
+                p.setNext(q.getNext());
+                length--;
+                return;
+            }
+            p = q;
+        }
+    }
+
+    public int get(int position) {
+        if (position < 0 || position >= length) {
+            return Integer.MIN_VALUE;
+        }
+        ListNode temp = head;
+        for (int i = 0; i < position; i++) {
+            temp = temp.getNext();
+        }
+        return temp.getData();
+    }
+
+    public int getPosition(int data) {
+        int position = 0;
+        ListNode temp = head;
+        while (temp != null) {
+            if (temp.getData() == data) {
+                return position;
+            }
+            position++;
+            temp = temp.getNext();
+        }
+        return -1;
+    }
 
     public int length() {
         return length;
@@ -137,5 +180,10 @@ public class DoublyLinkedList {
             temp = temp.getNext();
         }
         return result + "]";
+    }
+
+    public void clearList() {
+        head = null;
+        length = 0;
     }
 }

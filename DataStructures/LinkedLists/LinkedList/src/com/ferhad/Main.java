@@ -20,7 +20,7 @@ public class Main {
         // [5, 10, 3]
         myLinkedList.remove(1);
         // [5, 3]
-        myLinkedList.get(1); // returning data at the position 1 (2)
+        int data = myLinkedList.get(1); // returning data at the position 1 (2)
         int positionOf5 = myLinkedList.getPosition(5); // returning position of 5
         int headOfList = myLinkedList.getHead(); // returning data of head
         myLinkedList.clearList();
