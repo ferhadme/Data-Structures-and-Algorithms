@@ -14,7 +14,7 @@ package com.ferhad;
  */
 
 public class DoublyLinkedList {
-    private ListNode head;
+    private ListNode head; // holds the head of the list
     private int length;
 
     public DoublyLinkedList() {
@@ -26,10 +26,11 @@ public class DoublyLinkedList {
     }
 
     public void insertAtBegin(int data) {
-        if (head == null) {
+        if (head == null) { // list is empty, create new head
             head = new ListNode(data);
         } else {
             ListNode node = new ListNode(data);
+            // linking head and the next of the head to each other
             node.setNext(head);
             head.setPrev(node);
             head = node;
@@ -38,21 +39,24 @@ public class DoublyLinkedList {
     }
 
     public void insertAtEnd(int data) {
-        if (head == null) {
+        if (head == null) { // list is empty, create new head
             insertAtBegin(data);
             return;
         }
         ListNode node = new ListNode(data);
+        // finding tail of the list
         ListNode temp = head;
         while (temp.getNext() != null) {
             temp = temp.getNext();
         }
+        // linking tail and the previous of the tail to each other
         temp.setNext(node);
         node.setPrev(temp);
         length++;
     }
 
     public void insert(int data, int position) {
+        // checking position
         if (position <= 0 || head == null) {
             insertAtBegin(data);
             return;
@@ -63,11 +67,13 @@ public class DoublyLinkedList {
 
         ListNode node = new ListNode(data);
         ListNode temp = head;
+        // finding the node in the position and inserting
         for (int i = 0; i < position - 1; i++) {
             temp = temp.getNext();
         }
         node.setNext(temp.getNext());
         node.setPrev(temp);
+        // checking nullability of the next of the node
         if (node.getNext() != null) {
             node.getNext().setPrev(node);
         }
@@ -85,13 +91,15 @@ public class DoublyLinkedList {
     public void removeFromEnd() {
         if (head != null) {
             ListNode temp = head;
+            // finding the node
             while (temp.getNext() != null) {
                 temp = temp.getNext();
             }
 
+            // if temp equals to the head, then the list consists of only head
             if (temp.equals(head)) {
                 removeAtBegin();
-            } else {
+            } else { // remove links of temp to previous and next node
                 temp.getPrev().setNext(null);
                 temp.setPrev(null);
                 length--;
@@ -100,6 +108,7 @@ public class DoublyLinkedList {
     }
 
     public void remove(int position) {
+        // checking positions
         if (position <= 0 || head == null) {
             removeAtBegin();
             return;
@@ -108,6 +117,7 @@ public class DoublyLinkedList {
             return;
         }
         ListNode temp = head;
+        // finding the node in the position and removing
         for (int i = 0; i <= position - 1; i++) {
             temp = temp.getNext();
         }
@@ -118,6 +128,7 @@ public class DoublyLinkedList {
         length--;
     }
 
+    // remove specific ListNode
     public void removeMatched(ListNode node) {
         if (head == null) {
             return;
@@ -140,9 +151,11 @@ public class DoublyLinkedList {
     }
 
     public int get(int position) {
+        // return something like Integer.MIN_VALUE for wrong position
         if (position < 0 || position >= length) {
             return Integer.MIN_VALUE;
         }
+        // find the node in the position and return data of this node
         ListNode temp = head;
         for (int i = 0; i < position; i++) {
             temp = temp.getNext();
@@ -167,6 +180,7 @@ public class DoublyLinkedList {
         return length;
     }
 
+    // Representation of list in the form ["str1", "str2", "str3", .., "strn"]
     @Override
     public String toString() {
         String result = "[";
@@ -182,6 +196,7 @@ public class DoublyLinkedList {
         return result + "]";
     }
 
+    // clear all nodes of the list
     public void clearList() {
         head = null;
         length = 0;
