@@ -99,6 +99,27 @@ public class DoublyLinkedList {
         }
     }
 
+    public void remove(int position) {
+        if (position <= 0 || head == null) {
+            removeAtBegin();
+            return;
+        } else if (position >= length - 1) {
+            removeFromEnd();
+            return;
+        }
+        ListNode temp = head;
+        for (int i = 0; i <= position - 1; i++) {
+            temp = temp.getNext();
+        }
+        temp.getPrev().setNext(temp.getNext());
+        temp.getNext().setPrev(temp.getPrev());
+        temp.setPrev(null);
+        temp.setNext(null);
+        length--;
+    }
+
+    //
+
     public int length() {
         return length;
     }
