@@ -13,5 +13,5 @@ package com.ferhad;
  */
 
 public class CircularLinkedList {
-    
+
 }
