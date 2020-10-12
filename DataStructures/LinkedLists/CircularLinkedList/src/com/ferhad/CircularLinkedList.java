@@ -48,9 +48,8 @@ public class CircularLinkedList {
     // Return and remove head of the list
     public int removeFromHead() {
         ListNode temp = tail.getNext(); // head of the list
-        if (isEmpty()) {
+        if (isEmpty())
             return Integer.MIN_VALUE;
-        }
         if (tail == tail.getNext()) {
             tail = null;
         } else {
@@ -63,9 +62,8 @@ public class CircularLinkedList {
 
     // Return and remove tail of the list
     public int removeFromTail() {
-        if (isEmpty()) {
+        if (isEmpty())
             return Integer.MIN_VALUE;
-        }
         ListNode temp = tail;
         ListNode finger = tail;
         while (finger.getNext() != tail) {
@@ -84,6 +82,16 @@ public class CircularLinkedList {
 
     public boolean isEmpty() {
         return tail == null;
+    }
+
+    public boolean contains(int data) {
+        if (tail == null)
+            return false;
+        ListNode finger = tail;
+        while (finger.getNext() != tail && finger.getData() != data) {
+            finger = finger.getNext();
+        }
+        return finger.getData() == data;
     }
 
     public int length() {
