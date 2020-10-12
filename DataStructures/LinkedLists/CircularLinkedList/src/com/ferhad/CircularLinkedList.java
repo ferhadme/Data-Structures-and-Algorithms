@@ -29,17 +29,61 @@ public class CircularLinkedList {
         length++;
     }
 
+    // Add data to the tail of the list
     public void addToTail(int data) {
         addToHead(data);
         tail = tail.getNext();
     }
 
+    // Return data at head of the list
     public int peek() {
         return tail.getNext().getData();
     }
 
+    // Return data at tail of the list
     public int tailPeek() {
         return tail.getData();
+    }
+
+    // Return and remove head of the list
+    public int removeFromHead() {
+        ListNode temp = tail.getNext(); // head of the list
+        if (isEmpty()) {
+            return Integer.MIN_VALUE;
+        }
+        if (tail == tail.getNext()) {
+            tail = null;
+        } else {
+            tail.setNext(temp.getNext());
+            temp.setNext(null);
+        }
+        length--;
+        return temp.getData();
+    }
+
+    // Return and remove tail of the list
+    public int removeFromTail() {
+        if (isEmpty()) {
+            return Integer.MIN_VALUE;
+        }
+        ListNode temp = tail;
+        ListNode finger = tail;
+        while (finger.getNext() != tail) {
+            finger = finger.getNext();
+        }
+
+        if (finger == tail) {
+            tail = null;
+        } else {
+            finger.setNext(tail.getNext());
+            tail = finger;
+        }
+        length--;
+        return temp.getData();
+    }
+
+    public boolean isEmpty() {
+        return tail == null;
     }
 
     public int length() {
