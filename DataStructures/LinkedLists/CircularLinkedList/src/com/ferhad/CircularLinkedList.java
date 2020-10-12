@@ -13,5 +13,37 @@ package com.ferhad;
  */
 
 public class CircularLinkedList {
+    private ListNode tail;
+    private int length; // by default 0
 
+    // Add data to the head of the list
+    public void addToHead(int data) {
+        ListNode node = new ListNode(data);
+        if (tail == null) { //first data is added
+            tail = node;
+            tail.setNext(tail);
+        } else { // data exists in the list
+            node.setNext(tail.getNext());
+            tail.setNext(node);
+        }
+        length++;
+    }
+
+    /* String representation of the list in the form ["str1", "str2", ..., "strn"]. But, because of Circular LinkedList,
+        we represent list as [tail, head, secondElement, ..., nthElement] */
+    @Override
+    public String toString() {
+        String result = "[";
+        if (tail == null) {
+            return result + "]";
+        }
+        result += tail.getData();
+        ListNode temp = tail.getNext();
+
+        while (temp != tail) {
+            result += ", " + temp.getData();
+            temp = temp.getNext();
+        }
+        return result + "]";
+    }
 }
