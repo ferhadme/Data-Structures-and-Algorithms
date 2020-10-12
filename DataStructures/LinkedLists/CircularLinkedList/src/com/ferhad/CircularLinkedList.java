@@ -34,6 +34,14 @@ public class CircularLinkedList {
         tail = tail.getNext();
     }
 
+    public int peek() {
+        return tail.getNext().getData();
+    }
+
+    public int tailPeek() {
+        return tail.getData();
+    }
+
     public int length() {
         return length;
     }
