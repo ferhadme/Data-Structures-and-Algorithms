@@ -21,5 +21,11 @@ public class Main {
         list.removeFromHead();
         list.removeFromTail();
         System.out.println(list);
+        list.remove(33333);
+        System.out.println(list);
+        System.out.println(list.isEmpty());
+        System.out.println(list.contains(3));
+        System.out.println(list.peek());
+        System.out.println(list.tailPeek());
     }
 }
