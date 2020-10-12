@@ -80,6 +80,30 @@ public class CircularLinkedList {
         return temp.getData();
     }
 
+    public int remove(int data) {
+        if (isEmpty())
+            return Integer.MIN_VALUE;
+        ListNode finger = tail.getNext();
+        ListNode previous = tail;
+        for (int i = 0; i < length && finger.getData() != data; i++) {
+            previous = finger;
+            finger = finger.getNext();
+        }
+        if (finger.getData() == data) {
+            if (tail == tail.getNext())
+                tail = null;
+            else {
+                if (finger == tail)
+                    tail = previous;
+                previous.setNext(previous.getNext().getNext());
+            }
+            finger.setNext(null);
+            length--;
+            return finger.getData();
+        }
+        return Integer.MIN_VALUE;
+    }
+
     // Return true if list is empty
     public boolean isEmpty() {
         return tail == null;
