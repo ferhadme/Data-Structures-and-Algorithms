@@ -80,10 +80,12 @@ public class CircularLinkedList {
         return temp.getData();
     }
 
+    // Return true if list is empty
     public boolean isEmpty() {
         return tail == null;
     }
 
+    // Return true if list contains data
     public boolean contains(int data) {
         if (tail == null)
             return false;
@@ -94,8 +96,16 @@ public class CircularLinkedList {
         return finger.getData() == data;
     }
 
+    //
+
     public int length() {
         return length;
+    }
+
+    // Clear all data from the list
+    public void clear() {
+        tail = null;
+        length = 0;
     }
 
     /* String representation of the list in the form ["str1", "str2", ..., "strn"]. But, because of Circular LinkedList,
