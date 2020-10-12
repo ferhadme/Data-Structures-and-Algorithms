@@ -15,11 +15,7 @@ package com.ferhad;
 
 public class DoublyLinkedList {
     private ListNode head; // holds the head of the list
-    private int length;
-
-    public DoublyLinkedList() {
-        this.length = 0;
-    }
+    private int length; // by default 0
 
     public ListNode getHead() {
         return head;

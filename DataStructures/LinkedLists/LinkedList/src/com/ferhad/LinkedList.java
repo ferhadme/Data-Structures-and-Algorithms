@@ -12,11 +12,7 @@ package com.ferhad;
 
 public class LinkedList {
     private ListNode head; // It holds the head of the list
-    private int length;
-
-    public LinkedList() {
-        this.length = 0;
-    }
+    private int length; // by default 0
 
     public int getHead() {
         return head.getData();
