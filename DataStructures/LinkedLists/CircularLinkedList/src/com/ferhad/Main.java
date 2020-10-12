@@ -14,20 +14,9 @@ public class Main {
         System.out.println(list);
         list.addToHead(123);
         System.out.println(list);
-        list.addToHead(76);
+        list.addToTail(33333);
         System.out.println(list);
-        list.addToHead(98);
+        list.addToTail(11111);
         System.out.println(list);
-        list.addToHead(432);
-        System.out.println(list);
-        list.addToHead(121);
-        System.out.println(list);
-//        list.addToHead(10);
-//        list.addToHead(12);
-//        list.addToHead(22);
-//        list.addToHead(44);
-//        list.addToHead(121);
-//        list.addToHead(7878);
-//        list.addToHead(1);
     }
 }

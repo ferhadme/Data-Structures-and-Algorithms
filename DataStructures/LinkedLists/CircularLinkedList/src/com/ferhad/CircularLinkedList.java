@@ -29,6 +29,15 @@ public class CircularLinkedList {
         length++;
     }
 
+    public void addToTail(int data) {
+        addToHead(data);
+        tail = tail.getNext();
+    }
+
+    public int length() {
+        return length;
+    }
+
     /* String representation of the list in the form ["str1", "str2", ..., "strn"]. But, because of Circular LinkedList,
         we represent list as [tail, head, secondElement, ..., nthElement] */
     @Override
