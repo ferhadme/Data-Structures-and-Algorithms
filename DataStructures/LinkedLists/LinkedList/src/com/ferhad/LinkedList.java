@@ -38,10 +38,16 @@ public class LinkedList {
     }
 
     public void insert(int data, int position) {
-        if (position <= 0 || position >= length) {
+        if (position < 0 || position > length) {
             throw new IndexOutOfBoundsException();
         }
-
+        if (position == 0) {
+            insertAtBegin(data);
+            return;
+        } else if (position == length) {
+            insertAtEnd(data);
+            return;
+        }
         ListNode temp = head;
         for (int i = 0; i < position - 1; i++) {
             temp = temp.getNext();
