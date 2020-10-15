@@ -87,6 +87,30 @@ public class DoublyLinkedList {
         return temp;
     }
 
+    public void insert(int data, int position) {
+        if (position < 0 || position > length) {
+            throw new IndexOutOfBoundsException();
+        }
+        if (position == 0) {
+            insertAtBegin(data);
+            return;
+        } else if (position == length) {
+            insertAtEnd(data);
+            return;
+        }
+
+        ListNode node = new ListNode(data);
+        ListNode temp = findNode(position);
+        // *<->node <-> temp --*
+        temp.getPrev().setNext(node);
+        node.setPrev(temp.getPrev());
+        node.setNext(temp);
+        temp.setPrev(node);
+        length++;
+    }
+
+    // removing...
+
     public int length() {
         return length;
     }

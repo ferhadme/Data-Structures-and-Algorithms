@@ -56,18 +56,25 @@ public class Main {
         list.removeFromEnd();
         list.removeFromEnd();
 
+
         System.out.println(list);
         System.out.println(list.length());
         System.out.println(list.getHead());
         System.out.println(list.getTail());
 
+        list.insert(1234, 2);
 
+        System.out.println(list);
+        System.out.println(list.length());
+        System.out.println(list.getHead());
+        System.out.println(list.getTail());
 
+        list.insert(1222234, 0);
 
-
-
-
-
+        System.out.println(list);
+        System.out.println(list.length());
+        System.out.println(list.getHead());
+        System.out.println(list.getTail());
 
 
     }
