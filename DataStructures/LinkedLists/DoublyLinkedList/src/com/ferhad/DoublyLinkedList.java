@@ -70,7 +70,7 @@ public class DoublyLinkedList {
         length--;
     }
 
-    public ListNode findNode(int position) {
+    private ListNode findNode(int position) {
         int border = length / 2;
         ListNode temp = null;
         if (position < border) {
