@@ -38,14 +38,8 @@ public class LinkedList {
     }
 
     public void insert(int data, int position) {
-        if (position <= 0 || head == null) {
-            // Then insert data to the begin
-            insertAtBegin(data);
-            return;
-        } else if (position >= length) {
-            // Then insert data to the end
-            insertAtEnd(data);
-            return;
+        if (position <= 0 || position >= length || head == null) {
+            throw new IndexOutOfBoundsException();
         }
 
         ListNode temp = head;
@@ -114,14 +108,8 @@ public class LinkedList {
     }
 
     public void remove(int position) {
-        if (position < 0) {
-            // Then remove data from the beginning
-            removeAtBegin();
-            return;
-        } else if (position >= length) {
-            // Then remove data from the end
-            removeFromEnd();
-            return;
+        if (position < 0 || position >= length) {
+            throw new IndexOutOfBoundsException();
         }
 
         if (head == null) {
