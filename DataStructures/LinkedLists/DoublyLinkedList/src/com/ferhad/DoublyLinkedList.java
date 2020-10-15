@@ -10,9 +10,10 @@ package com.ferhad;
  * Good for insertion and deletion process as the Singly LinkedList. But the advantage of a doubly linked list (also
         called two – way linked list) is that given a node in the list, we can navigate in both directions.
  * But each node requires an extra pointer, requiring more space
- * Insertion or deletion of a node takes a bit longer
+ * Insertion or deletion of a node takes a bit longer for setting pointers, but finding spesific nodes is fast, because
+ *      we can search node in both directions(which is fast).
  */
-// getHead(), getTail(), insertAtBegin(), insertAtEnd(), insert(int data, int position), removeAtBegin(),
+//insert(int data, int position), removeAtBegin(),
     // removeFromEnd(), remove(int data, int position), getPosition(int data), get(int data), length(), toString(), clearList()
 public class DoublyLinkedList {
     private ListNode head; // holds the head of the list
@@ -52,6 +53,17 @@ public class DoublyLinkedList {
         }
         length++;
     }
+
+    public void removeAtBegin() {
+        if (head == null) {
+            return;
+        }
+        head.getNext().setPrev(null);
+        head = head.getNext();
+        length--;
+    }
+
+    // findNode()
 
     public int length() {
         return length;
