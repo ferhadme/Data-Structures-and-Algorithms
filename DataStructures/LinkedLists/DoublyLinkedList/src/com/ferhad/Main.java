@@ -52,6 +52,13 @@ public class Main {
         System.out.println(list.length());
         System.out.println(list.getHead());
         System.out.println(list.getTail());
+        list.removeFromEnd();
+        list.removeFromEnd();
+        list.removeFromEnd();
+        System.out.println(list);
+        System.out.println(list.length());
+        System.out.println(list.getHead());
+        System.out.println(list.getTail());
 
 
 

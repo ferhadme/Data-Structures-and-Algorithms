@@ -55,11 +55,18 @@ public class DoublyLinkedList {
     }
 
     public void removeAtBegin() {
-        if (head == null) {
+        if (head == null)
             return;
-        }
         head.getNext().setPrev(null);
         head = head.getNext();
+        length--;
+    }
+
+    public void removeFromEnd() {
+        if (tail == null)
+            return;
+        tail.getPrev().setNext(null);
+        tail = tail.getPrev();
         length--;
     }
 
