@@ -37,29 +37,33 @@ public class Main {
         list.insertAtBegin(5);
         list.insertAtBegin(111);
         list.insertAtBegin(1212);
-        list.insertAtEnd(12);
+        list.insertAtEnd(33);
         list.insertAtEnd(45);
         list.insertAtEnd(98);
         list.insertAtEnd(67);
-        System.out.println(list);
-        System.out.println(list.length());
-        System.out.println(list.getHead());
-        System.out.println(list.getTail());
+//        System.out.println(list);
+//        System.out.println(list.length());
+//        System.out.println(list.getHead());
+//        System.out.println(list.getTail());
         list.removeAtBegin();
         list.removeAtBegin();
         list.removeAtBegin();
-        System.out.println(list);
-        System.out.println(list.length());
-        System.out.println(list.getHead());
-        System.out.println(list.getTail());
+//        System.out.println(list);
+//        System.out.println(list.length());
+//        System.out.println(list.getHead());
+//        System.out.println(list.getTail());
         list.removeFromEnd();
         list.removeFromEnd();
         list.removeFromEnd();
         System.out.println(list);
-        System.out.println(list.length());
-        System.out.println(list.getHead());
-        System.out.println(list.getTail());
+//        System.out.println(list.length());
+//        System.out.println(list.getHead());
+//        System.out.println(list.getTail());
 
+        System.out.println(list.findNode(0).getData());
+        System.out.println(list.findNode(1).getData());
+        System.out.println(list.findNode(2).getData());
+        System.out.println(list.findNode(3).getData());
 
 
 

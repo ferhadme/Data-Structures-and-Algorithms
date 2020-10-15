@@ -70,7 +70,22 @@ public class DoublyLinkedList {
         length--;
     }
 
-    // findNode()
+    public ListNode findNode(int position) {
+        int border = length / 2;
+        ListNode temp = null;
+        if (position < border) {
+            // scan through beginning to position
+            temp = head;
+            for (int i = 0; i < position; i++)
+                temp = temp.getNext();
+        } else {
+            // scan through end to position
+            temp = tail;
+            for (int i = length - 1; i > position; i--)
+                temp = temp.getPrev();
+        }
+        return temp;
+    }
 
     public int length() {
         return length;
