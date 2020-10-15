@@ -40,6 +40,19 @@ public class DoublyLinkedList {
         length++;
     }
 
+    public void insertAtEnd(int data) {
+        if (tail == null) {
+            tail = new ListNode(data);
+            head = tail;
+        } else {
+            ListNode node = new ListNode(data);
+            node.setPrev(tail);
+            tail.setNext(node);
+            tail = node;
+        }
+        length++;
+    }
+
     public int length() {
         return length;
     }
