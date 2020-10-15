@@ -19,12 +19,25 @@ public class DoublyLinkedList {
     private ListNode tail; // holds the tail of the list
     private int length; // by default 0
 
-    public ListNode getHead() {
-        return head;
+    public int getHead() {
+        return head.getData();
     }
 
-    public ListNode getTail() {
-        return tail;
+    public int getTail() {
+        return tail.getData();
+    }
+
+    public void insertAtBegin(int data) {
+        if (head == null) {
+            head = new ListNode(data);
+            tail = head;
+        } else {
+            ListNode node = new ListNode(data);
+            node.setNext(head);
+            head.setPrev(node);
+            head = node;
+        }
+        length++;
     }
 
     public int length() {
@@ -50,6 +63,7 @@ public class DoublyLinkedList {
     // clear all nodes of the list
     public void clearList() {
         head = null;
+        tail = null;
         length = 0;
     }
 }
