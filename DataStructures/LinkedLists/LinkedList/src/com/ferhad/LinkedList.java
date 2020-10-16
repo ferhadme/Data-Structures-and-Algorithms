@@ -118,9 +118,7 @@ public class LinkedList {
             throw new IndexOutOfBoundsException();
         }
 
-        if (head == null) {
-            return;
-        } else if (position == 0) {
+        if (position == 0) {
             head = head.getNext();
         } else {
             ListNode temp = head;

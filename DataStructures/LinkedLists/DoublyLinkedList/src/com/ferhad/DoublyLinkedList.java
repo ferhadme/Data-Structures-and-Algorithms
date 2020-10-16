@@ -13,8 +13,7 @@ package com.ferhad;
  * Insertion or deletion of a node takes a bit longer for setting pointers, but finding spesific nodes is fast, because
  *      we can search node in both directions(which is fast).
  */
-//insert(int data, int position), removeAtBegin(),
-    // removeFromEnd(), remove(int data, int position), getPosition(int data), get(int data), length(), toString(), clearList()
+// remove(int data, int position), getPosition(int data), get(int data), length(), toString(), clearList()
 public class DoublyLinkedList {
     private ListNode head; // holds the head of the list
     private ListNode tail; // holds the tail of the list
@@ -70,6 +69,7 @@ public class DoublyLinkedList {
         length--;
     }
 
+    // the most efficient way for searching specific node
     private ListNode findNode(int position) {
         int border = length / 2;
         ListNode temp = null;
@@ -109,7 +109,9 @@ public class DoublyLinkedList {
         length++;
     }
 
-    // removing...
+    public void remove(int position) {
+        
+    }
 
     public int length() {
         return length;
