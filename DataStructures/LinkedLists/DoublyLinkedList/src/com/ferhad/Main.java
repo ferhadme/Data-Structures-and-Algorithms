@@ -83,5 +83,6 @@ public class Main {
         System.out.println(list.getTail());
 
         System.out.println(list.getPosition(2));
+        System.out.println(list.get(3));
     }
 }

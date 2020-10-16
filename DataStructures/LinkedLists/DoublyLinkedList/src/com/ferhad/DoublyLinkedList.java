@@ -88,9 +88,9 @@ public class DoublyLinkedList {
     }
 
     public void insert(int data, int position) {
-        if (position < 0 || position > length) {
+        if (position < 0 || position > length)
             throw new IndexOutOfBoundsException();
-        }
+
         if (position == 0) {
             insertAtBegin(data);
             return;
@@ -110,9 +110,8 @@ public class DoublyLinkedList {
     }
 
     public void remove(int position) {
-        if (position < 0 || position >= length) {
+        if (position < 0 || position >= length)
             throw new IndexOutOfBoundsException();
-        }
 
         if (position == 0) {
             removeAtBegin();
@@ -139,6 +138,14 @@ public class DoublyLinkedList {
             position++;
         }
         return -1;
+    }
+
+    public int get(int position) {
+        if (position < 0 || position >= length)
+            throw new IndexOutOfBoundsException();
+
+        ListNode temp = findNode(position);
+        return temp.getData();
     }
 
     public int length() {
