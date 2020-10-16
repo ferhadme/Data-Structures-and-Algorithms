@@ -37,7 +37,7 @@ public class LinkedList {
         length++;
     }
 
-    public void insert(int data, int position) {
+    public void insert(int position, int data) {
         if (position < 0 || position > length) {
             throw new IndexOutOfBoundsException();
         }

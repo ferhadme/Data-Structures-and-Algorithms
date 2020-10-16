@@ -1,5 +1,7 @@
 package com.ferhad;
 
+import java.util.ArrayList;
+
 /**
  * @author Ferhad Mehdizade
  * Implementation of Doubly LinkedList
@@ -13,7 +15,7 @@ package com.ferhad;
  * Insertion or deletion of a node takes a bit longer for setting pointers, but finding spesific nodes is fast, because
  *      we can search node in both directions(which is fast).
  */
-// getPosition(int data), get(int data), length(), toString(), clearList()
+
 public class DoublyLinkedList {
     private ListNode head; // holds the head of the list
     private ListNode tail; // holds the tail of the list
@@ -87,7 +89,7 @@ public class DoublyLinkedList {
         return temp;
     }
 
-    public void insert(int data, int position) {
+    public void insert(int position, int data) {
         if (position < 0 || position > length)
             throw new IndexOutOfBoundsException();
 
@@ -141,11 +143,21 @@ public class DoublyLinkedList {
     }
 
     public int get(int position) {
+        ArrayList<Integer> list = new ArrayList<>();
         if (position < 0 || position >= length)
             throw new IndexOutOfBoundsException();
 
         ListNode temp = findNode(position);
         return temp.getData();
+    }
+
+    public void set(int position, int data) {
+        if (position < 0 || position >= length) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        ListNode temp = findNode(position);
+        temp.setData(data);
     }
 
     public int length() {

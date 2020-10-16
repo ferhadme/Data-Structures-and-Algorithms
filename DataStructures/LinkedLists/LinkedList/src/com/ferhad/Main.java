@@ -12,7 +12,7 @@ public class Main {
         // [5, 3, 2]
         myLinkedList.insertAtBegin(0);
         // [0, 5, 3, 2]
-        myLinkedList.insert(10, 2);
+        myLinkedList.insert(2, 10);
         // [0, 5, 10, 3, 2]
         myLinkedList.removeAtBegin();
         // [5, 10, 3, 2]

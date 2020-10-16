@@ -62,14 +62,14 @@ public class Main {
 //        System.out.println(list.getHead());
 //        System.out.println(list.getTail());
 
-        list.insert(1234, 2);
+        list.insert(2, 1234);
 
 //        System.out.println(list);
 //        System.out.println(list.length());
 //        System.out.println(list.getHead());
 //        System.out.println(list.getTail());
 
-        list.insert(1222234, 0);
+        list.insert(0, 1222234);
 
 //        System.out.println(list);
 //        System.out.println(list.length());
@@ -82,7 +82,10 @@ public class Main {
         System.out.println(list.getHead());
         System.out.println(list.getTail());
 
-        System.out.println(list.getPosition(2));
-        System.out.println(list.get(3));
+        list.set(4, 123);
+        System.out.println(list);
+
+//        System.out.println(list.getPosition(2));
+//        System.out.println(list.get(3));
     }
 }

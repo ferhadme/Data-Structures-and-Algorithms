@@ -19,6 +19,10 @@ public class ListNode {
         return data;
     }
 
+    public void setData(int data) {
+        this.data = data;
+    }
+
     public ListNode getPrev() {
         return prev;
     }
