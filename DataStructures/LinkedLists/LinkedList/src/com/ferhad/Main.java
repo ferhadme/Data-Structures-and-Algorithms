@@ -16,6 +16,10 @@ public class Main {
         // [0, 5, 10, 3, 2]
         myLinkedList.removeAtBegin();
         // [5, 10, 3, 2]
+        myLinkedList.reverse();
+        // [2, 3, 10, 5]
+        myLinkedList.reverse();
+        // [5, 10, 3, 2]
         myLinkedList.removeFromEnd();
         // [5, 10, 3]
         myLinkedList.set(1, 11);

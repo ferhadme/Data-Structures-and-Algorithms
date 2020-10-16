@@ -165,6 +165,21 @@ public class LinkedList {
         return -1;
     }
 
+    public void reverse() {
+        ListNode currentNode = head;
+        ListNode forwardNode = null;
+        ListNode previousNode = null;
+
+        while (currentNode.getNext() != null) {
+            forwardNode = currentNode.getNext();
+            currentNode.setNext(previousNode);
+            previousNode = currentNode;
+            currentNode = forwardNode;
+        }
+        head = currentNode;
+        head.setNext(previousNode);
+    }
+
     // String representation of this collection, in the form ["str1", "str2", ...].
     @Override
     public String toString() {
