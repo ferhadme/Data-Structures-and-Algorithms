@@ -110,7 +110,23 @@ public class DoublyLinkedList {
     }
 
     public void remove(int position) {
-        
+        if (position < 0 || position >= length) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        if (position == 0) {
+            removeAtBegin();
+            return;
+        } else if (position == length - 1) {
+            removeFromEnd();
+            return;
+        }
+        ListNode removedNode = findNode(position);
+        removedNode.getPrev().setNext(removedNode.getNext());
+        removedNode.getNext().setPrev(removedNode.getPrev());
+        removedNode = null;
+//        removedNode.setPrev(null);
+//        removedNode.setNext(null);
     }
 
     public int length() {

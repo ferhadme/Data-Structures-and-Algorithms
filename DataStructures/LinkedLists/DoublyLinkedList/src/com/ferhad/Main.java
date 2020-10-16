@@ -57,17 +57,17 @@ public class Main {
         list.removeFromEnd();
 
 
-        System.out.println(list);
-        System.out.println(list.length());
-        System.out.println(list.getHead());
-        System.out.println(list.getTail());
+//        System.out.println(list);
+//        System.out.println(list.length());
+//        System.out.println(list.getHead());
+//        System.out.println(list.getTail());
 
         list.insert(1234, 2);
 
-        System.out.println(list);
-        System.out.println(list.length());
-        System.out.println(list.getHead());
-        System.out.println(list.getTail());
+//        System.out.println(list);
+//        System.out.println(list.length());
+//        System.out.println(list.getHead());
+//        System.out.println(list.getTail());
 
         list.insert(1222234, 0);
 
@@ -76,6 +76,11 @@ public class Main {
         System.out.println(list.getHead());
         System.out.println(list.getTail());
 
+        list.remove(1);
+        System.out.println(list);
+        System.out.println(list.length());
+        System.out.println(list.getHead());
+        System.out.println(list.getTail());
 
     }
 }
