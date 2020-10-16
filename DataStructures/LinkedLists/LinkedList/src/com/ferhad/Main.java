@@ -18,6 +18,8 @@ public class Main {
         // [5, 10, 3, 2]
         myLinkedList.removeFromEnd();
         // [5, 10, 3]
+        myLinkedList.set(1, 11);
+        // [5, 11, 3]
         myLinkedList.remove(1);
         // [5, 3]
         int data = myLinkedList.get(1); // returning data at the position 1 (2)

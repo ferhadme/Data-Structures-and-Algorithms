@@ -37,28 +37,6 @@ public class LinkedList {
         length++;
     }
 
-    public void insert(int position, int data) {
-        if (position < 0 || position > length) {
-            throw new IndexOutOfBoundsException();
-        }
-        if (position == 0) {
-            insertAtBegin(data);
-            return;
-        } else if (position == length) {
-            insertAtEnd(data);
-            return;
-        }
-        ListNode temp = head;
-        for (int i = 0; i < position - 1; i++) {
-            temp = temp.getNext();
-        }
-        ListNode newNode = new ListNode(data);
-        newNode.setNext(temp.getNext());
-        temp.setNext(newNode);
-
-        length++;
-    }
-
     public ListNode removeAtBegin() {
         ListNode node = head;
         if (node != null) {
@@ -113,6 +91,33 @@ public class LinkedList {
         }
     }
 
+    private ListNode findNode(int position) {
+        ListNode temp = head;
+        for (int i = 0; i < position - 1; i++) {
+            temp = temp.getNext();
+        }
+        return temp;
+    }
+
+    public void insert(int position, int data) {
+        if (position < 0 || position > length) {
+            throw new IndexOutOfBoundsException();
+        }
+        if (position == 0) {
+            insertAtBegin(data);
+            return;
+        } else if (position == length) {
+            insertAtEnd(data);
+            return;
+        }
+        ListNode temp = findNode(position);
+        ListNode newNode = new ListNode(data);
+        newNode.setNext(temp.getNext());
+        temp.setNext(newNode);
+
+        length++;
+    }
+
     public void remove(int position) {
         if (position < 0 || position >= length) {
             throw new IndexOutOfBoundsException();
@@ -121,10 +126,7 @@ public class LinkedList {
         if (position == 0) {
             head = head.getNext();
         } else {
-            ListNode temp = head;
-            for (int i = 0; i < position - 1; i++) {
-                temp = temp.getNext();
-            }
+            ListNode temp = findNode(position);
             temp.setNext(temp.getNext().getNext());
         }
         length--;
@@ -138,12 +140,15 @@ public class LinkedList {
         if (position < 0 || position >= length) {
             return Integer.MIN_VALUE;
         }
-        ListNode temp = head;
-        for (int i = 0; i < position; i++) {
-            temp = temp.getNext();
-        }
+        ListNode temp = findNode(position).getNext();
         return temp.getData();
     }
+
+    public void set(int position, int data) {
+        ListNode temp = findNode(position).getNext();
+        temp.setData(data);
+    }
+
 
     public int getPosition(int data) {
         int position = 0;
