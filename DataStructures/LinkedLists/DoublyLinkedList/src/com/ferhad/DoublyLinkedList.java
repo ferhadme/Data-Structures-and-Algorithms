@@ -129,6 +129,18 @@ public class DoublyLinkedList {
         length--;
     }
 
+    public int getPosition(int data) {
+        ListNode temp = head;
+        int position = 0;
+        while (temp != null) {
+            if (temp.getData() == data)
+                return position;
+            temp = temp.getNext();
+            position++;
+        }
+        return -1;
+    }
+
     public int length() {
         return length;
     }

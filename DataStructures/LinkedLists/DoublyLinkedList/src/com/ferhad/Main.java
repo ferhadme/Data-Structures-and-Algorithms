@@ -71,10 +71,10 @@ public class Main {
 
         list.insert(1222234, 0);
 
-        System.out.println(list);
-        System.out.println(list.length());
-        System.out.println(list.getHead());
-        System.out.println(list.getTail());
+//        System.out.println(list);
+//        System.out.println(list.length());
+//        System.out.println(list.getHead());
+//        System.out.println(list.getTail());
 
         list.remove(1);
         System.out.println(list);
@@ -82,5 +82,6 @@ public class Main {
         System.out.println(list.getHead());
         System.out.println(list.getTail());
 
+        System.out.println(list.getPosition(2));
     }
 }
