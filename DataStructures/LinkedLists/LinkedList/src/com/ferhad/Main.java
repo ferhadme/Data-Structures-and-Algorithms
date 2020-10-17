@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         // Testing LinkedList class...
 
-        LinkedList myLinkedList = new LinkedList();
+        LinkedList<Integer> myLinkedList = new LinkedList<>();
         myLinkedList.insertAtEnd(5);
         myLinkedList.insertAtEnd(3);
         myLinkedList.insertAtEnd(2);
