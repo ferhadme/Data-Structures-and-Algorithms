@@ -12,13 +12,13 @@ package com.ferhad;
  *      a full circle of nodes. In other words, this variation of the linked list doesn't have a null element at the end.
  */
 
-public class CircularLinkedList {
-    private ListNode tail;
+public class CircularLinkedList<T> {
+    private ListNode<T> tail;
     private int length; // by default 0
 
     // Add data to the head of the list
-    public void addToHead(int data) {
-        ListNode node = new ListNode(data);
+    public void addToHead(T data) {
+        ListNode<T> node = new ListNode<T>(data);
         if (tail == null) { //first data is added
             tail = node;
             tail.setNext(tail);
@@ -30,26 +30,26 @@ public class CircularLinkedList {
     }
 
     // Add data to the tail of the list
-    public void addToTail(int data) {
+    public void addToTail(T data) {
         addToHead(data);
         tail = tail.getNext();
     }
 
     // Return data at head of the list
-    public int peek() {
+    public T peek() {
         return tail.getNext().getData();
     }
 
     // Return data at tail of the list
-    public int tailPeek() {
+    public T tailPeek() {
         return tail.getData();
     }
 
     // Return and remove head of the list
-    public int removeFromHead() {
-        ListNode temp = tail.getNext(); // head of the list
+    public T removeFromHead() {
+        ListNode<T> temp = tail.getNext(); // head of the list
         if (isEmpty())
-            return Integer.MIN_VALUE;
+            return null;
         if (tail == tail.getNext()) {
             tail = null;
         } else {
@@ -61,11 +61,11 @@ public class CircularLinkedList {
     }
 
     // Return and remove tail of the list
-    public int removeFromTail() {
+    public T removeFromTail() {
         if (isEmpty())
-            return Integer.MIN_VALUE;
-        ListNode temp = tail;
-        ListNode finger = tail;
+            return null;
+        ListNode<T> temp = tail;
+        ListNode<T> finger = tail;
         while (finger.getNext() != tail) {
             finger = finger.getNext();
         }
@@ -80,11 +80,11 @@ public class CircularLinkedList {
         return temp.getData();
     }
 
-    public int remove(int data) {
+    public T remove(T data) {
         if (isEmpty())
-            return Integer.MIN_VALUE;
-        ListNode finger = tail.getNext();
-        ListNode previous = tail;
+            return null;
+        ListNode<T> finger = tail.getNext();
+        ListNode<T> previous = tail;
         for (int i = 0; i < length && finger.getData() != data; i++) {
             previous = finger;
             finger = finger.getNext();
@@ -101,7 +101,7 @@ public class CircularLinkedList {
             length--;
             return finger.getData();
         }
-        return Integer.MIN_VALUE;
+        return null;
     }
 
     // Return true if list is empty
@@ -110,10 +110,10 @@ public class CircularLinkedList {
     }
 
     // Return true if list contains data
-    public boolean contains(int data) {
+    public boolean contains(T data) {
         if (tail == null)
             return false;
-        ListNode finger = tail;
+        ListNode<T> finger = tail;
         while (finger.getNext() != tail && finger.getData() != data) {
             finger = finger.getNext();
         }
@@ -141,7 +141,7 @@ public class CircularLinkedList {
             return result + "]";
         }
         result += tail.getData();
-        ListNode temp = tail.getNext();
+        ListNode<T> temp = tail.getNext();
 
         while (temp != tail) {
             result += ", " + temp.getData();

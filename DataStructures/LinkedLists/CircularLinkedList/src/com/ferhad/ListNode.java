@@ -1,26 +1,26 @@
 package com.ferhad;
 
-public class ListNode {
-    private int data;
-    private ListNode next;
+public class ListNode<T> {
+    private T data;
+    private ListNode<T> next;
 
-    public ListNode(int data) {
+    public ListNode(T data) {
         this.data = data;
     }
 
-    public int getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(int data) {
+    public void setData(T data) {
         this.data = data;
     }
 
-    public ListNode getNext() {
+    public ListNode<T> getNext() {
         return next;
     }
 
-    public void setNext(ListNode next) {
+    public void setNext(ListNode<T> next) {
         this.next = next;
     }
     
