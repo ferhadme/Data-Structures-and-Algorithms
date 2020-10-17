@@ -3,7 +3,7 @@ package com.ferhad;
 public class Main {
 
     public static void main(String[] args) {
-        CircularLinkedList<Integer> list = new CircularLinkedList();
+        CircularLinkedList<Integer> list = new CircularLinkedList<>();
         list.addToHead(2);
 //        System.out.println(list);
         list.addToHead(1);
