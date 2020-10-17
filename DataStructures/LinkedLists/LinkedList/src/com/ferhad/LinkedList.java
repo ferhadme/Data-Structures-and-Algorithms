@@ -10,35 +10,35 @@ package com.ferhad;
  * Good for insertion and deletion process.
  */
 
-public class LinkedList {
-    private ListNode head; // It holds the head of the list
+public class LinkedList<T> {
+    private ListNode<T> head; // It holds the head of the list
     private int length; // by default 0
 
-    public int getHead() {
+    public T getHead() {
         return head.getData();
     }
 
-    public void insertAtBegin(int data) {
-        ListNode node = new ListNode(data);
+    public void insertAtBegin(T data) {
+        ListNode<T> node = new ListNode<>(data);
         node.setNext(head);
         head = node;
         length++;
     }
 
-    public void insertAtEnd(int data) {
-        ListNode node = new ListNode(data);
+    public void insertAtEnd(T data) {
+        ListNode<T> node = new ListNode<>(data);
         if (head == null) {
             head = node;
         } else {
-            ListNode p,q;
+            ListNode<T> p,q;
             for (p = head;(q = p.getNext()) != null; p = q); // finding the last node of the LinkedList (p)
             p.setNext(node);
         }
         length++;
     }
 
-    public ListNode removeAtBegin() {
-        ListNode node = head;
+    public ListNode<T> removeAtBegin() {
+        ListNode<T> node = head;
         if (node != null) {
             head = node.getNext();
             node.setNext(null);
@@ -47,12 +47,12 @@ public class LinkedList {
         return node;
     }
 
-    public ListNode removeFromEnd() {
+    public ListNode<T> removeFromEnd() {
         if (head == null) {
             return null;
         }
 
-        ListNode p = head, q = null, next = head.getNext();
+        ListNode<T> p = head, q = null, next = head.getNext();
         if (next == null) {
             head = null;
             length--;
@@ -70,7 +70,7 @@ public class LinkedList {
         return p;
     }
 
-    public void removeMatched(ListNode node) {
+    public void removeMatched(ListNode<T> node) {
         if (head == null) {
             return;
         }
@@ -80,7 +80,7 @@ public class LinkedList {
             return;
         }
 
-        ListNode p = head, q = null;
+        ListNode<T> p = head, q = null;
         while ((q = p.getNext()) != null) {
             if (node.equals(q)) {
                 p.setNext(q.getNext());
@@ -91,15 +91,15 @@ public class LinkedList {
         }
     }
 
-    private ListNode findNode(int position) {
-        ListNode temp = head;
+    private ListNode<T> findNode(int position) {
+        ListNode<T> temp = head;
         for (int i = 0; i < position - 1; i++) {
             temp = temp.getNext();
         }
         return temp;
     }
 
-    public void insert(int position, int data) {
+    public void insert(int position, T data) {
         if (position < 0 || position > length) {
             throw new IndexOutOfBoundsException();
         }
@@ -110,8 +110,8 @@ public class LinkedList {
             insertAtEnd(data);
             return;
         }
-        ListNode temp = findNode(position);
-        ListNode newNode = new ListNode(data);
+        ListNode<T> temp = findNode(position);
+        ListNode<T> newNode = new ListNode<>(data);
         newNode.setNext(temp.getNext());
         temp.setNext(newNode);
 
@@ -126,7 +126,7 @@ public class LinkedList {
         if (position == 0) {
             head = head.getNext();
         } else {
-            ListNode temp = findNode(position);
+            ListNode<T> temp = findNode(position);
             temp.setNext(temp.getNext().getNext());
         }
         length--;
@@ -136,40 +136,39 @@ public class LinkedList {
         return length;
     }
 
-    public int get(int position) {
+    public T get(int position) {
         if (position < 0 || position >= length) {
-            return Integer.MIN_VALUE;
+            throw new IndexOutOfBoundsException();
         }
-        ListNode temp = findNode(position).getNext();
+        ListNode<T> temp = findNode(position).getNext();
         return temp.getData();
     }
 
-    public void set(int position, int data) {
-        ListNode temp = findNode(position).getNext();
+    public void set(int position, T data) {
+        ListNode<T> temp = findNode(position).getNext();
         temp.setData(data);
     }
 
 
-    public int getPosition(int data) {
+    public int getPosition(T data) {
         int position = 0;
-        ListNode temp = head;
+        ListNode<T> temp = head;
         while (temp != null) {
-            if (data == temp.getData()) {
+            if (data.equals(temp.getData())) {
                 return position;
             }
             position++;
             temp = temp.getNext();
         }
-
         // there is no position with this data, return -1;
         return -1;
     }
 
     // method for reversing LinkedList
     public void reverse() {
-        ListNode currentNode = head;
-        ListNode forwardNode = null;
-        ListNode previousNode = null;
+        ListNode<T> currentNode = head;
+        ListNode<T> forwardNode = null;
+        ListNode<T> previousNode = null;
         // traversing linked list until there is no more element
         while (currentNode.getNext() != null) {
             forwardNode = currentNode.getNext();
@@ -185,7 +184,7 @@ public class LinkedList {
     @Override
     public String toString() {
         String result = "[";
-        ListNode temp = null;
+        ListNode<T> temp = null;
         if (head != null) {
             result += head.getData();
             temp = head.getNext();
@@ -202,5 +201,6 @@ public class LinkedList {
         head = null;
         length = 0;
     }
+
 
 }

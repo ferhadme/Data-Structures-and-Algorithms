@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         // Testing DoublyLinkedList class...
 
-        DoublyLinkedList list = new DoublyLinkedList();
+        DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
         list.insertAtEnd(5);
         list.insertAtEnd(3);
         list.insertAtEnd(1);
