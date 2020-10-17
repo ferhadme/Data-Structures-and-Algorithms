@@ -165,11 +165,12 @@ public class LinkedList {
         return -1;
     }
 
+    // method for reversing LinkedList
     public void reverse() {
         ListNode currentNode = head;
         ListNode forwardNode = null;
         ListNode previousNode = null;
-
+        // traversing linked list until there is no more element
         while (currentNode.getNext() != null) {
             forwardNode = currentNode.getNext();
             currentNode.setNext(previousNode);

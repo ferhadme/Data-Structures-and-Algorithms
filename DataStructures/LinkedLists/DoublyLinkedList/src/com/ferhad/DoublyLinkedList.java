@@ -160,6 +160,21 @@ public class DoublyLinkedList {
         temp.setData(data);
     }
 
+    public void reverse() {
+        ListNode currentNode = head;
+        ListNode temp = null;
+
+        while (currentNode != null) {
+            temp = currentNode.getNext();
+            currentNode.setNext(currentNode.getPrev());
+            currentNode.setPrev(temp);
+            currentNode = currentNode.getPrev();
+        }
+        temp = head;
+        head = tail;
+        tail = temp;
+    }
+
     public int length() {
         return length;
     }

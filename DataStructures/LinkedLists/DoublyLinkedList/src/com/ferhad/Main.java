@@ -12,9 +12,13 @@ public class Main {
         // [5, 3, 1]
         list.insertAtBegin(11);
         // [11, 5, 3, 1]
-        list.insert(33, 2);
+        list.insert(2, 33);
         // [11, 5, 33, 3, 1]
         list.removeAtBegin();
+        // [5, 33, 3, 1]
+        list.reverse();
+        // [1, 3, 33, 5]
+        list.reverse();
         // [5, 33, 3, 1]
         list.set(1, 53);
         // [5, 53, 3, 1]
