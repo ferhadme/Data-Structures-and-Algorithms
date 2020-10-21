@@ -26,6 +26,7 @@ Then let's look at another implementation which I learned from one of my favouri
 public class ListNode {
   private int data;
   private ListNode ptrdiff;
+  // ...
 }
 ```
 
