@@ -37,29 +37,33 @@ In this piece of code **ptrdiff** node points to both previous and next node. **
 
 **NOTE: ⊕ is XOR (in java syntax is ^). ([XOR logical operation](https://en.wikipedia.org/wiki/Exclusive_or "XOR in Wikipedia"))**
 
-For example if we have list like NULL<-A<->B<->C<->D<->E<->F->NULL 
+For example if we have list like **NULL<-A<->B<->C<->D<->E<->F->NULL** 
 
+```
 node A is **⊕ of NULL and B**,
 
 node C is **⊕ of B and D**,
 
 node F is **⊕ of E and NULL** etc.
+```
 
-Main point in here is that: How we can get previous and next node from only ⊕?
+**Main point in here is that: How we can get previous and next node from only ⊕?**
 
-Let's assume that we at node C and want to move node B. We know that
-C’s ptrdiff is defined as B ⊕ D. If we want to move to B, performing ⊕ on C’s ptrdiff with D
-would give B.
+Let's assume that we at node C and want to move node B. We know that C’s ptrdiff is defined as B ⊕ D. If we want to move to B, performing ⊕ on C’s ptrdiff with D would give B.
 
+```
 <div align="center">
   (B ⊕ D) ⊕ D = B (since D ⊕ D = 0 and B ⊕ 0 = B)
 </div>
+```
 
 Similarly, if we want to move to node D,
 
+```
 <div align="center">
   (B ⊕ D) ⊕ B = D (since B ⊕ B = 0 and D ⊕ 0 = D)
 </div>
+```
 
 A memory-efficient implementation of a doubly linked list is possible with minimal
 compromising of timing efficiency. But if we consider everything, the best approach is [this implementation of Doubly LinkedList](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/DoublyLinkedList/src/com/ferhad/DoublyLinkedList.java "DoublyLinkedList.java class")
