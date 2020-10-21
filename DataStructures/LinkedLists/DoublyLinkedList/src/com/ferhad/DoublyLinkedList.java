@@ -14,25 +14,25 @@ package com.ferhad;
  *      we can search node in both directions(which is fast).
  */
 
-public class DoublyLinkedList {
-    private ListNode head; // holds the head of the list
-    private ListNode tail; // holds the tail of the list
+public class DoublyLinkedList<T> {
+    private ListNode<T> head; // holds the head of the list
+    private ListNode<T> tail; // holds the tail of the list
     private int length; // by default 0
 
-    public int getHead() {
+    public T getHead() {
         return head.getData();
     }
 
-    public int getTail() {
+    public T getTail() {
         return tail.getData();
     }
 
-    public void insertAtBegin(int data) {
+    public void insertAtBegin(T data) {
         if (head == null) {
-            head = new ListNode(data);
+            head = new ListNode<T>(data);
             tail = head;
         } else {
-            ListNode node = new ListNode(data);
+            ListNode<T> node = new ListNode<>(data);
             node.setNext(head);
             head.setPrev(node);
             head = node;
@@ -40,12 +40,12 @@ public class DoublyLinkedList {
         length++;
     }
 
-    public void insertAtEnd(int data) {
+    public void insertAtEnd(T data) {
         if (tail == null) {
-            tail = new ListNode(data);
+            tail = new ListNode<T>(data);
             head = tail;
         } else {
-            ListNode node = new ListNode(data);
+            ListNode<T> node = new ListNode<>(data);
             node.setPrev(tail);
             tail.setNext(node);
             tail = node;
@@ -70,9 +70,9 @@ public class DoublyLinkedList {
     }
 
     // the most efficient way for searching specific node
-    private ListNode findNode(int position) {
+    private ListNode<T> findNode(int position) {
         int border = length / 2;
-        ListNode temp = null;
+        ListNode<T> temp = null;
         if (position < border) {
             // scan through beginning to position
             temp = head;
@@ -87,7 +87,7 @@ public class DoublyLinkedList {
         return temp;
     }
 
-    public void insert(int position, int data) {
+    public void insert(int position, T data) {
         if (position < 0 || position > length)
             throw new IndexOutOfBoundsException();
 
@@ -99,8 +99,8 @@ public class DoublyLinkedList {
             return;
         }
 
-        ListNode node = new ListNode(data);
-        ListNode temp = findNode(position);
+        ListNode<T> node = new ListNode<>(data);
+        ListNode<T> temp = findNode(position);
         // *<->node <-> temp --*
         temp.getPrev().setNext(node);
         node.setPrev(temp.getPrev());
@@ -120,7 +120,7 @@ public class DoublyLinkedList {
             removeFromEnd();
             return;
         }
-        ListNode removedNode = findNode(position);
+        ListNode<T> removedNode = findNode(position);
         removedNode.getPrev().setNext(removedNode.getNext());
         removedNode.getNext().setPrev(removedNode.getPrev());
         removedNode.setPrev(null);
@@ -128,11 +128,11 @@ public class DoublyLinkedList {
         length--;
     }
 
-    public int getPosition(int data) {
+    public int getPosition(T data) {
         ListNode temp = head;
         int position = 0;
         while (temp != null) {
-            if (temp.getData() == data)
+            if (temp.getData().equals(data))
                 return position;
             temp = temp.getNext();
             position++;
@@ -140,26 +140,31 @@ public class DoublyLinkedList {
         return -1;
     }
 
+<<<<<<< HEAD
     public int get(int position) {
+=======
+    public T get(int position) {
+        ArrayList<Integer> list = new ArrayList<>();
+>>>>>>> e83cf6f493bb8ef26fbbb37f848e4dc350f21d00
         if (position < 0 || position >= length)
             throw new IndexOutOfBoundsException();
 
-        ListNode temp = findNode(position);
+        ListNode<T> temp = findNode(position);
         return temp.getData();
     }
 
-    public void set(int position, int data) {
+    public void set(int position, T data) {
         if (position < 0 || position >= length) {
             throw new IndexOutOfBoundsException();
         }
 
-        ListNode temp = findNode(position);
+        ListNode<T> temp = findNode(position);
         temp.setData(data);
     }
 
     public void reverse() {
-        ListNode currentNode = head;
-        ListNode temp = null;
+        ListNode<T> currentNode = head;
+        ListNode<T> temp = null;
 
         while (currentNode != null) {
             temp = currentNode.getNext();
@@ -180,7 +185,7 @@ public class DoublyLinkedList {
     @Override
     public String toString() {
         String result = "[";
-        ListNode temp = null;
+        ListNode<T> temp = null;
         if (head != null) {
             result += head.getData();
             temp = head.getNext();
