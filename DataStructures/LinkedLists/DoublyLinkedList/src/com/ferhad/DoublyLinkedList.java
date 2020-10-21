@@ -1,7 +1,5 @@
 package com.ferhad;
 
-import java.util.ArrayList;
-
 /**
  * @author Ferhad Mehdizade
  * Implementation of Doubly LinkedList
@@ -143,7 +141,6 @@ public class DoublyLinkedList {
     }
 
     public int get(int position) {
-        ArrayList<Integer> list = new ArrayList<>();
         if (position < 0 || position >= length)
             throw new IndexOutOfBoundsException();
 
