@@ -1,7 +1,6 @@
 # Doubly LinkedList
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Doubly-linked-list.svg/610px-Doubly-linked-list.svg.png" />
 <br/>
-<br/>
 
 ### How to use memory efficiently with Doubly LinkedList?
 
@@ -41,11 +40,11 @@ In this piece of code **ptrdiff** node points to both previous and next node. **
 For example if we have list like **NULL<-A<->B<->C<->D<->E<->F->NULL** 
 
 ```
-node A is **⊕ of NULL and B**,
+node A is ⊕ of NULL and B,
 
-node C is **⊕ of B and D**,
+node C is ⊕ of B and D,
 
-node F is **⊕ of E and NULL** etc.
+node F is ⊕ of E and NULL etc.
 ```
 
 **Main point in here is that: How we can get previous and next node from only ⊕?**
