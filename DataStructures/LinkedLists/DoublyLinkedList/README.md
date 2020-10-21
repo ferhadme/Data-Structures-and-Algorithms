@@ -52,17 +52,13 @@ node F is **⊕ of E and NULL** etc.
 Let's assume that we at node C and want to move node B. We know that C’s ptrdiff is defined as B ⊕ D. If we want to move to B, performing ⊕ on C’s ptrdiff with D would give B.
 
 ```
-<div align="center">
   (B ⊕ D) ⊕ D = B (since D ⊕ D = 0 and B ⊕ 0 = B)
-</div>
 ```
 
 Similarly, if we want to move to node D,
 
 ```
-<div align="center">
   (B ⊕ D) ⊕ B = D (since B ⊕ B = 0 and D ⊕ 0 = D)
-</div>
 ```
 
 A memory-efficient implementation of a doubly linked list is possible with minimal
