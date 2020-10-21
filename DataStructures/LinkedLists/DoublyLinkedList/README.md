@@ -32,9 +32,9 @@ public class ListNode {
 
 In this piece of code **ptrdiff** node points to both previous and next node. **ptrdiff** is *pointer difference*. The pointer difference is calculated by this formula:
 
-<div align="center">
+```
   ptrdiff = pointer to previous node ⊕ pointer to next node
-</div>
+```
 
 **NOTE: ⊕ is XOR (in java syntax is ^). ([XOR logical operation](https://en.wikipedia.org/wiki/Exclusive_or "XOR in Wikipedia"))**
 
