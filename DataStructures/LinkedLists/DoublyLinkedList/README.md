@@ -2,7 +2,9 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Doubly-linked-list.svg/610px-Doubly-linked-list.svg.png" />
 <br/>
 <br/>
+
 ### How to use memory efficiently with Doubly LinkedList?
+
 **As I pointed** in [Class of implementation of Doubly LinkedList](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/DoublyLinkedList/src/com/ferhad/DoublyLinkedList.java "DoublyLinkedList.java class") although [Doubly LinkedList](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/DoublyLinkedList/src/com/ferhad/DoublyLinkedList.java "Doubly LinkedList class") is very efficient in searching spesific node because of its previous and next pointer, **it is not very good at memory**. Because [ListNode](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/DoublyLinkedList/src/com/ferhad/ListNode.java "ListNode.java class") holds both previous and next pointer.
 
 So how we can apply different approach?
