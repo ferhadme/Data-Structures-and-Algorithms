@@ -2,7 +2,6 @@ package com.ferhad;
 
 /**
  * @author Ferhad Mehdizade
- * Any function which calls itself is called recursive.
  */
 
 public class Recursion {
