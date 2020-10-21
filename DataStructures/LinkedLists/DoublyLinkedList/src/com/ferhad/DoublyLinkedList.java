@@ -140,12 +140,7 @@ public class DoublyLinkedList<T> {
         return -1;
     }
 
-<<<<<<< HEAD
-    public int get(int position) {
-=======
     public T get(int position) {
-        ArrayList<Integer> list = new ArrayList<>();
->>>>>>> e83cf6f493bb8ef26fbbb37f848e4dc350f21d00
         if (position < 0 || position >= length)
             throw new IndexOutOfBoundsException();
 
