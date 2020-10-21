@@ -2,19 +2,20 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Doubly-linked-list.svg/610px-Doubly-linked-list.svg.png" />
 <br/>
 
-* Insert O(n) (in case of inserting to beginning and end time complexity is O(1))
- * Delete O(n) (in case of deleting from beginning and end time complexity is O(1))
- * Access O(n)
- * Search O(n)
- * Good for insertion and deletion process as the Singly LinkedList. But the advantage of a doubly linked list (also
-        called two – way linked list) is that given a node in the list, we can navigate in both directions.
- * But each node requires an extra pointer, requiring more space
- * Insertion or deletion of a node takes a bit longer for setting pointers, but finding spesific nodes is fast, because
- *      we can search node in both directions(which is fast).
+**Doubly linked list is a type of linked list in which each node apart from storing its data has two links. The first link points to the previous node in the list and the second link points to the next node in the list.**
+
+Good for insertion and deletion process as the Singly LinkedList. But the advantage of a doubly linked list (also called two – way linked list) is that given a node in the list, we can navigate in both directions. But each node requires an extra pointer, requiring more space. *Insertion or deletion of a node takes a bit longer for setting pointers, but finding specific nodes is fast, because we can search node in both directions(which is fast).*
+
+```
+Insert O(n) (in case of inserting to beginning and end time complexity is O(1))
+Delete O(n) (in case of deleting from beginning and end time complexity is O(1))
+Access O(n)
+Search O(n)
+```
 
 # How to use memory efficiently with Doubly LinkedList?
 
-**As I pointed** in [Class of implementation of Doubly LinkedList](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/DoublyLinkedList/src/com/ferhad/DoublyLinkedList.java "DoublyLinkedList.java class") although [Doubly LinkedList](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/DoublyLinkedList/src/com/ferhad/DoublyLinkedList.java "DoublyLinkedList.java class") is very efficient in searching spesific node because of its previous and next pointer, **it is not very good at memory**. Because [ListNode](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/DoublyLinkedList/src/com/ferhad/ListNode.java "ListNode.java class") holds both previous and next pointer.
+**As I pointed** in above although [Doubly LinkedList](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/DoublyLinkedList/src/com/ferhad/DoublyLinkedList.java "DoublyLinkedList.java class") is very efficient in searching spesific node because of its previous and next pointer, **it is not very good at memory**. Because [ListNode](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/DoublyLinkedList/src/com/ferhad/ListNode.java "ListNode.java class") holds both previous and next pointer.
 
 So how we can apply different approach?
 
