@@ -6,10 +6,13 @@ package com.ferhad;
  */
 
 public class CircularLinkedList<T> {
-    private ListNode<T> tail;
+    private ListNode<T> tail; // holds tail of the list
     private int length; // by default 0
 
-    // Add data to the head of the list
+    /**
+     * Add data to the head of the list
+     * @param data inserted data
+     */
     public void addToHead(T data) {
         ListNode<T> node = new ListNode<T>(data);
         if (tail == null) { //first data is added
@@ -22,30 +25,40 @@ public class CircularLinkedList<T> {
         length++;
     }
 
-    // Add data to the tail of the list
+    /**
+     * Add data to the tail of the list
+     * @param data inserted data
+     */
     public void addToTail(T data) {
         addToHead(data);
         tail = tail.getNext();
     }
 
-    // Return data at head of the list
+    /**
+     * @return data at head of the list
+     */
     public T peek() {
         return tail.getNext().getData();
     }
 
-    // Return data at tail of the list
+    /**
+     * @return data at tail of the list
+     */
     public T tailPeek() {
         return tail.getData();
     }
 
-    // Return and remove head of the list
+    /**
+     * remove head of the list
+     * @return removed data
+     */
     public T removeFromHead() {
         ListNode<T> temp = tail.getNext(); // head of the list
-        if (isEmpty())
+        if (isEmpty()) // there is no data to removed
             return null;
-        if (tail == tail.getNext()) {
+        if (tail == tail.getNext()) { // list consists of only tail
             tail = null;
-        } else {
+        } else { // remove the data after tail
             tail.setNext(temp.getNext());
             temp.setNext(null);
         }
@@ -53,10 +66,15 @@ public class CircularLinkedList<T> {
         return temp.getData();
     }
 
-    // Return and remove tail of the list
+    /**
+     * remove tail of the list
+     * @return removed data
+     */
     public T removeFromTail() {
-        if (isEmpty())
+        if (isEmpty()) // there is no data to removed
             return null;
+
+        // removing
         ListNode<T> temp = tail;
         ListNode<T> finger = tail;
         while (finger.getNext() != tail) {
@@ -73,9 +91,16 @@ public class CircularLinkedList<T> {
         return temp.getData();
     }
 
+    /**
+     * remove the first data from the list that equals to searched data
+     * @param data data
+     * @return removed data. Returns the first data which equals to searched data, otherwise -1
+     */
     public T remove(T data) {
-        if (isEmpty())
+        if (isEmpty()) // there is no data to removed
             return null;
+
+        // removing
         ListNode<T> finger = tail.getNext();
         ListNode<T> previous = tail;
         for (int i = 0; i < length && finger.getData() != data; i++) {
@@ -97,12 +122,17 @@ public class CircularLinkedList<T> {
         return null;
     }
 
-    // Return true if list is empty
+    /**
+     * @return true if list is empty
+     */
     public boolean isEmpty() {
         return tail == null;
     }
 
-    // Return true if list contains data
+    /**
+     * @param data searched data
+     * @return true if list contains searched data
+     */
     public boolean contains(T data) {
         if (tail == null)
             return false;
@@ -113,20 +143,25 @@ public class CircularLinkedList<T> {
         return finger.getData() == data;
     }
 
-    //
-
+    /**
+     * @return length of the list
+     */
     public int length() {
         return length;
     }
 
-    // Clear all data from the list
+    /**
+     * Clear all data from the list
+     */
     public void clear() {
         tail = null;
         length = 0;
     }
 
-    /* String representation of the list in the form ["str1", "str2", ..., "strn"]. But, because of Circular LinkedList,
-        we represent list as [tail, head, secondElement, ..., nthElement] */
+    /**
+     * @return String representation of the list in the form ["str1", "str2", ..., "strn"]
+     * But, because of Circular LinkedList, we represent list as [tail, head, secondElement, ..., nthElement]
+     */
     @Override
     public String toString() {
         String result = "[";
@@ -142,4 +177,5 @@ public class CircularLinkedList<T> {
         }
         return result + "]";
     }
+
 }
