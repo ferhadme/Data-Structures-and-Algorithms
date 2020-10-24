@@ -6,7 +6,7 @@ There is a simple variation of the singly linked list called [Unrolled LinkedLis
 [Unrolled LinkedList](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/UnrolledLinkedList/src/com/ferhad/UnrolledLinkedList.java "Implementation of Unrolled LinkedList") stores multiple elements in each node (let us call it a block for our
 convenience). In each block, [Circular LinkedList](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/CircularLinkedList/src/com/ferhad/CircularLinkedList.java "Implementation of Circular LinkedList") is used to connect all nodes.
 
-  <img src="https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/UnrolledLinkedList/UnrolledLinkedListimg.jpg" align="center"/>
+  <img src="https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/UnrolledLinkedList/UnrolledLinkedList.jpg" align="center"/>
   
 As we see, if we have **n** elements in List, we should have at most **√n** elements in each block. In image shown above, we have **12** elements. How should we group these elements?
 
