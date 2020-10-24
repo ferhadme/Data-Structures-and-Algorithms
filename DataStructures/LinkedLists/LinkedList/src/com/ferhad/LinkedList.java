@@ -9,20 +9,31 @@ public class LinkedList<T> {
     private ListNode<T> head; // It holds the head of the list
     private int length; // by default 0
 
+    /**
+     * @return head of the list
+     */
     public T getHead() {
         return head.getData();
     }
 
+    /**
+     * insert new data to head of the list
+     * @param data inserted data
+     */
     public void insertAtBegin(T data) {
         ListNode<T> node = new ListNode<>(data);
         node.setNext(head);
-        head = node;
+        head = node; // inserted node is new head of the list
         length++;
     }
 
+    /**
+     * insert new data to end of the list(after the tail)
+     * @param data inserted data
+     */
     public void insertAtEnd(T data) {
         ListNode<T> node = new ListNode<>(data);
-        if (head == null) {
+        if (head == null) { // if list is empty, inserting to the head and tail is the same thing
             head = node;
         } else {
             ListNode<T> p,q;
@@ -32,9 +43,13 @@ public class LinkedList<T> {
         length++;
     }
 
+    /**
+     * remove the data from head of the list
+     * @return removed data
+     */
     public ListNode<T> removeAtBegin() {
         ListNode<T> node = head;
-        if (node != null) {
+        if (node != null) { // if head is null, we needn't remove anything
             head = node.getNext();
             node.setNext(null);
             length--;
@@ -42,42 +57,52 @@ public class LinkedList<T> {
         return node;
     }
 
+    /**
+     * remove data from end of the list(removing tail)
+     * @return removed data
+     */
     public ListNode<T> removeFromEnd() {
-        if (head == null) {
+        if (head == null) { // if head is null, we needn't remove anything
             return null;
         }
 
-        ListNode<T> p = head, q = null, next = head.getNext();
-        if (next == null) {
-            head = null;
+        ListNode<T> p = head, q = null, next = head.getNext(); // variables for finding tail and
+        // the previous element of the tail
+
+        if (next == null) { // list consists of only head
+            head = null; // we need to remove head
             length--;
             return p;
         }
 
-        while ((next = p.getNext()) != null) {
+        while ((next = p.getNext()) != null) { // otherwise, find the tail and previous element of the tail
             q = p;
             p = next;
         }
         assert q != null;
-        q.setNext(null);
+        q.setNext(null); // remove the tail
         length--;
 
         return p;
     }
 
+    /**
+     * method for removed exactly needed node which has the same reference with @param node
+     * @param node removed Node
+     */
     public void removeMatched(ListNode<T> node) {
-        if (head == null) {
+        if (head == null) { // list is empty
             return;
         }
-        if (node.equals(head)) {
+        if (node.equals(head)) { // removing the head
             head = head.getNext();
             length--;
             return;
         }
 
         ListNode<T> p = head, q = null;
-        while ((q = p.getNext()) != null) {
-            if (node.equals(q)) {
+        while ((q = p.getNext()) != null) { // find the specific node for removing
+            if (node.equals(q)) { // node is found, remove it
                 p.setNext(q.getNext());
                 length--;
                 return;
@@ -86,25 +111,37 @@ public class LinkedList<T> {
         }
     }
 
+    /**
+     * Getting reference of needed Node for doing operation it
+     * @param position position of the data
+     * @return node in the @param position
+     */
     private ListNode<T> findNode(int position) {
         ListNode<T> temp = head;
-        for (int i = 0; i < position - 1; i++) {
+        for (int i = 0; i < position - 1; i++) { // iterate over the list until finding needed node
             temp = temp.getNext();
         }
         return temp;
     }
 
+    /**
+     * insert new data to specific position
+     * @param position position of the data
+     * @param data inserted data
+     */
     public void insert(int position, T data) {
-        if (position < 0 || position > length) {
+        if (position < 0 || position > length) { // check for index
             throw new IndexOutOfBoundsException();
         }
-        if (position == 0) {
+        if (position == 0) { // insert to the head
             insertAtBegin(data);
             return;
-        } else if (position == length) {
+        } else if (position == length) { // insert to the tail
             insertAtEnd(data);
             return;
         }
+
+        // inserting
         ListNode<T> temp = findNode(position);
         ListNode<T> newNode = new ListNode<>(data);
         newNode.setNext(temp.getNext());
@@ -113,42 +150,66 @@ public class LinkedList<T> {
         length++;
     }
 
+    /**
+     * remove specific data from @param position
+     * @param position position of the data
+     */
     public void remove(int position) {
-        if (position < 0 || position >= length) {
+        if (position < 0 || position >= length) { // check for index
             throw new IndexOutOfBoundsException();
         }
 
-        if (position == 0) {
-            head = head.getNext();
-        } else {
+        if (position == 0) { // remove the head
+            removeAtBegin();
+        } else { // remove node in the position
             ListNode<T> temp = findNode(position);
             temp.setNext(temp.getNext().getNext());
+            length--;
         }
-        length--;
     }
 
+    /**
+     * @return length of the list
+     */
     public int length() {
         return length;
     }
 
+    /**
+     * get data in the specific position
+     * @param position position of the data
+     * @return data
+     */
     public T get(int position) {
-        if (position < 0 || position >= length) {
+        if (position < 0 || position >= length) { // check for index
             throw new IndexOutOfBoundsException();
         }
+
+        // find node and return it
         ListNode<T> temp = findNode(position).getNext();
         return temp.getData();
     }
 
+    /**
+     * set data to the new value in the specific position
+     * @param position position of the data
+     * @param data new value
+     */
     public void set(int position, T data) {
+        // find node and set it to the new value
         ListNode<T> temp = findNode(position).getNext();
         temp.setData(data);
     }
 
-
+    /**
+     * get position of the specific data
+     * @param data data in the position
+     * @return index of the data. Returns the first data that equal to @param data, otherwise -1
+     */
     public int getPosition(T data) {
         int position = 0;
         ListNode<T> temp = head;
-        while (temp != null) {
+        while (temp != null) { // iterate over the list and find the position
             if (data.equals(temp.getData())) {
                 return position;
             }
@@ -159,7 +220,9 @@ public class LinkedList<T> {
         return -1;
     }
 
-    // method for reversing LinkedList
+    /**
+     * reverse the list
+     */
     public void reverse() {
         ListNode<T> currentNode = head;
         ListNode<T> forwardNode = null;
@@ -175,7 +238,9 @@ public class LinkedList<T> {
         head.setNext(previousNode);
     }
 
-    // String representation of this collection, in the form ["str1", "str2", ...].
+    /**
+     * @return string representation of this collection, in the form ["str1", "str2", ...].
+     */
     @Override
     public String toString() {
         String result = "[";
@@ -191,11 +256,12 @@ public class LinkedList<T> {
         return result + "]";
     }
 
-    // Remove all data from LinkedList
+    /**
+     * Remove all data from LinkedList
+     */
     public void clearList() {
         head = null;
         length = 0;
     }
-
 
 }
