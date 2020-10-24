@@ -17,9 +17,7 @@ public class UnrolledLinkedList<E> extends AbstractList<E> implements List<E>, S
     /**
      * Constructs an empty list with the specified capacity
      * @param nodeCapacity capacity of the node
-     * @exception IllegalArgumentException Creating Unrolled LinkedList with <8 @param nodeCapacity is unnecessary,
-     * because √8 = 2,..; If each block have 2 nodes in its own, then it'll be the same as approximately other
-     * LinkedLists by performance and memory side. So it is better to use Unrolled LinkedList with large nodeCapacity
+     * @throws IllegalArgumentException if @param nodeCapacity is less than 8
      */
     public UnrolledLinkedList(int nodeCapacity) {
         if (nodeCapacity < 8)
