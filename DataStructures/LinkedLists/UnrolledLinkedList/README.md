@@ -1,4 +1,6 @@
 # Unrolled LinkedList
+**An unrolled linked list is a variation on the linked list which stores multiple elements in each node. It can dramatically increase cache performance, while decreasing the memory overhead associated with storing list metadata such as references. It is related to the B-tree.**
+
 One of the biggest advantages of linked lists over arrays is that inserting an element at any
 location takes only O(1) time. However, it takes O(n) to search for an element in a linked list.
 There is a simple variation of the singly linked list called [Unrolled LinkedList](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/UnrolledLinkedList/src/com/ferhad/UnrolledLinkedList.java "Implementation of Unrolled LinkedList").
