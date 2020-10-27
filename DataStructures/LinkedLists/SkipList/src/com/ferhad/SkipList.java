@@ -64,7 +64,7 @@ public class SkipList<T extends Comparable<T>, U> {
     }
 
     /**
-     * Add element to the SkipList with key
+     * Adds element to the SkipList with key
      * @param key key of an element
      * @param value inserted element
      */
@@ -98,10 +98,16 @@ public class SkipList<T extends Comparable<T>, U> {
         size++;
     }
 
+    /**
+     * Removes element with specified key from the SkipList
+     * @param key specific key of an element
+     * @return value of removed element
+     */
     public U remove(T key) {
-        U value = null;
+        U value = null; // removed value for returning
         Node current = head;
         boolean successfulDeletion = false;
+        // scan through SkipList(like insertion), find an element with specified key, and remove it
         while (current != null) {
             if (current.next == null || current.next.key.compareTo(key) >= 0) {
                 if (current.next != null && current.next.key.equals(key)) {
@@ -115,15 +121,25 @@ public class SkipList<T extends Comparable<T>, U> {
             current = current.next;
         }
 
-        if (successfulDeletion)
+        if (successfulDeletion) // decrement size if element is specified key is found
             size--;
         return value;
     }
 
+    /**
+     * Checks if list contains an element with specified key
+     * @param key specific key of an element
+     * @return true if list contains an element, otherwise false
+     */
     public boolean contains(T key) {
         return get(key) != null;
     }
 
+    /**
+     * Gets an element with specified key and returns it
+     * @param key specified key of an element
+     * @return searched element
+     */
     public U get(T key) {
         Node current = head;
         while (current != null) {
@@ -138,7 +154,11 @@ public class SkipList<T extends Comparable<T>, U> {
         return null;
     }
 
+    /**
+     * @return size of the SkipList
+     */
     public int size() {
         return size;
     }
+
 }
