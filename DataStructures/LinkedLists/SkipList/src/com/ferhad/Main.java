@@ -3,7 +3,7 @@ package com.ferhad;
 public class Main {
 
     public static void main(String[] args) {
-        // Testing...
+//         Testing...
 
         SkipList<Integer, Double> skipList = new SkipList<>();
         skipList.add(1, 1.0);

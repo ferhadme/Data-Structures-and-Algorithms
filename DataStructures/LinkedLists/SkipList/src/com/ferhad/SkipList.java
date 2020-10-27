@@ -2,6 +2,20 @@ package com.ferhad;
 
 import java.util.Random;
 
+/*
+                    b y  n e x t
+    - - - - - - - - - - - - - - - - - - - - - - -
+
+    Level1 ------------------------------       |   b
+                                                |   y
+    Level2 ------------------------------       |
+                                                |   d
+    Level3 ------------------------------       |   o
+                                                |   w
+    Level4 ------------------------------       |   n
+
+ */
+
 /**
  * @author Ferhad Mehdizade
  * Implementation of SkipList
@@ -34,7 +48,7 @@ public class SkipList<T extends Comparable<T>, U> {
 
     private Node head; // holds head of the SkipList
     private int size; // size of the list
-    private Random random; // Random object for getting random number in specific situations
+    private final Random random; // Random object for getting random number in specific situations
     private final double probability; // probability for inserting Node to different level of the SkipList
 
     /**
@@ -104,16 +118,17 @@ public class SkipList<T extends Comparable<T>, U> {
      * @return value of removed element
      */
     public U remove(T key) {
+        if (!contains(key))
+            return null;
         U value = null; // removed value for returning
         Node current = head;
-        boolean successfulDeletion = false;
+
         // scan through SkipList(like insertion), find an element with specified key, and remove it
         while (current != null) {
             if (current.next == null || current.next.key.compareTo(key) >= 0) {
                 if (current.next != null && current.next.key.equals(key)) {
                     value = current.next.value;
                     current.next = current.next.next;
-                    successfulDeletion = true;
                 }
                 current = current.down;
                 continue;
@@ -121,8 +136,7 @@ public class SkipList<T extends Comparable<T>, U> {
             current = current.next;
         }
 
-        if (successfulDeletion) // decrement size if element is specified key is found
-            size--;
+        size--;
         return value;
     }
 
