@@ -69,4 +69,18 @@ public class SkipList<T extends Comparable<T>, U> {
         }
         size++;
     }
+
+    public U get(T key) {
+        Node current = head;
+        while (current != null) {
+            if (current.next == null || current.next.key.compareTo(key) > 0) {
+                current = current.down;
+                continue;
+            } else if (current.next.key.equals(key)) {
+                return current.next.value;
+            }
+            current = current.next;
+        }
+        return null;
+    }
 }
