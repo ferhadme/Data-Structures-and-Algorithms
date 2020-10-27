@@ -3,14 +3,17 @@ package com.ferhad;
 import java.util.Random;
 
 public class SkipList<T extends Comparable<T>, U> {
+    /**
+     * private class for each Node of the SkipList
+     */
     private class Node {
-        public T key;
-        public U value;
-        public long level;
-        public Node next;
-        public Node down;
+        T key;
+        U value;
+        long level;
+        Node next;
+        Node down;
 
-        public Node(T key, U value, long level, Node next, Node down) {
+        Node(T key, U value, long level, Node next, Node down) {
             this.key = key;
             this.value = value;
             this.level = level;
@@ -20,23 +23,50 @@ public class SkipList<T extends Comparable<T>, U> {
     }
 
     private Node head;
+    private int size;
     private Random random;
-    private long size;
     private double probability;
 
     public SkipList() {
         head = new Node(null, null, 0, null, null);
-        random = new Random();
         size = 0;
-        probability = 0.5;
+        random = new Random();
+        probability = 1/2;
     }
 
-    private long level() {
+    public long level() {
         long level = 0;
         while (level <= size && random.nextDouble() < probability) {
             level++;
         }
         return level;
     }
-    
+
+    public void add(T key, U value) {
+        long level = level();
+        if (level > head.level)
+            head = new Node(null, null, level, null, null);
+
+        Node current = head;
+        Node last = null;
+
+        while (current != null) {
+            if (current.next == null || current.next.key.compareTo(key) > 0) {
+                if (level > current.level) {
+                    Node node = new Node(key, value, current.level, current.next, null);
+                    if (last != null) {
+                        last.down = node;
+                    }
+                    current.next = node;
+                    last = node;
+                }
+                current = current.down;
+                continue;
+            } else if (current.next.key.equals(key)) {
+                current.next.value = value;
+            }
+            current = current.next;
+        }
+        size++;
+    }
 }
