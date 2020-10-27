@@ -70,6 +70,10 @@ public class SkipList<T extends Comparable<T>, U> {
         size++;
     }
 
+    public boolean contains(T key) {
+        return get(key) != null;
+    }
+
     public U get(T key) {
         Node current = head;
         while (current != null) {
