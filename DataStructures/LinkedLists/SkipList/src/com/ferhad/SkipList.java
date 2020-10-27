@@ -2,6 +2,12 @@ package com.ferhad;
 
 import java.util.Random;
 
+/**
+ *
+ * @param <T>
+ * @param <U>
+ */
+
 public class SkipList<T extends Comparable<T>, U> {
     /**
      * private class for each Node of the SkipList
@@ -25,7 +31,7 @@ public class SkipList<T extends Comparable<T>, U> {
     private Node head;
     private int size;
     private Random random;
-    private double probability;
+    private final double probability;
 
     public SkipList() {
         head = new Node(null, null, 0, null, null);
@@ -45,14 +51,14 @@ public class SkipList<T extends Comparable<T>, U> {
     public void add(T key, U value) {
         long level = level();
         if (level > head.level)
-            head = new Node(null, null, level, null, null);
+            head = new Node(null, null, level, null, head);
 
         Node current = head;
         Node last = null;
 
         while (current != null) {
             if (current.next == null || current.next.key.compareTo(key) > 0) {
-                if (level > current.level) {
+                if (level >= current.level) {
                     Node node = new Node(key, value, current.level, current.next, null);
                     if (last != null) {
                         last.down = node;
@@ -75,7 +81,7 @@ public class SkipList<T extends Comparable<T>, U> {
         Node current = head;
         boolean successfulDeletion = false;
         while (current != null) {
-            if (current.next == null || current.next.key.compareTo(key) > 0) {
+            if (current.next == null || current.next.key.compareTo(key) >= 0) {
                 if (current.next != null && current.next.key.equals(key)) {
                     value = current.next.value;
                     current.next = current.next.next;
@@ -108,5 +114,9 @@ public class SkipList<T extends Comparable<T>, U> {
             current = current.next;
         }
         return null;
+    }
+
+    public int size() {
+        return size;
     }
 }
