@@ -70,6 +70,28 @@ public class SkipList<T extends Comparable<T>, U> {
         size++;
     }
 
+    public U remove(T key) {
+        U value = null;
+        Node current = head;
+        boolean successfulDeletion = false;
+        while (current != null) {
+            if (current.next == null || current.next.key.compareTo(key) > 0) {
+                if (current.next != null && current.next.key.equals(key)) {
+                    value = current.next.value;
+                    current.next = current.next.next;
+                    successfulDeletion = true;
+                }
+                current = current.down;
+                continue;
+            }
+            current = current.next;
+        }
+
+        if (successfulDeletion)
+            size--;
+        return value;
+    }
+
     public boolean contains(T key) {
         return get(key) != null;
     }
