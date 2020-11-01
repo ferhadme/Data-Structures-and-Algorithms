@@ -38,5 +38,26 @@ public class FloydCycleAlgorithm {
         return false;
     }
 
+    /**
+     * This approach uses two pointers moving at different speeds to walk the linked list. Once they enter the loop
+     * they are expected to meet, which denotes that there is a loop.
+     * @param head head of the LinkedList
+     * @return true if LinkedList is Cyclic, otherwise false
+     * Time complexity - O(n)
+     * Space complexity - O(n)
+     */
+    public boolean isFloydCyclicLinkedList(Node head) {
+        Node fastPtr = head;
+        Node slowPtr = head;
+        while (fastPtr != null && slowPtr != null) {
+            // fastPtr moves 2 pointers at a time
+            // slowPtr moves 1 pointer at a time
+            fastPtr = fastPtr.getNext().getNext();
+            slowPtr = slowPtr.getNext();
+            if (fastPtr.equals(slowPtr))
+                return true;
+        }
+        return false;
+    }
 
 }
