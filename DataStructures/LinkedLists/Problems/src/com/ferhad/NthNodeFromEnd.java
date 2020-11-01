@@ -44,12 +44,14 @@ public class NthNodeFromEnd {
     }
 
     /**
-     * Above solution needs 2 scans, it can be solved only 1 scan with using HashTable
+     * Above solution needs 2 scans, but it can be solved only 1 scan with using HashTable
      * Traverse the complete list(for creating HashTable, with position and Node in this position), count the length
      * Since we already know the length of the list, it is just a matter of returning (M - n+ 1)th key value from the hash table.
      * @param head head of the LinkedList
      * @param position position from the end
      * @return Node in the specified position
+     * Time complexity - O(n) time for creating HashTable
+     * Space complexity - O(n) space for creating HashTable with n size
      */
     public Node findNthNodeHashTable(Node head, int position) {
         Hashtable<Integer, Node> positions = new Hashtable<>();
