@@ -125,4 +125,7 @@ public class FloydCycleAlgorithm {
         return length;
     }
 
+    /* NOTE: Moving to the next Node can be used 2 and 3 steps instead of 1 and 2(it doesn't matter for result)
+     * But the complexity will be high, 1 and 2 are the best for complexity
+     */
 }
