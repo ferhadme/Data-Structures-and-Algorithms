@@ -33,7 +33,7 @@ public class NthNodeFromEnd {
         }
 
         int positionFromBeginning = length - position - 1; // 1 for length
-        if (positionFromBeginning < 0)
+        if (positionFromBeginning < 0) // check index
             throw new IndexOutOfBoundsException();
         temp = head;
 
@@ -52,7 +52,25 @@ public class NthNodeFromEnd {
      * @return Node in the specified position
      */
     public Node findNthNodeHashTable(Node head, int position) {
+        Hashtable<Integer, Node> positions = new Hashtable<>();
+        int length = 0;
+        Node temp = head;
+        if (temp != null) {
+            length++;
+            while (temp.getNext() != null) {
+                positions.put(length - 1, temp); // length - 1 is position of each Node
+                length++;
+                temp = temp.getNext();
+            }
+        } else {
+            return null;
+        }
 
+        int positionFromBeginning = length - position - 1;
+        if (positionFromBeginning < 0) // check index
+            throw new IndexOutOfBoundsException();
+
+        return positions.get(positionFromBeginning);
     }
 
 }
