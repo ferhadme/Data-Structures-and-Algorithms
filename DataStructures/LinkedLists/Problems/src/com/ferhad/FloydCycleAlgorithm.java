@@ -93,6 +93,13 @@ public class FloydCycleAlgorithm {
         return null;
     }
 
+    /**
+     * Finds length of the loop in the LinkedList
+     * @param head head of the LinkedList
+     * @return length of the loop
+     * Time complexity - O(n)
+     * Space complexity - O(1)
+     */
     public int lengthOfTheLoop(Node head) {
         Node fastPtr = head;
         Node slowPtr = head;
@@ -113,8 +120,7 @@ public class FloydCycleAlgorithm {
                 slowPtr = slowPtr.getNext();
             } while (slowPtr != fastPtr);
         }
-
         return length;
     }
-
+    
 }
