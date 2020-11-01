@@ -15,7 +15,7 @@ import java.util.Hashtable;
 public class FloydCycleAlgorithm {
 
     /**
-     * Checking LinkedList is Cyclic(has a loop) or not using HashTable approach
+     * Checking LinkedList is Cyclic(has a loop) or not, using HashTable approach
      * If Node is next node of more than 1 other Node, then it is Cyclic
      * Iterate over the LinkedList, check each node if it is in HashTable or not
      * If it is, return true, otherwise repeat process
@@ -37,6 +37,8 @@ public class FloydCycleAlgorithm {
         }
         return false;
     }
+
+    // -------------------------------- Followings are Floyd Cycle Algorithms -----------------------------------
 
     /**
      * This approach uses two pointers moving at different speeds to walk the linked list. Once they enter the loop
@@ -90,4 +92,29 @@ public class FloydCycleAlgorithm {
         }
         return null;
     }
+
+    public int lengthOfTheLoop(Node head) {
+        Node fastPtr = head;
+        Node slowPtr = head;
+        boolean loopExist = false;
+        while (fastPtr != null && slowPtr != null) {
+            fastPtr = fastPtr.getNext().getNext();
+            slowPtr = slowPtr.getNext();
+            if (fastPtr.equals(slowPtr)) {
+                loopExist = true;
+                break;
+            }
+        }
+
+        int length = 0;
+        if (loopExist) {
+            do {
+                length++;
+                slowPtr = slowPtr.getNext();
+            } while (slowPtr != fastPtr);
+        }
+
+        return length;
+    }
+
 }
