@@ -1,4 +1,6 @@
-package com.ferhad;
+package com.ferhad.problems;
+
+import com.ferhad.Node;
 
 import java.util.Hashtable;
 
@@ -122,5 +124,5 @@ public class FloydCycleAlgorithm {
         }
         return length;
     }
-    
+
 }
