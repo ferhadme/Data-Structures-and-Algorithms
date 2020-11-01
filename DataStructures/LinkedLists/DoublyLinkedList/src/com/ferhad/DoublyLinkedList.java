@@ -162,7 +162,7 @@ public class DoublyLinkedList<T> {
      * @return position of the searched data. Returns first data that equals to @param data, otherwise -1
      */
     public int getPosition(T data) {
-        ListNode temp = head;
+        ListNode<T> temp = head;
         int position = 0;
         while (temp != null) { // iterate over and find position
             if (temp.getData().equals(data))
@@ -183,8 +183,20 @@ public class DoublyLinkedList<T> {
         if (position < 0 || position >= length) // check for index
             throw new IndexOutOfBoundsException();
 
-        ListNode<T> temp = findNode(position); // find node and return its data
-        return temp.getData();
+        return findNode(position).getData(); // find node and return its data
+    }
+
+    /**
+     * get data in the specified position from the end
+     * @param position position of the data from the end of the List
+     * @return data
+     */
+    public T getFromEnd(int position) {
+        if (position < 0 || position >= length) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        return findNode(length - position - 1).getData();
     }
 
     /**

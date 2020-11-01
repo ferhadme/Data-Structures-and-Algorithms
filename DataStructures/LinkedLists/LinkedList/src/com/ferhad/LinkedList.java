@@ -191,6 +191,19 @@ public class LinkedList<T> {
     }
 
     /**
+     * get data in the position from the end of the List
+     * @param position position from end
+     * @return data in the specified position
+     */
+    public T getFromEnd(int position) {
+        if (position < 0 || position >= length) { // check for index
+            throw new IndexOutOfBoundsException();
+        }
+
+        return findNode(length - position).getData();
+    }
+
+    /**
      * set data to the new value in the specific position
      * @param position position of the data
      * @param data new value

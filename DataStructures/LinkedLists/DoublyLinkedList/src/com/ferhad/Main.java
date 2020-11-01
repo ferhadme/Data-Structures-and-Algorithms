@@ -28,6 +28,7 @@ public class Main {
         // [5, 33]
         list.length(); //  2
         list.get(1); // 33
+        list.getFromEnd(1); // 5
         list.getPosition(33); // 1
         list.getHead(); // 5
         list.getTail(); // 33
