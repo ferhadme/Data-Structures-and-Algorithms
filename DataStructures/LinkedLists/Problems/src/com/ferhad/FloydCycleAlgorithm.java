@@ -60,4 +60,34 @@ public class FloydCycleAlgorithm {
         return false;
     }
 
+    /**
+     * Finds beginning Node of the loop in the LinkedList
+     * @param head head of the LinkedList
+     * @return beginning Node of the loop
+     * Time complexity - O(n)
+     * Space complexity - O(1)
+     */
+    public Node findBeginOfLoop(Node head) {
+        Node fastPtr = head;
+        Node slowPtr = head;
+        boolean loopExist = false;
+        while (fastPtr != null && slowPtr != null) {
+            fastPtr = fastPtr.getNext().getNext();
+            slowPtr = slowPtr.getNext();
+            if (fastPtr.equals(slowPtr)) {
+                loopExist = true;
+                break;
+            }
+        }
+
+        if (loopExist) {
+            slowPtr = head;
+            while (slowPtr != fastPtr) {
+                slowPtr = slowPtr.getNext();
+                fastPtr = fastPtr.getNext();
+            }
+            return fastPtr;
+        }
+        return null;
+    }
 }
