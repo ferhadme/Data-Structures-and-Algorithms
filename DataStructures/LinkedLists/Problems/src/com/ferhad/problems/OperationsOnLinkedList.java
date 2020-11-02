@@ -65,4 +65,17 @@ public class OperationsOnLinkedList {
         head.setNext(null);
     }
 
+    /**
+     * Displays LinkedList from end to the beginning
+     * @param head head of the LinkedList
+     * Time complexity - O(n)
+     * Space complexity - O(n) for recursive stack
+     */
+    public void printLinkedListFromEnd(Node head) {
+        if (head == null)
+            return;
+        printLinkedListFromEnd(head.getNext());
+        System.out.println(head.getData() + ", ");
+    }
+
 }
