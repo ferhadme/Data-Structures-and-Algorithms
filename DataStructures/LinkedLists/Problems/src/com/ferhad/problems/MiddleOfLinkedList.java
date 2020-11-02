@@ -36,7 +36,7 @@ public class MiddleOfLinkedList {
     }
 
     /**
-     * Finds middle point of the LinkedList efficiently using HashTable(HT indicates HashTable)
+     * Finds middle Node of the LinkedList efficiently using HashTable(HT indicates HashTable)
      * @param head head of the LinkedList
      * @return middle of the LinkedList
      * Time complexity - O(n) for scanning list
@@ -53,5 +53,29 @@ public class MiddleOfLinkedList {
 
         return nodesIndexes.get(index / 2);
     }
-    
+
+    /**
+     * Finds middle Node of the LinkedList efficiently in only 1 scan without any Data Structure
+     * @param head head of the LinkedList
+     * @return middle of the LinkedList
+     * Time complexity - O(n) for scanning list
+     * Space complexity - O(1)
+     */
+    public Node middleOfLinkedListE(Node head) {
+        Node fastPtr = head;
+        Node slowPtr = head;
+        int i = 0;
+        while (fastPtr.getNext() != null) {
+            if (i == 0) {
+                fastPtr = fastPtr.getNext();
+                i = 1;
+            } else {
+                slowPtr = slowPtr.getNext();
+                fastPtr = fastPtr.getNext();
+                i = 0;
+            }
+        }
+
+        return slowPtr;
+    }
 }
