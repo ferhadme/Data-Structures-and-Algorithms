@@ -5,6 +5,8 @@ import com.ferhad.Node;
 import java.util.Hashtable;
 
 /**
+ * @author Ferhad Mehdizade
+ *
  * Check whether the given LinkedList is either NULL-terminated or ends in a cycle(cyclic)
  * Consider the following LinkedList which has a loop in it
  *

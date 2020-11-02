@@ -3,6 +3,8 @@ package com.ferhad.problems;
 import com.ferhad.Node;
 
 /**
+ * @author Ferhad Mehdizade
+ *
  * Operations on the LinkedList such as inserting, reversing
  */
 public class OperationsOnLinkedList {

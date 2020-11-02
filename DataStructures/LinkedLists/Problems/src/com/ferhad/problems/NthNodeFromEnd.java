@@ -5,6 +5,8 @@ import com.ferhad.Node;
 import java.util.Hashtable;
 
 /**
+ * @author Ferhad Mehdizade
+ *
  * We can find Node from the end easily in the specified position if we know length of this LinkedList
  * This class represents different methods with different approaches for finding specific Node from end if
  * length is unknown
