@@ -2,6 +2,8 @@ package com.ferhad.problems;
 
 import com.ferhad.Node;
 
+import java.util.Hashtable;
+
 /**
  * @author Ferhad Mehdizade
  *
@@ -33,5 +35,23 @@ public class MiddleOfLinkedList {
         return head;
     }
 
+    /**
+     * Finds middle point of the LinkedList efficiently using HashTable(HT indicates HashTable)
+     * @param head head of the LinkedList
+     * @return middle of the LinkedList
+     * Time complexity - O(n) for scanning list
+     * Space complexity - O(n) for creating HashTable
+     */
+    public Node middleOfLinkedListHT(Node head) {
+        Hashtable<Integer, Node> nodesIndexes = new Hashtable<>();
+        int index = 0;
+        while (head != null) {
+            nodesIndexes.put(index, head);
+            head = head.getNext();
+            index++;
+        }
+
+        return nodesIndexes.get(index / 2);
+    }
     
 }
