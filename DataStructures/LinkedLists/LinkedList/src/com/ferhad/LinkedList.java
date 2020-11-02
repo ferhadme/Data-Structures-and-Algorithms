@@ -270,6 +270,27 @@ public class LinkedList<T> {
     }
 
     /**
+     * Displays LinkedList from the end
+     */
+    public void printFromEnd() {
+        System.out.print("[");
+        printFromEnd(head);
+        System.out.println("]");
+    }
+
+    /**
+     * Helper method for printing LinkedList from end recursively
+     * Main method is printFromEnd()
+     * @param head
+     */
+    private void printFromEnd(ListNode<T> head) {
+        if (head == null)
+            return;
+        printFromEnd(head.getNext());
+        System.out.print(head.getData() + ", ");
+    }
+
+    /**
      * Remove all data from LinkedList
      */
     public void clearList() {

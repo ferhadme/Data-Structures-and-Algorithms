@@ -14,6 +14,7 @@ public class Main {
         // [0, 5, 3, 2]
         myLinkedList.insert(2, 10);
         // [0, 5, 10, 3, 2]
+        myLinkedList.printFromEnd();
         myLinkedList.removeAtBegin();
         // [5, 10, 3, 2]
         myLinkedList.reverse();
