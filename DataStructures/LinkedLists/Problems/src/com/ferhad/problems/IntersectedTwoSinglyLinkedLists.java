@@ -105,6 +105,8 @@ public class IntersectedTwoSinglyLinkedLists {
      * @param head1 head of the first Singly LinkedList
      * @param head2 head of the second Singly LinkedList
      * @return intersected Node
+     * Time complexity - O(max(m, n)), where m and n are sizes of LinkedLists respectively
+     * Space complexity - O(1)
      */
     public Node findIntersectedNodeE(Node head1, Node head2) {
         int length1 = 0;
