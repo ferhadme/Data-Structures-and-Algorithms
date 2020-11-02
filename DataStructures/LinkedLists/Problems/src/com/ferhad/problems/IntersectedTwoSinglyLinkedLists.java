@@ -100,5 +100,50 @@ public class IntersectedTwoSinglyLinkedLists {
         return null;
     }
 
+    /**
+     * Finds intersected Node efficiently without any built-in Data Structure
+     * @param head1 head of the first Singly LinkedList
+     * @param head2 head of the second Singly LinkedList
+     * @return intersected Node
+     */
+    public Node findIntersectedNodeE(Node head1, Node head2) {
+        int length1 = 0;
+        int length2 = 0;
+        // p is just for naming
+        Node head1P = head1;
+        Node head2P = head2;
+
+        while (head1P != null) {
+            length1++;
+            head1P = head1P.getNext();
+        }
+        while (head2P != null) {
+            length2++;
+            head2P = head2P.getNext();
+        }
+
+        int diff;
+        if (length1 < length2) {
+            head1P = head2;
+            head2P = head1;
+            diff = length2 - length1;
+        } else {
+            head1P = head1;
+            head2P = head2;
+            diff = length1 - length2;
+        }
+
+        for (int i = 0; i < diff; i++)
+            head1P = head1P.getNext();
+
+        while (head1P != null && head2P != null) {
+            if (head1P.equals(head2P))
+                return head1P;
+            head1P = head1P.getNext();
+            head2P = head2P.getNext();
+        }
+        // there is no intersected Node
+        return null;
+    }
 
 }
