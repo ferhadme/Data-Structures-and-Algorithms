@@ -214,6 +214,13 @@ public class DoublyLinkedList<T> {
     }
 
     /**
+     * @return length of the list
+     */
+    public int length() {
+        return length;
+    }
+
+    /**
      * reverse the list
      */
     public void reverse() {
@@ -232,10 +239,39 @@ public class DoublyLinkedList<T> {
     }
 
     /**
-     * @return length of the list
+     * Clones this Doubly LinkedList to new created Doubly LinkedList
+     * @return reference of new clone Doubly LinkedList
      */
-    public int length() {
-        return length;
+    public DoublyLinkedList<T> clone() {
+        DoublyLinkedList<T> cloneLinkedList = new DoublyLinkedList<>();
+        ListNode<T> temp = head;
+        while (temp != null) {
+            cloneLinkedList.insertAtEnd(temp.getData());
+            temp = temp.getNext();
+        }
+        return cloneLinkedList;
+    }
+
+    /**
+     * Merges given Doubly LinkedList to this LinkedList
+     * @param list2 second Doubly LinkedList needed to be merge
+     * @return new merged Doubly LinkedList
+     */
+    public DoublyLinkedList<T> merge(DoublyLinkedList<T> list2) {
+        DoublyLinkedList<T> mergedList = this.clone();
+        if (list2.head == null)
+            return mergedList;
+        else if (this.head == null) {
+            mergedList = list2.clone();
+            return mergedList;
+        }
+
+        ListNode<T> temp = list2.head;
+        while (temp != null) {
+            mergedList.insertAtEnd(temp.getData());
+            temp = temp.getNext();
+        }
+        return mergedList;
     }
 
     /**
@@ -254,6 +290,27 @@ public class DoublyLinkedList<T> {
             temp = temp.getNext();
         }
         return result + "]";
+    }
+
+    /**
+     * Displays LinkedList from the end
+     */
+    public void printFromEnd() {
+        System.out.print("[");
+        printFromEnd(head);
+        System.out.println("]");
+    }
+
+    /**
+     * Helper method for printing LinkedList from end recursively
+     * Main method is printFromEnd()
+     * @param head all nodes respectively starting from head to end
+     */
+    private void printFromEnd(ListNode<T> head) {
+        if (head == null)
+            return;
+        printFromEnd(head.getNext());
+        System.out.print(head.getData() + ", ");
     }
 
     /**

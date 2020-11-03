@@ -1,5 +1,9 @@
 package com.ferhad;
 
+/**
+ * Class for Node of LinkedList
+ * @param <T> data type of element
+ */
 public class ListNode<T> {
     private T data;
     private ListNode<T> next;

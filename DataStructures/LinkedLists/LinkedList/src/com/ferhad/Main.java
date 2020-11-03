@@ -49,6 +49,6 @@ public class Main {
         // merging
         LinkedList<Integer> mergedList = list1.merge(clonedList1);
         System.out.println(list1 + "\n" + clonedList1 + "\n" + mergedList);
-        
+
     }
 }

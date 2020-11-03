@@ -35,8 +35,22 @@ public class Main {
         list.clearList();
         // []
 
+        list.printFromEnd(); // Displays LinkedList from the end
         System.out.println(list);
         // []
+
+        // Testing additional methods...
+        DoublyLinkedList<Integer> list1 = new DoublyLinkedList<>();
+        // inserting...
+        list1.insertAtEnd(2);
+        list1.insertAtEnd(4);
+        list1.insertAtEnd(6);
+        // cloning...
+        DoublyLinkedList<Integer> list2 = list1.clone();
+        System.out.println(list1 + "\n" + list2 + "\n***************************");
+        // merging...
+        DoublyLinkedList<Integer> mergedList = list1.merge(list2);
+        System.out.println(list1 + "\n" + list2 + "\n" + mergedList);
 
     }
 }

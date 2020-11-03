@@ -2,6 +2,7 @@ package com.ferhad;
 
 /**
  * @author Ferhad Mehdizade
+ *
  * Implementation of Singly LinkedList
  */
 
@@ -17,7 +18,7 @@ public class LinkedList<T> {
     }
 
     /**
-     * insert new data to head of the list
+     * Inserts new data to head of the list
      * @param data inserted data
      */
     public void insertAtBegin(T data) {
@@ -28,7 +29,7 @@ public class LinkedList<T> {
     }
 
     /**
-     * insert new data to end of the list(after the tail)
+     * Inserts new data to end of the list(after the tail)
      * @param data inserted data
      */
     public void insertAtEnd(T data) {
@@ -44,7 +45,7 @@ public class LinkedList<T> {
     }
 
     /**
-     * remove the data from head of the list
+     * Removes the data from head of the list
      * @return removed data
      */
     public ListNode<T> removeAtBegin() {
@@ -58,7 +59,7 @@ public class LinkedList<T> {
     }
 
     /**
-     * remove data from end of the list(removing tail)
+     * Removes data from end of the list(removing tail)
      * @return removed data
      */
     public ListNode<T> removeFromEnd() {
@@ -87,7 +88,7 @@ public class LinkedList<T> {
     }
 
     /**
-     * method for removed exactly needed node which has the same reference with @param node
+     * Method for removed exactly needed node which has the same reference with @param node
      * @param node removed Node
      */
     public void removeMatched(ListNode<T> node) {
@@ -125,7 +126,7 @@ public class LinkedList<T> {
     }
 
     /**
-     * insert new data to specific position
+     * Inserts new data to specific position
      * @param position position of the data
      * @param data inserted data
      */
@@ -151,7 +152,7 @@ public class LinkedList<T> {
     }
 
     /**
-     * remove specific data from @param position
+     * Removes specific data from @param position
      * @param position position of the data
      */
     public void remove(int position) {
@@ -176,7 +177,7 @@ public class LinkedList<T> {
     }
 
     /**
-     * get data in the specific position
+     * Gets data in the specific position
      * @param position position of the data
      * @return data
      */
@@ -191,7 +192,7 @@ public class LinkedList<T> {
     }
 
     /**
-     * get data in the position from the end of the List
+     * Gets data in the position from the end of the List
      * @param position position from end
      * @return data in the specified position
      */
@@ -204,7 +205,7 @@ public class LinkedList<T> {
     }
 
     /**
-     * set data to the new value in the specific position
+     * Sets data to the new value in the specific position
      * @param position position of the data
      * @param data new value
      */
@@ -215,7 +216,7 @@ public class LinkedList<T> {
     }
 
     /**
-     * get position of the specific data
+     * Gets position of the specific data
      * @param data data in the position
      * @return index of the data. Returns the first data that equal to @param data, otherwise -1
      */
@@ -234,7 +235,7 @@ public class LinkedList<T> {
     }
 
     /**
-     * reverse the list
+     * Reverses the list
      */
     public void reverse() {
         ListNode<T> currentNode = head;
@@ -317,7 +318,7 @@ public class LinkedList<T> {
     /**
      * Helper method for printing LinkedList from end recursively
      * Main method is printFromEnd()
-     * @param head
+     * @param head all nodes respectively starting from head to end
      */
     private void printFromEnd(ListNode<T> head) {
         if (head == null)
@@ -327,7 +328,7 @@ public class LinkedList<T> {
     }
 
     /**
-     * Remove all data from LinkedList
+     * Removes all data from LinkedList
      */
     public void clearList() {
         head = null;
