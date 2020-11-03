@@ -252,6 +252,20 @@ public class LinkedList<T> {
     }
 
     /**
+     * Clones this LinkedList to new created LinkedList
+     * @return reference of new clone LinkedList
+     */
+    public LinkedList<T> clone() {
+        LinkedList<T> cloneLinkedList = new LinkedList<>();
+        ListNode<T> temp = head;
+        while (temp != null) {
+            cloneLinkedList.insertAtEnd(temp.getData());
+            temp = temp.getNext();
+        }
+        return cloneLinkedList;
+    }
+
+    /**
      * @return string representation of this collection, in the form ["str1", "str2", ...].
      */
     @Override

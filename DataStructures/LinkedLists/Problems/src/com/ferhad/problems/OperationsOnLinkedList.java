@@ -92,6 +92,4 @@ public class OperationsOnLinkedList {
         return head == null;
     }
 
-
-
 }
