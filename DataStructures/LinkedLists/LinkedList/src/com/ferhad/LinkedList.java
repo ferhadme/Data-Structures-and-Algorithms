@@ -265,15 +265,26 @@ public class LinkedList<T> {
         return cloneLinkedList;
     }
 
-    public boolean merge(LinkedList<T> mergedList) {
-        if (mergedList.head == null)
-            return false;
-        ListNode<T> temp = mergedList.head;
+    /**
+     * Merges given LinkedList to this LinkedList
+     * @param list2 second LinkedList needed to be merge
+     * @return new merged LinkedList
+     */
+    public LinkedList<T> merge(LinkedList<T> list2) {
+        LinkedList<T> mergedList = this.clone();
+        if (list2.head == null)
+            return mergedList;
+        else if (this.head == null) {
+            mergedList = list2.clone();
+            return mergedList;
+        }
+
+        ListNode<T> temp = list2.head;
         while (temp != null) {
-            this.insertAtEnd(temp.getData());
+            mergedList.insertAtEnd(temp.getData());
             temp = temp.getNext();
         }
-        return true;
+        return mergedList;
     }
 
     /**

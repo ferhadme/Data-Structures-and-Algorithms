@@ -45,9 +45,10 @@ public class Main {
         list1.insertAtEnd(5);
         // cloning
         LinkedList<Integer> clonedList1 = list1.clone();
-        System.out.println(list1 + "\n" + clonedList1);
+        System.out.println(list1 + "\n" + clonedList1 + "\n************************************************");
         // merging
-        list1.merge(clonedList1);
-        System.out.println(list1 + "\n" + clonedList1);
+        LinkedList<Integer> mergedList = list1.merge(clonedList1);
+        System.out.println(list1 + "\n" + clonedList1 + "\n" + mergedList);
+        
     }
 }
