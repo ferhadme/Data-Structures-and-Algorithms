@@ -265,6 +265,17 @@ public class LinkedList<T> {
         return cloneLinkedList;
     }
 
+    public boolean merge(LinkedList<T> mergedList) {
+        if (mergedList.head == null)
+            return false;
+        ListNode<T> temp = mergedList.head;
+        while (temp != null) {
+            this.insertAtEnd(temp.getData());
+            temp = temp.getNext();
+        }
+        return true;
+    }
+
     /**
      * @return string representation of this collection, in the form ["str1", "str2", ...].
      */

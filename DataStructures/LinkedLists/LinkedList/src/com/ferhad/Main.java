@@ -14,10 +14,6 @@ public class Main {
         // [0, 5, 3, 2]
         myLinkedList.insert(2, 10);
         // [0, 5, 10, 3, 2]
-
-        LinkedList<Integer> myCloneList = myLinkedList.clone();
-        System.out.println(myCloneList);
-
         myLinkedList.removeAtBegin();
         // [5, 10, 3, 2]
         myLinkedList.reverse();
@@ -39,5 +35,19 @@ public class Main {
 
         String listStr = myLinkedList.toString(); // String representation of LinkedList ([str1, str2, ...])
         myLinkedList.printFromEnd(); // Displays LinkedList from end
+
+
+        // Testing additional methods...
+        LinkedList<Integer> list1 = new LinkedList<>();
+        // inserting
+        list1.insertAtEnd(1);
+        list1.insertAtEnd(3);
+        list1.insertAtEnd(5);
+        // cloning
+        LinkedList<Integer> clonedList1 = list1.clone();
+        System.out.println(list1 + "\n" + clonedList1);
+        // merging
+        list1.merge(clonedList1);
+        System.out.println(list1 + "\n" + clonedList1);
     }
 }
