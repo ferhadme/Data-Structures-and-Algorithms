@@ -92,4 +92,26 @@ public class OperationsOnLinkedList {
         return head == null;
     }
 
+    /**
+     * Merging 2 LinkedLists into third LinkedList in sorted order
+     * @param head1 head of the first LinkedList
+     * @param head2 head of the second LinkedList
+     * @return head of the Merged LinkedList
+     */
+    public Node merge2Lists(Node head1, Node head2) {
+        if (head1 == null)
+            return head2;
+        if (head2 == null)
+            return head1;
+        Node head = new Node();
+        if (head1.getData() >= head2.getData()) {
+            head = head2;
+            head.setNext(merge2Lists(head2.getNext(), head1));
+        } else {
+            head = head1;
+            head.setNext(merge2Lists(head1.getNext(), head2));
+        }
+        return head;
+    }
+
 }
