@@ -2,6 +2,7 @@ package com.ferhad;
 
 /**
  * @author Ferhad Mehdizade
+ *
  * Implementation of Doubly LinkedList
  */
 
@@ -11,21 +12,21 @@ public class DoublyLinkedList<T> {
     private int length; // by default 0
 
     /**
-     * @return get the head of the list
+     * @return the head of the list
      */
     public T getHead() {
         return head.getData();
     }
 
     /**
-     * @return get the tail of the list
+     * @return the tail of the list
      */
     public T getTail() {
         return tail.getData();
     }
 
     /**
-     * insert new data to head of the list
+     * Inserts new data to head of the list
      * @param data inserted data
      */
     public void insertAtBegin(T data) {
@@ -42,7 +43,7 @@ public class DoublyLinkedList<T> {
     }
 
     /**
-     * insert new data to end of the list(after tail)
+     * Inserts new data to end of the list(after tail)
      * @param data inserted data
      */
     public void insertAtEnd(T data) {
@@ -59,7 +60,7 @@ public class DoublyLinkedList<T> {
     }
 
     /**
-     * remove from head of the list
+     * Removes from head of the list
      */
     public void removeAtBegin() {
         if (head == null) // there is no element to removed
@@ -71,7 +72,7 @@ public class DoublyLinkedList<T> {
     }
 
     /**
-     * remove from tail of the list
+     * Removes from tail of the list
      */
     public void removeFromEnd() {
         if (tail == null) // there is no element to removed
@@ -83,7 +84,7 @@ public class DoublyLinkedList<T> {
     }
 
     /**
-     * the most efficient way for searching specific node
+     * The most efficient way for searching specific node
      * @param position position of the Node
      * @return searched Node
      */
@@ -105,7 +106,7 @@ public class DoublyLinkedList<T> {
     }
 
     /**
-     * insert new data to the specific position
+     * Inserts new data to the specific position
      * @param position position of the data
      * @param data inserted data
      */
@@ -133,7 +134,7 @@ public class DoublyLinkedList<T> {
     }
 
     /**
-     * remove data from specific position
+     * Removes data from specific position
      * @param position position of the removed data
      */
     public void remove(int position) {
@@ -157,7 +158,7 @@ public class DoublyLinkedList<T> {
     }
 
     /**
-     * get position of the specific data
+     * Gets position of the specific data
      * @param data data in the position
      * @return position of the searched data. Returns first data that equals to @param data, otherwise -1
      */
@@ -175,7 +176,7 @@ public class DoublyLinkedList<T> {
     }
 
     /**
-     * get data in the specific position
+     * Gets data in the specific position
      * @param position position of the data
      * @return data
      */
@@ -187,7 +188,7 @@ public class DoublyLinkedList<T> {
     }
 
     /**
-     * get data in the specified position from the end
+     * Gets data in the specified position from the end
      * @param position position of the data from the end of the List
      * @return data
      */
@@ -200,7 +201,7 @@ public class DoublyLinkedList<T> {
     }
 
     /**
-     * set data in the specific position to the new value
+     * Sets data in the specific position to the new value
      * @param position position of the data
      * @param data new value
      */
@@ -221,7 +222,7 @@ public class DoublyLinkedList<T> {
     }
 
     /**
-     * reverse the list
+     * Reverses the list
      */
     public void reverse() {
         ListNode<T> currentNode = head;
@@ -314,7 +315,7 @@ public class DoublyLinkedList<T> {
     }
 
     /**
-     * clear all nodes of the list
+     * Clears all nodes of the list
      */
     public void clearList() {
         head = null;

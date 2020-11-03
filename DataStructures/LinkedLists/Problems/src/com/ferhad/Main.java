@@ -1,7 +1,5 @@
 package com.ferhad;
 
-import com.ferhad.problems.OperationsOnLinkedList;
-
 public class Main {
 
     public static void main(String[] args) {
