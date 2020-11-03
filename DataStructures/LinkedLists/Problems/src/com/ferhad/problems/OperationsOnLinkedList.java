@@ -160,4 +160,24 @@ public class OperationsOnLinkedList {
         return head;
     }
 
+    /**
+     * Reverses the LinkedList in pairs iteratively
+     * @param head head of the LinkedList
+     * @return last node which change its place
+     * Time complexity - O(n)
+     * Space complexity - O(1)
+     */
+    public Node reversePairIteratively(Node head) {
+        Node temp = null;
+        while (head != null && head.getNext() != null) {
+            if (temp != null)
+                temp.getNext().setNext(head.getNext());
+            temp = head.getNext();
+            head.setNext(temp.getNext());
+            temp.setNext(head);
+            head = head.getNext();
+        }
+        return temp;
+    }
+    
 }

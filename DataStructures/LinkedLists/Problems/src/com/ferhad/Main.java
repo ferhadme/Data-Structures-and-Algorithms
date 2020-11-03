@@ -6,8 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // -------Testing isLinkedListEven() method...--------
-        var op = new OperationsOnLinkedList();
+        // -------Testing methods...--------
         Node head = new Node();
         Node node2 = new Node();
         head.setNext(node2);
@@ -17,7 +16,8 @@ public class Main {
         node3.setNext(node4);
         Node node5 = new Node();
         node4.setNext(node5);
-        System.out.println(op.isLinkedListEven(head));
+        // head -> node2 -> node3 -> node4 -> node5
+
 
 
     }
