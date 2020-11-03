@@ -141,4 +141,23 @@ public class OperationsOnLinkedList {
         return head;
     }
 
+    /**
+     * Reverses the LinkedList in pairs recursively
+     * 1 -> 2 -> 3 -> 4 -> X, becomes 2 -> 1 -> 4 -> 3 -> X
+     * @param head head of the LinkedList
+     * @return head of the reversed LinkedList
+     * Time complexity - O(n/2) = O(n)
+     * Space complexity - O(n) for recursive stack
+     */
+    public Node reversePairRecursive(Node head) {
+        if (head == null || head.getNext() == null)
+            return null;
+        Node temp = head.getNext();
+        head.setNext(temp.getNext());
+        temp.setNext(head);
+        head = temp;
+        head.getNext().setNext(reversePairRecursive(head.getNext().getNext()));
+        return head;
+    }
+
 }
