@@ -78,4 +78,20 @@ public class OperationsOnLinkedList {
         System.out.println(head.getData() + ", ");
     }
 
+    /**
+     * Finds length of the LinkedList is even or odd
+     * @param head head of the LinkedList
+     * @return true if length is even, otherwise false
+     * Time complexity - O(n/2) = O(n), where n is the length
+     * Space complexity - O(1)
+     */
+    public boolean isLinkedListEven(Node head) {
+        while (head != null && head.getNext() != null) {
+            head = head.getNext().getNext();
+        }
+        return head == null;
+    }
+
+    
+
 }
