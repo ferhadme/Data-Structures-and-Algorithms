@@ -179,5 +179,62 @@ public class OperationsOnLinkedList {
         }
         return temp;
     }
+
+    /**
+     * Splits Circular LinkedList into 2 equal Circular LinkedLists
+     * @param head head of the Circular LinkedList
+     * @return head of the second Circular LinkedList after splitting
+     * Time complexity - O(n + m) = O(n), where n for scanning list, m for finding mid point
+     * Space complexity - O(1)
+     */
+    public Node splitCircularLinkedList(Node head) {
+        if (head == null)
+            return null;
+        Node secondHead;
+        Node lastNode = head.getNext();
+        Node temp = head.getNext();
+        int length = 1;
+        while (temp != head) {
+            length++;
+            temp = temp.getNext();
+            lastNode = temp;
+        }
+
+        temp = head;
+        for (int i = 0; i < length / 2 - 1; i++) {
+            temp = temp.getNext();
+        } // temp is mid point
+
+        secondHead = temp.getNext(); // temp -> secondHead
+        temp.setNext(head);
+        lastNode.setNext(secondHead);
+        return secondHead;
+    }
+
+    /**
+     * Reverses k Nodes of LinkedList Recursively, (k > 0)
+     * @param head head of the LinkedList
+     * @return new head of reverse LinkedList
+     * Time complexity - O(n)
+     * Space complexity - O(n) for recursive stack
+     */
+    public Node reverseKNodesR(Node head, int k) {
+        Node current = head;
+        Node prev = null;
+        Node next = null;
+        int counter = k;
+        while (current != null && counter > 0) {
+            next = current.getNext();
+            current.setNext(prev);
+            prev = current;
+            current = next;
+            counter--;
+        }
+
+        if (next != null)
+            head.setNext(reverseKNodesR(next, k));
+
+        return prev;
+    }
     
 }
