@@ -127,6 +127,37 @@ public class FloydCycleAlgorithm {
         return length;
     }
 
+    /**
+     * Splits Circular LinkedList into 2 equal Circular LinkedLists
+     * @param head head of the Circular LinkedList
+     * @return head of the second Circular LinkedList after splitting
+     * Time complexity - O(n + m) = O(n), where n for scanning list, m for finding mid point
+     * Space complexity - O(1)
+     */
+    public Node splitCircularLinkedList(Node head) {
+        if (head == null)
+            return null;
+        Node secondHead = null;
+        Node lastNode = head.getNext();
+        Node temp = head.getNext();
+        int length = 1;
+        while (temp != head) {
+            length++;
+            temp = temp.getNext();
+            lastNode = temp;
+        }
+
+        temp = head;
+        for (int i = 0; i < length / 2 - 1; i++) {
+            temp = temp.getNext();
+        } // temp is mid point
+
+        secondHead = temp.getNext(); // temp -> secondHead
+        temp.setNext(head);
+        lastNode.setNext(secondHead);
+        return secondHead;
+    }
+
     /* NOTE: Moving to the next Node can be used 2 and 3 steps instead of 1 and 2(it doesn't matter for result)
      * But the complexity will be high, 1 and 2 are the best for complexity
      */
