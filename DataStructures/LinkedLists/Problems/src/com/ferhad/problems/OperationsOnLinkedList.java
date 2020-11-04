@@ -214,6 +214,7 @@ public class OperationsOnLinkedList {
     /**
      * Reverses k Nodes of LinkedList Recursively, (k > 0)
      * @param head head of the LinkedList
+     * @param k number of reversed Nodes
      * @return new head of reverse LinkedList
      * Time complexity - O(n)
      * Space complexity - O(n) for recursive stack
@@ -236,5 +237,24 @@ public class OperationsOnLinkedList {
 
         return prev;
     }
-    
+
+    /**
+     * Finds the last Node from beginning whose n%k==0, where n is the number of Nodes and k is a constant integer
+     * if n = 19, k = 3;    function should return 18th Node
+     * @param head head of the LinkedList
+     * @param k constant integer
+     * @return searched Node
+     */
+    public Node modularNode(Node head, int k) {
+        if (k <= 0)
+            return null;
+        Node modularNode = null;
+        int i = 0;
+        for (; head != null; head = head.getNext()) {
+            if (i % k == 0)
+                modularNode = head;
+            i++;
+        }
+        return modularNode;
+    }
 }
