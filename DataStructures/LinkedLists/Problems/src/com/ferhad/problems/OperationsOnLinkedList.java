@@ -358,4 +358,40 @@ public class OperationsOnLinkedList {
         }
     }
 
+    //------------------------------------------------------------------------------------------------------
+
+    /**
+     * Filters even and odd numbers in LinkedList such that, 1 -> 2 -> 3 -> 4 -> 5 becomes
+     * 2 -> 4 -> 1 -> 3 -> 5
+     * @param head head of the LinkedList
+     * @return head of the modified LinkedList
+     * Time complexity - O(n)
+     * Space complexity - O(1)
+     */
+    public Node evenOddNumbers(Node head) {
+        if (head == null || head.getNext() == null)
+            return head;
+        Node evenHead = new Node(); // head of new even list
+        Node evenHeadTemp = evenHead; // for removing unnecessary reference of empty even head
+        Node evenPointer = evenHead; // for pointing even list
+        Node temp = head; // for scanning main list
+        Node prev = evenHead; // for keeping Node before even Node
+        while (temp != null) {
+            if (temp.getData() % 2 == 0) { // Node is even
+                evenPointer.setNext(temp);
+                evenPointer = temp;
+                prev.setNext(temp.getNext());
+            }
+            prev = temp;
+            temp = temp.getNext();
+        }
+        if (prev.getNext() != null) // end of the list contains odd numbers, so make its next null
+            prev.setNext(null);
+
+        evenPointer.setNext(head); // combining 2 lists(evenPointer is tail of even list)
+        evenHead = evenHead.getNext(); // assigning actual head
+        evenHeadTemp.setNext(null); // removing reference of empty Node
+        return evenHead;
+    }
+
 }
