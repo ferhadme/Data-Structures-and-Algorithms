@@ -394,4 +394,35 @@ public class OperationsOnLinkedList {
         return evenHead;
     }
 
+    //------------------------------------------------------------------------------------------------------
+
+    /**
+     * Returns common elements from 2 different sorted LinkedLists
+     * @param head1 head of the first LinkedList
+     * @param head2 head of the second LinkedList
+     * @return head of the common elements list
+     */
+    public Node commonElements(Node head1, Node head2) {
+        Node head = new Node();
+        Node temp = head;
+        while (head1 != null && head2 != null) {
+            if (head1.getData() == head2.getData()) {
+                temp.setNext(new Node());
+                temp.getNext().setData(head1.getData());
+                // passing both lists
+                head1 = head1.getNext();
+                head2 = head2.getNext();
+                temp = temp.getNext();
+            } else if (head1.getData() > head2.getData())
+                head2 = head2.getNext();
+            else // head2.getData() > head1.getData()
+                head1 = head1.getNext();
+        }
+        // modifying head of the list and references
+        temp = head;
+        head = head.getNext();
+        temp.setNext(null);
+        return head;
+    }
+
 }
