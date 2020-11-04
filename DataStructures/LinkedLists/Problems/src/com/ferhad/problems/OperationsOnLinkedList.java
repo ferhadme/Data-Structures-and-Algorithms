@@ -237,6 +237,36 @@ public class OperationsOnLinkedList {
     }
 
     /**
+     * Rotates the LinkedList to the right by k places. 1 -> 2 -> 3 -> 4 -> 5 -> NULL becomes
+     * 4 -> 5 -> 1 -> 2 -> 3 -> NULL if k = 2
+     * @param head head of the LinkedList
+     * @param k places
+     * @return head of the rotated LinkedList
+     */
+    public Node rotateRight(Node head, int k) {
+        if (head == null || head.getNext() == null)
+            return head;
+        Node rotateStart = head;
+        Node rotateEnd = head;
+        while (--k > 0) {
+            rotateEnd = rotateStart.getNext();
+            if (rotateEnd == null)
+                rotateEnd = head;
+        }
+        if (rotateEnd == rotateStart)
+            return head;
+
+        while (rotateEnd.getNext() != null) {
+            rotateStart = rotateStart.getNext();
+            rotateEnd = rotateEnd.getNext();
+        } // head --> *** --> rotateStart --> *** --> rotateEnd
+        Node temp = rotateStart.getNext(); // temp is new head
+        rotateStart.setNext(null);
+        rotateEnd.setNext(head);
+        return temp;
+    }
+
+    /**
      * Finds the last Node from beginning whose n%k==0, where n is the number of Nodes and k is a constant integer
      * if n = 19, k = 3;    function should return 18th Node
      * @param head head of the LinkedList
