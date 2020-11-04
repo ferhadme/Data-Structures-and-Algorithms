@@ -216,8 +216,6 @@ public class OperationsOnLinkedList {
      * @param head head of the LinkedList
      * @param k number of reversed Nodes
      * @return new head of reverse LinkedList
-     * Time complexity - O(n)
-     * Space complexity - O(n) for recursive stack
      */
     public Node reverseKNodesR(Node head, int k) {
         Node current = head;
@@ -244,6 +242,8 @@ public class OperationsOnLinkedList {
      * @param head head of the LinkedList
      * @param k constant integer
      * @return searched Node
+     * Time complexity - O(n)
+     * Space complexity - O(1)
      */
     public Node modularNode(Node head, int k) {
         if (k <= 0)
@@ -257,4 +257,5 @@ public class OperationsOnLinkedList {
         }
         return modularNode;
     }
+
 }
