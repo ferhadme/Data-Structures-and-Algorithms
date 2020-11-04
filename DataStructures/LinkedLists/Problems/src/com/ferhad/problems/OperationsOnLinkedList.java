@@ -2,6 +2,8 @@ package com.ferhad.problems;
 
 import com.ferhad.Node;
 
+import java.util.Hashtable;
+
 /**
  * @author Ferhad Mehdizade
  *
@@ -31,6 +33,8 @@ public class OperationsOnLinkedList {
         temp.setNext(newNode);
         return true;
     }
+
+    //------------------------------------------------------------------------------------------------------
 
     /**
      * Reverses Singly LinkedList iteratively
@@ -65,6 +69,8 @@ public class OperationsOnLinkedList {
         head.setNext(null);
     }
 
+    //------------------------------------------------------------------------------------------------------
+
     /**
      * Displays LinkedList from end to the beginning
      * @param head head of the LinkedList
@@ -77,6 +83,8 @@ public class OperationsOnLinkedList {
         printLinkedListFromEnd(head.getNext());
         System.out.println(head.getData() + ", ");
     }
+
+    //------------------------------------------------------------------------------------------------------
 
     /**
      * Finds length of the LinkedList is even or odd
@@ -91,6 +99,8 @@ public class OperationsOnLinkedList {
         }
         return head == null;
     }
+
+    //------------------------------------------------------------------------------------------------------
 
     /**
      * Merging 2 LinkedLists into third LinkedList in sorted order recursively
@@ -141,6 +151,8 @@ public class OperationsOnLinkedList {
         return head;
     }
 
+    //------------------------------------------------------------------------------------------------------
+
     /**
      * Reverses the LinkedList in pairs recursively
      * 1 -> 2 -> 3 -> 4 -> X, becomes 2 -> 1 -> 4 -> 3 -> X
@@ -180,6 +192,8 @@ public class OperationsOnLinkedList {
         return temp;
     }
 
+    //------------------------------------------------------------------------------------------------------
+
     /**
      * Splits Circular LinkedList into 2 equal Circular LinkedLists
      * @param head head of the Circular LinkedList
@@ -211,6 +225,8 @@ public class OperationsOnLinkedList {
         return secondHead;
     }
 
+    //------------------------------------------------------------------------------------------------------
+
     /**
      * Reverses k Nodes of LinkedList Recursively, (k > 0)
      * @param head head of the LinkedList
@@ -236,12 +252,16 @@ public class OperationsOnLinkedList {
         return prev;
     }
 
+    //------------------------------------------------------------------------------------------------------
+
     /**
      * Rotates the LinkedList to the right by k places. 1 -> 2 -> 3 -> 4 -> 5 -> NULL becomes
      * 4 -> 5 -> 1 -> 2 -> 3 -> NULL if k = 2
      * @param head head of the LinkedList
      * @param k places
      * @return head of the rotated LinkedList
+     * Time complexity - O(n)
+     * Space complexity - O(1)
      */
     public Node rotateRight(Node head, int k) {
         if (head == null || head.getNext() == null)
@@ -266,6 +286,8 @@ public class OperationsOnLinkedList {
         return temp;
     }
 
+    //------------------------------------------------------------------------------------------------------
+
     /**
      * Finds the last Node from beginning whose n%k==0, where n is the number of Nodes and k is a constant integer
      * if n = 19, k = 3;    function should return 18th Node
@@ -286,6 +308,54 @@ public class OperationsOnLinkedList {
             i++;
         }
         return modularNode;
+    }
+
+    //------------------------------------------------------------------------------------------------------
+
+    /**
+     * Removes duplicates from the LinkedList
+     * Brute-Force approach
+     * @param head head of the LinkedList
+     * Time complexity - O(n^2)
+     * Space complexity - O(1)
+     */
+    public void removeDuplicates(Node head) {
+        if (head == null || head.getNext() == null) // there is no or 1 Node
+            return;
+        Node current = head;
+        Node current2;
+        Node prev;
+        while (current != null) {
+            current2 = current.getNext();
+            prev = current; // if Node duplicated, then have access previous Node for removing pointer
+            while (current2 != null) {
+                if (current.getData() == current2.getData())
+                    prev.setNext(current2.getNext());
+                prev = current2;
+                current2 = current2.getNext();
+            }
+            current = current.getNext();
+        }
+    }
+
+    /**
+     * Removes duplicates from the LinkedList using HashTable(as HT indicates) for increasing efficiency
+     * @param head head of the LinkedList
+     * Time complexity - O(n)
+     * Space complexity - O(n) for creating HashTable
+     */
+    public void removeDuplicatesHT(Node head) {
+        if (head == null || head.getNext() == null)
+            return;
+        Hashtable<Integer, Node> duplicateRecords = new Hashtable<>();
+        Node prev = head;
+        while (head != null) {
+            if (duplicateRecords.containsKey(head.getData()))
+                prev.setNext(head.getNext());
+            duplicateRecords.put(head.getData(), head);
+            prev = head;
+            head = head.getNext();
+        }
     }
 
 }
