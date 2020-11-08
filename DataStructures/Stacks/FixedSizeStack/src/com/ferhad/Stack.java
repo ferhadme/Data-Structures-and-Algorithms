@@ -1,6 +1,6 @@
 package com.ferhad;
 
-import java.util.NoSuchElementException;
+import java.util.EmptyStackException;
 
 /**
  * @author Ferhad Mehdizade
@@ -86,7 +86,7 @@ public class Stack<E> {
      */
     public E pop() {
         if (isEmpty())
-            throw new NoSuchElementException();
+            throw new EmptyStackException();
         E element = getElement(top);
         elements[top--] = null;
         return element;
@@ -98,7 +98,7 @@ public class Stack<E> {
      */
     public E peek() {
         if (isEmpty())
-            throw new NoSuchElementException();
+            throw new EmptyStackException();
         return getElement(top);
     }
 
