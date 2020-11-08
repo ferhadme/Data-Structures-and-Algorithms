@@ -103,6 +103,18 @@ public class Stack<E> {
     }
 
     /**
+     * Clears Stack
+     */
+    public void clear() {
+        if (!isEmpty()) {
+            // size decreases in each pop operation, size holds initial size of the stack
+            int size = size();
+            for (int i = 0; i < size; i++)
+                this.pop();
+        }
+    }
+
+    /**
      * @return string representation of the Stack as [ "bottomElement", ..., "topElement" ]
      */
     @Override
