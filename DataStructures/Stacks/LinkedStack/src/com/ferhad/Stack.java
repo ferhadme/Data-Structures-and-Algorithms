@@ -82,6 +82,25 @@ public class Stack<E> {
     }
 
     /**
+     * Clears Stack
+     * Stack can be cleared by removing reference of the top element too. Java GC will remove elements
+     * after dereference process.
+     * But this approach is better although time complexity is O(n), where n is the number of elements
+     *
+     */
+    public void clear() {
+        if (!isEmpty()) {
+            int size = size();
+            for (int i = 0; i < size; i++)
+                this.pop();
+        }
+
+        // -----Another approach-------
+        // top = null;
+        // size = 0;
+    }
+
+    /**
      * Gets top element of the Stack
      * @return top
      */
