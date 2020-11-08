@@ -114,6 +114,17 @@ public class Stack<E> {
     }
 
     /**
+     * Clears Stack
+     */
+    public void clear() {
+        if (!isEmpty()) {
+            int size = size();
+            for (int i = 0; i < size; i++)
+                this.pop();
+        }
+    }
+
+    /**
      * Gets top element of the Stack
      * @return top element
      */
