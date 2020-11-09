@@ -3,6 +3,8 @@ package com.ferhad.problems;
 import com.ferhad.Node;
 
 /**
+ * @author Ferhad Mehdizade
+ *
  * Methods for Reordering LinkedLists
  * N1 -> N2 -> N3 -> N4 -> N5 -> N6 -> N7 becomes
  * N1 -> N7 -> N2 -> N6 -> N3 -> N5 -> N4
