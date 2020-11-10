@@ -7,6 +7,5 @@ public class Main {
         String pattern = "{[a('uuiui')sa''{asas''''}]}"; // true pattern
         System.out.println(bos.isValidSymbolPattern(pattern));
 
-
     }
 }

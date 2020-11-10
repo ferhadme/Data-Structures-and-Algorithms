@@ -66,4 +66,9 @@ public class BalanceOfSymbols {
         return stack.isEmpty();
     }
 
+    /*
+        NOTE: Check cases can be increased for other symbols like
+        <></>, **, ``, and etc. Algorithm will be the same
+     */
+
 }
