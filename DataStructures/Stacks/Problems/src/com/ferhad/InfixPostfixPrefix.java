@@ -31,18 +31,35 @@ import java.util.Stack;
  */
 public class InfixPostfixPrefix {
 
+    /**
+     * Asks user to input expression in order to calculating
+     * @return result of the expression
+     */
     public double calculate() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the expression for calculating(+, -, *, / are allowed): ");
         String expression = scan.nextLine();
         scan.close();
         expression = expression.replace(" ", ""); // removing all spaces from string
-        
-        return 0;
+        if (!BalanceOfSymbols.isValidSymbolPattern(expression)) // for checking parenthesis
+            return -1;
+        String[] postfixTokens = convertToPostfix(expression);
+        double resultOfExpression = expressionEvaluation(postfixTokens);
+        return resultOfExpression;
     }
 
     /**
-     * Calculating Postfix (for example, 123*+5-)
+     * Converts expression to Postfix in form of array of String,
+     * where each String is Postfix element
+     * @param expression expression needed to convert to Postfix
+     * @return array of Postfix elements
+     */
+    private String[] convertToPostfix(String expression) {
+        
+    }
+
+    /**
+     * Calculates Postfix (for example, 123*+5-)
      * Main Algorithm: pop 2 operands from Stack and do operation according to operator when scanning character is the
      * operator through scanning. At the same time if scanned character is operand, push it onto the stack.
      * @param tokens String array that contains Postfix elements sequentially ( ["1", "2", "3", "*", "+", "5", "-"] )
