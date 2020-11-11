@@ -1,5 +1,6 @@
 package com.ferhad;
 
+import java.util.Scanner;
 import java.util.Stack;
 
 /**
@@ -30,6 +31,16 @@ import java.util.Stack;
  */
 public class InfixPostfixPrefix {
 
+    public double calculate() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the expression for calculating(+, -, *, / are allowed): ");
+        String expression = scan.nextLine();
+        scan.close();
+        expression = expression.replace(" ", ""); // removing all spaces from string
+        
+        return 0;
+    }
+
     /**
      * Calculating Postfix (for example, 123*+5-)
      * Main Algorithm: pop 2 operands from Stack and do operation according to operator when scanning character is the
@@ -37,29 +48,30 @@ public class InfixPostfixPrefix {
      * @param tokens String array that contains Postfix elements sequentially ( ["1", "2", "3", "*", "+", "5", "-"] )
      * @return result of an expression (123*+5- = (2*3)+1-5 = 2)
      */
-    private int expressionEvaluation(String[] tokens) {
-        Stack<Integer> integerContainer = new Stack<>();
+    private double expressionEvaluation(String[] tokens) {
+        Stack<Double> numberContainer = new Stack<>();
         for (String token : tokens) {
             if (token.equals("+")) {
-                int op1 = integerContainer.pop();
-                int op2 = integerContainer.pop();
-                integerContainer.push(op1 + op2);
+                double op1 = numberContainer.pop();
+                double op2 = numberContainer.pop();
+                numberContainer.push(op1 + op2);
             } else if (token.equals("-")) {
-                int op1 = integerContainer.pop();
-                int op2 = integerContainer.pop();
-                integerContainer.push(op1 - op2);
+                double op1 = numberContainer.pop();
+                double op2 = numberContainer.pop();
+                numberContainer.push(op1 - op2);
             } else if (token.equals("*")) {
-                int op1 = integerContainer.pop();
-                int op2 = integerContainer.pop();
-                integerContainer.push(op1 * op2);
+                double op1 = numberContainer.pop();
+                double op2 = numberContainer.pop();
+                numberContainer.push(op1 * op2);
             } else if (token.equals("/")) {
-                int op1 = integerContainer.pop();
-                int op2 = integerContainer.pop();
-                integerContainer.push(op1 / op2);
+                double op1 = numberContainer.pop();
+                double op2 = numberContainer.pop();
+                numberContainer.push(op1 / op2);
             } else {
-                integerContainer.push(Integer.parseInt(token));
+                numberContainer.push(Double.parseDouble(token));
             }
         }
-        return integerContainer.pop(); // result
+        return numberContainer.pop(); // result
     }
+
 }
