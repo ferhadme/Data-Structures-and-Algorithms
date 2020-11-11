@@ -1,6 +1,5 @@
 package com.ferhad;
 
-import java.util.Scanner;
 import java.util.Stack;
 
 /**
@@ -28,6 +27,8 @@ import java.util.Stack;
  * => Postfix =>    AB+CD-+ (Sum of, A + B and C - D)
  *
  * I use Postfix for conversion and calculating
+ *
+ * <b> NOTE: ALGORITHM WORKS FOR ONLY SINGLE DIGIT NUMBERS!!! </b>
  */
 public class InfixPostfixPrefix {
 
@@ -35,17 +36,13 @@ public class InfixPostfixPrefix {
      * Asks user to input expression in order to calculating
      * @return result of the expression
      */
-    public double calculate() {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter the expression for calculating(+, -, *, / are allowed): ");
-        String expression = scan.nextLine();
-        scan.close();
+    public double calculate(String expression) {
         expression = expression.replace(" ", ""); // removing all spaces from string
-        if (!BalanceOfSymbols.isValidSymbolPattern(expression)) // for checking parenthesis
-            return -1;
-        String[] postfixTokens = convertToPostfix(expression);
-        double resultOfExpression = expressionEvaluation(postfixTokens);
-        return resultOfExpression;
+
+        String[] postfixTokens;
+        postfixTokens = convertToPostfix(expression);
+
+        return expressionEvaluation(postfixTokens);
     }
 
     /**
@@ -53,9 +50,53 @@ public class InfixPostfixPrefix {
      * where each String is Postfix element
      * @param expression expression needed to convert to Postfix
      * @return array of Postfix elements
+     * @throws IllegalArgumentException if character is not operand or operator
      */
     private String[] convertToPostfix(String expression) {
-        
+        String postfix = "";
+        Stack<Character> stackChar = new Stack<>();
+
+        for (int i = 0; i < expression.length(); i++) {
+            char c = expression.charAt(i);
+            if (c != '(' && c != ')' && c != '+' && c != '-' && c != '*' && c != '/' &&
+                    !Character.isLetterOrDigit(c)) {
+                throw new IllegalArgumentException("Wrong style input");
+            }
+            if (Character.isLetterOrDigit(c)) // if scanned character is an operand, add it to output
+                postfix += c;
+            else if (c == '(')
+                stackChar.push(c);
+            else if (c == ')') {
+                while (!stackChar.isEmpty() && stackChar.peek() != '(')
+                    postfix += stackChar.pop();
+                stackChar.pop(); // pops '('
+            } else { // an operator is encountered
+                while (!stackChar.isEmpty() && precedence(c) <= precedence(stackChar.peek()))
+                    postfix += stackChar.pop();
+                stackChar.push(c);
+            }
+        }
+
+        while (!stackChar.isEmpty()) {
+            if (stackChar.peek() == '(')
+                throw new IllegalArgumentException("Wrong style input");
+            postfix += stackChar.pop();
+        }
+        return postfix.split("");
+    }
+
+    /**
+     * Defines precedence of specific operator
+     * Precedence of *, / is higher than +, -
+     * @param c operator
+     * @return precedence of the operator
+     */
+    private int precedence(char c) {
+        return switch (c) {
+            case '+', '-' -> 1;
+            case '*', '/' -> 2;
+            default -> -1;
+        };
     }
 
     /**
@@ -75,7 +116,7 @@ public class InfixPostfixPrefix {
             } else if (token.equals("-")) {
                 double op1 = numberContainer.pop();
                 double op2 = numberContainer.pop();
-                numberContainer.push(op1 - op2);
+                numberContainer.push(op2 - op1);
             } else if (token.equals("*")) {
                 double op1 = numberContainer.pop();
                 double op2 = numberContainer.pop();
@@ -83,7 +124,7 @@ public class InfixPostfixPrefix {
             } else if (token.equals("/")) {
                 double op1 = numberContainer.pop();
                 double op2 = numberContainer.pop();
-                numberContainer.push(op1 / op2);
+                numberContainer.push(op2 / op1);
             } else {
                 numberContainer.push(Double.parseDouble(token));
             }

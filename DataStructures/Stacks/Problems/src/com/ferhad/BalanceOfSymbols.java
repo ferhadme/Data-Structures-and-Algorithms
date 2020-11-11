@@ -20,7 +20,7 @@ public class BalanceOfSymbols {
      * Time complexity - O(n) for scanning each character of the input
      * Space complexity - O(n) for Stack
      */
-    public static boolean isValidSymbolPattern(String pattern) {
+    public boolean isValidSymbolPattern(String pattern) {
         if (pattern == null || pattern.length() == 0)
             return true;
         Stack<Character> stack = new Stack<>();
