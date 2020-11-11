@@ -15,7 +15,7 @@ public class Main {
         System.out.println(ipp.calculate(expression)); // 26.0
 */
         // =============================================================================================================
-
+/*
         var stack = new SpecificStack<Integer>();
         stack.push(1);
         stack.push(2);
@@ -25,6 +25,10 @@ public class Main {
         stack.push(4);
         System.out.println(stack.getMaximum());
         System.out.println(stack.getMinimum());
+*/
+        // =============================================================================================================
+
+
 
     }
 }

@@ -27,7 +27,7 @@ public class ReorderLinkedList {
         Node head2 = slowPtr.getNext();
         slowPtr.setNext(null);
         head2 = reverse(head2);
-        // alternate...
+        alternate(head, head2);
     }
 
     /**
