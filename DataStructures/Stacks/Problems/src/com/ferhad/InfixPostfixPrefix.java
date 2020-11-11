@@ -1,5 +1,7 @@
 package com.ferhad;
 
+import java.util.Stack;
+
 /**
  * @author Ferhad Mehdizade
  *
@@ -27,5 +29,37 @@ package com.ferhad;
  * I use Postfix for conversion and calculating
  */
 public class InfixPostfixPrefix {
-    
+
+    /**
+     * Calculating Postfix (for example, 123*+5-)
+     * Main Algorithm: pop 2 operands from Stack and do operation according to operator when scanning character is the
+     * operator through scanning. At the same time if scanned character is operand, push it onto the stack.
+     * @param tokens String array that contains Postfix elements sequentially ( ["1", "2", "3", "*", "+", "5", "-"] )
+     * @return result of an expression (123*+5- = (2*3)+1-5 = 2)
+     */
+    private int expressionEvaluation(String[] tokens) {
+        Stack<Integer> integerContainer = new Stack<>();
+        for (String token : tokens) {
+            if (token.equals("+")) {
+                int op1 = integerContainer.pop();
+                int op2 = integerContainer.pop();
+                integerContainer.push(op1 + op2);
+            } else if (token.equals("-")) {
+                int op1 = integerContainer.pop();
+                int op2 = integerContainer.pop();
+                integerContainer.push(op1 - op2);
+            } else if (token.equals("*")) {
+                int op1 = integerContainer.pop();
+                int op2 = integerContainer.pop();
+                integerContainer.push(op1 * op2);
+            } else if (token.equals("/")) {
+                int op1 = integerContainer.pop();
+                int op2 = integerContainer.pop();
+                integerContainer.push(op1 / op2);
+            } else {
+                integerContainer.push(Integer.parseInt(token));
+            }
+        }
+        return integerContainer.pop(); // result
+    }
 }
