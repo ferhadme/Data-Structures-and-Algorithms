@@ -9,7 +9,7 @@
  
  <br/>
  
- - [Common problems in LinkedLists](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/Problems/src/com/ferhad/problems/OperationsOnLinkedList.java "See common problems")
+ - [Other common problems in LinkedLists](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/Problems/src/com/ferhad/problems/OperationsOnLinkedList.java "See common problems")
    - Inserting new Node(or element) to sorted LinkedList by keeping order
    - Reversing LinkedList both iteratively and recursively
    - Displaying(or printing) LinkedList from end
