@@ -1,6 +1,6 @@
 # Stack implementation by using dynamic array
-In [Implementation with static array](https://github.com/ferhad2207/Data-Structures-and-Algorithms/tree/master/DataStructures/Stacks/FixedSizeStack "Stack implementation by using static array")
-main problem is non-flexible size. So size of the Stack must be defined when it is created. And exception will occur(of course) if new element is pushed into **full Stack**
+In [Implementation with static array](https://github.com/ferhad2207/Data-Structures-and-Algorithms/tree/master/DataStructures/Stacks/FixedSizeStack "Stack implementation by using static array"),
+Main problem is non-flexible size. So size of the Stack must be defined when it is created. And exception will occur(of course) if new element is pushed into **full Stack**
 
 ### Alternative Approach
 **Doubling array technique can solve this problem**
