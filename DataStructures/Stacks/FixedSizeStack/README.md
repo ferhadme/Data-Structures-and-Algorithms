@@ -1,5 +1,5 @@
 # Stack implementation by using static array
-The most basic implementation of Stack Data Structure
+**The most basic implementation of Stack Data Structure**
 
 ### Performance
 ```
