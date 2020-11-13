@@ -4,6 +4,7 @@ main problem is not flexible size. So size of the Stack must be defined when it 
 
 ### Alternative Approach
 **Doubling array technique can solve this problem**
+
 Stack can be created initially **size = 10**. And **size can be doubled** when new element is pushed into full Stack. After doubling process, all elements of an old array must be copied
 to new doubled array
 
