@@ -1,26 +1,45 @@
 package com.ferhad;
 
-import java.util.Collections;
-import java.util.Hashtable;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
+/**
+ * @author Ferhad Mehdizade
+ *
+ * Basic Mathematics Set operations
+ * Union, Intersection, Difference of 2 sets
+ * @param <T> Type of an element
+ */
 public class SetCalculator<T extends Comparable<T>> {
     private Object[] set1;
     private Object[] set2;
 
+    /**
+     * Initializes sets with specified arrays
+     * @param set1 first set
+     * @param set2 second set
+     */
     public void initializeSets(Object[] set1, Object[] set2) {
         this.set1 = set1;
         this.set2 = set2;
     }
 
+    /**
+     * Casts Object element to specified Generic type
+     * @param index index of an element in specified set
+     * @param set specified set
+     * @return generic type of an element
+     */
     private T getElementFromSet(int index, Object[] set) {
         return (T) set[index];
     }
 
+    /**
+     * Calculates union of 2 sets
+     * @return union of 2 sets
+     */
     public List<T> union() {
-        Hashtable<T, Integer> duplicateChecker = new Hashtable<>();
-        List<T> union = new LinkedList<>();
+        Map<T, Integer> duplicateChecker = new HashMap<>();
+        List<T> union = new ArrayList<>();
         Object[] largeSet;
         int length;
         if (set1.length > set2.length) { // set1 is large array
@@ -56,9 +75,13 @@ public class SetCalculator<T extends Comparable<T>> {
         return union;
     }
 
+    /**
+     * Calculates intersection of 2 sets
+     * @return intersection of 2 sets
+     */
     public List<T> intersection() {
-        Hashtable<T, Integer> firstList = new Hashtable<>();
-        List<T> intersection = new LinkedList<>();
+        Map<T, Integer> firstList = new HashMap<>();
+        List<T> intersection = new ArrayList<>();
         Object[] smallArr;
         Object[] largeArr; // for reducing number of iterations for better time and space complexity
 
@@ -88,5 +111,42 @@ public class SetCalculator<T extends Comparable<T>> {
         return intersection;
     }
 
+    /**
+     * Private method for calculating difference of 2 specified sets
+     * @param set1P first set parameter
+     * @param set2P second set parameter
+     * @return difference of sets
+     */
+    private List<T> difference(Object[] set1P, Object[] set2P) {
+        Map<T, Integer> secondList = new HashMap<>();
+        List<T> difference = new ArrayList<>();
+        for (int i = 0; i < set2P.length; i++) {
+            secondList.put(getElementFromSet(i, set2P), i);
+        }
+        for (int i = 0; i < set1P.length; i++) {
+            T elem = getElementFromSet(i, set1P);
+            if (!secondList.containsKey(elem)) {
+                difference.add(elem);
+            }
+        }
+
+        return difference;
+    }
+
+    /**
+     * Calculates difference of first and second set
+     * @return difference of first and second set (A/B)
+     */
+    public List<T> difference1_2() {
+        return difference(set1, set2);
+    }
+
+    /**
+     * Calculates difference of second and first set
+     * @return difference of second and first set (B/A)
+     */
+    public List<T> difference2_1() {
+        return difference(set2, set1);
+    }
 
 }
