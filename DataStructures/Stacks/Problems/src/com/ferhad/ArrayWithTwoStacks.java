@@ -17,7 +17,7 @@ public class ArrayWithTwoStacks<T> {
 
     /**
      * Initializes fields
-     * @param size size of the array which holds 2 Stacks
+     * @param size size of the array which holds 2 Stacks. Odd number size is recommended
      */
     public ArrayWithTwoStacks(int size) {
         elements = new Object[size];
