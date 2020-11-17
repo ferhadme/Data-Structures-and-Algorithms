@@ -27,7 +27,33 @@ public class Main {
         System.out.println(stack.getMinimum());
 */
         // =============================================================================================================
+/*
+        ArrayWithTwoStacks<Integer> stacks = new ArrayWithTwoStacks<>(11); // 5 for first, 5 for second, 1 for border
 
+        stacks.push(1, 3);
+        stacks.push(1, 33);
+        stacks.push(1, 87);
+        stacks.push(1, 87);
+        stacks.push(1, 87);
+
+        stacks.push(2, 32);
+        stacks.push(2, 98);
+        stacks.push(2, 353);
+        stacks.push(2, 353);
+        stacks.push(2, 353);
+
+        System.out.println(stacks);
+
+        stacks.pop(1);
+        stacks.pop(2);
+        System.out.println(stacks);
+
+        System.out.println(stacks.peek(1));
+        System.out.println(stacks.peek(2));
+
+        System.out.println(stacks.size());
+*/
+        // =============================================================================================================
 
 
     }
