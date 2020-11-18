@@ -1,6 +1,7 @@
 package com.ferhad;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 public class Main {
 
@@ -55,10 +56,25 @@ public class Main {
         System.out.println(stacks.size());
 */
         // =============================================================================================================
-
+/*
         var ss = new StockSpan();
-        int[] spans = ss.findSpans(new int[]{100, 80, 60, 70, 60, 75, 85});
-        System.out.println(Arrays.toString(spans));
+        int[] b = ss.findSpans(new int[] {6, 3, 4, 5, 2}); // brute-force
+        int[] s = ss.findSpansS(new int[] {6, 3, 4, 5, 2}); // stack
+
+        System.out.println(Arrays.toString(b));
+        System.out.println(Arrays.toString(s));
+*/
+
+        // =============================================================================================================
+
+        Stack<Integer> stack = new Stack<>();
+        stack.push(4);
+        stack.push(1);
+        stack.push(3);
+        stack.push(2);
+        System.out.println(stack);
+        stack = Sorting.sort(stack);
+        System.out.println(stack);
 
     }
 }
