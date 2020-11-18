@@ -1,5 +1,7 @@
 package com.ferhad;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -54,6 +56,9 @@ public class Main {
 */
         // =============================================================================================================
 
+        var ss = new StockSpan();
+        int[] spans = ss.findSpans(new int[]{100, 80, 60, 70, 60, 75, 85});
+        System.out.println(Arrays.toString(spans));
 
     }
 }
