@@ -3,16 +3,10 @@ package com.ferhad;
 /**
  * @author Ferhad Mehdizade
  */
-
 public class Recursion {
 
-    /* Towers of Hanoi puzzle (for description of puzzle refer to https://en.wikipedia.org/wiki/Tower_of_Hanoi )
-     * Algorithm:
-     * Move the top n-1 disks from Source to Auxiliary tower;
-     * Move n^th disk from Source to Destination tower;
-     * Move the n-1 disks from Auxiliary tower to Destination tower;
-     * Transferring the top n-1 disks from Source to Auxiliary tower can again be thought of as a fresh problem and can
-     * be solved in the same manner.
+    /**
+     *  Towers of Hanoi puzzle (for description of puzzle refer to https://en.wikipedia.org/wiki/Tower_of_Hanoi )
     */
     public void towersOfHanoi(int n, char fromRod, char toRod, char auxRod) {
         if (n == 1) {
@@ -29,7 +23,8 @@ public class Recursion {
         towersOfHanoi(n - 1, auxRod, toRod, fromRod);
     }
 
-    /** Function for checking if array is sorted or not
+    /**
+     * Function for checking if array is sorted or not
      * @param arr Array
      * @param index Index of elements of Array. Index should be 0 while function is calling.
      * @return true or false according to Array is sorted or not.
@@ -42,7 +37,8 @@ public class Recursion {
         return arr[index] <= arr[index + 1] && isArrayInSortedOrder(arr, index + 1);
     }
 
-    /* Function for finding factorial of number
+    /**
+     * Function for finding factorial of number
      * O(n) time complexity, O(n) space complexity
     */
     public long factorial(int num) {
