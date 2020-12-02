@@ -251,7 +251,7 @@ public class LinkedList<T> {
 //        head = currentNode;
 //        head.setNext(previousNode);
 //    }
-    public void reverse() {
+    public void reverse() { // improved version(Not use additional memory for creating temporary Nodes)
         reverse(head);
     }
 
