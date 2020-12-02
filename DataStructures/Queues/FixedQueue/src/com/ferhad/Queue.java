@@ -13,11 +13,11 @@ public class Queue<T> {
     static {
         CAPACITY = 16; // default size for fixed size Queue
     }
-    private Object[] elements; // elements of Queue
+    private final Object[] elements; // elements of Queue
     private int size; // size of Queue
     private int front; // front of Queue
     private int rear; // rear of Queue
-    private int capacity; // optional capacity
+    private final int capacity; // optional capacity
 
     /**
      * Initializes capacity with default capacity(16)
