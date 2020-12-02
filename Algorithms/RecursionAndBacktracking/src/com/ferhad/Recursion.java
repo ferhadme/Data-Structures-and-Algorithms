@@ -47,4 +47,18 @@ public class Recursion {
         }
         return num * factorial(num - 1);
     }
+
+    /**
+     * Calculates product of all elements of array
+     * In first call of function, index should be 0(represents first element)
+     * @param arr Array
+     * @param index index of an element
+     * @return product
+     */
+    public int productOfArrElem(int[] arr, int index) {
+        if (index == arr.length) {
+            return 1;
+        }
+        return arr[index] * productOfArrElem(arr, ++index);
+    }
 }
