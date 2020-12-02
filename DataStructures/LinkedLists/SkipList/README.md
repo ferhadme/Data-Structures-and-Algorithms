@@ -24,9 +24,7 @@ We will start from highest level in the list and compare key of next node of the
 ### Deletion
 Deletion of an element key is preceded by locating element in the Skip list using above mentioned search algorithm. Once the element is located, rearrangement of pointers is done to remove element form list just like we do in singly linked list. We start from lowest level and do rearrangement until element next to update[i] is not key.
 
-<br/>
-<br/>
-
+### Performance
 
 ```             
   Searching - O(logn)   O(n)
