@@ -3,10 +3,10 @@ package com.ferhad;
 public class Main {
 
     public static void main(String[] args) {
-        Recursion rc = new Recursion();
+        var rc = new Recursion();
         // Testing functions...
 
-        Backtracking bc = new Backtracking();
+        var bc = new Backtracking();
         // Testing functions...
     }
 }

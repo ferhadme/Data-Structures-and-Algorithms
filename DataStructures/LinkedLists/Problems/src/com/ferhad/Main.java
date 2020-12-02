@@ -34,7 +34,7 @@ public class Main {
 
     private static void printList(Node head) {
         while (head != null) {
-            System.out.print(head.getData() + ", ");
+            System.out.print(head.getData() + " ");
             head = head.getNext();
         }
         System.out.println();

@@ -16,10 +16,10 @@ public class Main {
 
         System.out.println(skipList.get(1)); // 1.0
 
-        skipList.remove(12); // removes element with key 12
+        skipList.remove(2); // removes element with key 2
 
         System.out.println(skipList.size()); // 4
-        System.out.println(skipList.get(3)); // null
+        System.out.println(skipList.get(3)); // 5.0
 
     }
 }
