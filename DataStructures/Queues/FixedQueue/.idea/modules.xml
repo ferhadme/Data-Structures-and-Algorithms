@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CircularLinkedList.iml" filepath="$PROJECT_DIR$/CircularLinkedList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FixedQueue.iml" filepath="$PROJECT_DIR$/FixedQueue.iml" />
     </modules>
   </component>
 </project>
