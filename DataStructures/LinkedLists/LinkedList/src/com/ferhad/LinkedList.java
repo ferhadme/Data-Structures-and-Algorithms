@@ -237,19 +237,36 @@ public class LinkedList<T> {
     /**
      * Reverses the list
      */
+//    public void reverse() {
+//        ListNode<T> currentNode = head;
+//        ListNode<T> forwardNode = null;
+//        ListNode<T> previousNode = null;
+//        // traversing linked list until there is no more element
+//        while (currentNode.getNext() != null) {
+//            forwardNode = currentNode.getNext();
+//            currentNode.setNext(previousNode);
+//            previousNode = currentNode;
+//            currentNode = forwardNode;
+//        }
+//        head = currentNode;
+//        head.setNext(previousNode);
+//    }
     public void reverse() {
-        ListNode<T> currentNode = head;
-        ListNode<T> forwardNode = null;
-        ListNode<T> previousNode = null;
-        // traversing linked list until there is no more element
-        while (currentNode.getNext() != null) {
-            forwardNode = currentNode.getNext();
-            currentNode.setNext(previousNode);
-            previousNode = currentNode;
-            currentNode = forwardNode;
+        reverse(head);
+    }
+
+    /**
+     * Helper method for recursive call
+     * @param head head of the LinkedList
+     */
+    private void reverse(ListNode<T> head) {
+        if (head == null || head.getNext() == null) {
+            this.head = head;
+            return;
         }
-        head = currentNode;
-        head.setNext(previousNode);
+        reverse(head.getNext());
+        head.getNext().setNext(head);
+        head.setNext(null);
     }
 
     /**
