@@ -59,14 +59,16 @@ public class OperationsOnLinkedList {
      * Time complexity - O(n)
      * Space complexity - O(n) for recursive stack
      */
-    public void reverseLinkedListRecursively(Node head) {
-        if (head == null || head.getNext() == null)
-            return;
+    public Node reverseLinkedListRecursively(Node head) {
+        if (head == null)
+            return null;
+        if (head.getNext() == null)
+            return head;
 
-        reverseLinkedListRecursively(head.getNext());
-
+        Node newHead = reverseLinkedListRecursively(head.getNext());
         head.getNext().setNext(head);
         head.setNext(null);
+        return newHead;
     }
 
     //------------------------------------------------------------------------------------------------------
