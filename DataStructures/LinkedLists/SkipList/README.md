@@ -19,10 +19,10 @@ Level is created probabilistically. I use 1/2 probability (Like Head and Tail in
 ### Insertion
 We will start from highest level in the list and compare key of next node of the current node with the key to be inserted. Basic idea is If
  - Key of next node is less than key to be inserted then we keep on moving forward on the same level
- - Key of next node is greater than the key to be inserted then we store the pointer to current node i at update[i] and move one level down and continue our search.
+ - Key of next node is greater than the key to be inserted then we do insertion in this position, and make the same process for each level of the element.
 
 ### Deletion
-Deletion of an element key is preceded by locating element in the Skip list using above mentioned search algorithm. Once the element is located, rearrangement of pointers is done to remove element form list just like we do in singly linked list. We start from lowest level and do rearrangement until element next to update[i] is not key.
+Deletion of an element key is preceded by locating element in the Skip list using above mentioned search algorithm. Once the element is located, rearrangement of pointers is done to remove element form list just like we do in singly linked list. We start from lowest level and do rearrangement until next of an element is not key.
 
 ### Performance
 
