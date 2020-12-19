@@ -6,7 +6,7 @@ package com.ferhad;
  * Ternary Search Algorithm
  */
 public class TernarySearch {
-    // TODO: 12/19/2020 Note in README that Ternary Search only for 3 sized array
+
     /**
      * Iterative solution
      * @param arr array
