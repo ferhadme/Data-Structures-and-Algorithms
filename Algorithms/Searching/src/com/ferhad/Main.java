@@ -16,5 +16,8 @@ public class Main {
         System.out.println(LinearSearch.linearSearch(arr, item, 0));
         System.out.println(BinarySearch.binarySearch(arr, item));
         System.out.println(BinarySearch.binarySearch(arr, item, 0, arr.length));
+        System.out.println(TernarySearch.ternarySearch(arr, item));
+        System.out.println(TernarySearch.ternarySearch(arr, item, 0, arr.length));
+
     }
 }

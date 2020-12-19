@@ -20,9 +20,9 @@ public class BinarySearch {
         while (start <= end) {
             int middle = start + (end - start) / 2;
             if (item < arr[middle]) // search in the left half
-                end = middle - 1;
+                end = --middle;
             else if (item > arr[middle]) // search in the right half
-                start = middle + 1;
+                start = ++middle;
             else
                 return middle;
         }
@@ -44,9 +44,9 @@ public class BinarySearch {
 
         int middle = start + (end - start) / 2;
         if (item < arr[middle]) // search in the left half
-            return binarySearch(arr, item, start, middle - 1);
+            return binarySearch(arr, item, start, --middle);
         if (item > arr[middle]) // search in the right half
-            return binarySearch(arr, item, middle + 1, end);
+            return binarySearch(arr, item, ++middle, end);
 
         return middle;
     }
