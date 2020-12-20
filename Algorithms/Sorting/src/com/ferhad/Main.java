@@ -24,7 +24,10 @@ public class Main {
         InsertionSort.insertionSort(arr);
         System.out.println(Arrays.toString(arr));
 
-        // Selection sort here...
+        shuffle(arr);
+
+        SelectionSort.selectionSort(arr);
+        System.out.println(Arrays.toString(arr));
 
         shuffle(arr);
 

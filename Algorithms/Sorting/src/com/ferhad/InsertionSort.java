@@ -7,6 +7,10 @@ package com.ferhad;
  */
 public class InsertionSort {
 
+    /**
+     * Places the current element in each iteration at its suitable place in sorted part of array in each pass
+     * @param arr array
+     */
     public static void insertionSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int current = arr[i];
