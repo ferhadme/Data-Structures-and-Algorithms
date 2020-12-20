@@ -16,16 +16,20 @@ public class Main {
 
         shuffle(arr);
 
-        MergeSort.mergeSort(arr);
+        BubbleSort.bubbleSort(arr);
         System.out.println(Arrays.toString(arr));
 
         shuffle(arr);
 
-        BubbleSort.bubbleSort(arr);
+        InsertionSort.insertionSort(arr);
         System.out.println(Arrays.toString(arr));
 
+        // Selection sort here...
 
+        shuffle(arr);
 
+        MergeSort.mergeSort(arr);
+        System.out.println(Arrays.toString(arr));
 
     }
 
