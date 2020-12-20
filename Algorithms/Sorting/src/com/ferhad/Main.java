@@ -34,6 +34,10 @@ public class Main {
         MergeSort.mergeSort(arr);
         System.out.println(Arrays.toString(arr));
 
+        shuffle(arr);
+
+        QuickSort.quickSort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     /**
