@@ -18,6 +18,7 @@ import java.util.Random;
 
 /**
  * @author Ferhad Mehdizade
+ *
  * Implementation of SkipList
  * @param <T> Type of key. Comparable interface is used for comparing elements without worrying about its data type
  * @param <U> Type of value
