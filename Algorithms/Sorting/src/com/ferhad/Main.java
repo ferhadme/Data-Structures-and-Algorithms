@@ -38,6 +38,13 @@ public class Main {
 
         QuickSort.quickSort(arr);
         System.out.println(Arrays.toString(arr));
+
+        shuffle(arr);
+
+        int[] sortedArr = CountingSort.countingSort(arr, 5); // my input array is range(0..5)
+        System.out.println(Arrays.toString(sortedArr));
+
+
     }
 
     /**
