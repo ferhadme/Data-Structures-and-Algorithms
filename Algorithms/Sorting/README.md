@@ -97,3 +97,13 @@ must be used if the range of input values isn't greater than the number of value
 ***Refer to the implementation of [Counting Sort](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/Algorithms/Sorting/src/com/ferhad/CountingSort.java 'CountingSort.java file')***
 
 <br />
+
+```
+Time Complexity
+Counting Sort - Ω(n+k), Θ(n+k), O(n+k)
+```
+
+```
+Space Complexity
+Counting Sort - O(k)
+```
