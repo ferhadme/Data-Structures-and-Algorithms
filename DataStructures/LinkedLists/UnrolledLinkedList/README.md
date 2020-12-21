@@ -34,4 +34,4 @@ takes only **O(1)**. The total time complexity of an insertion operation for unr
 
 **See implementation of the** [Unrolled LinkedList](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/DataStructures/LinkedLists/UnrolledLinkedList/src/com/ferhad/UnrolledLinkedList.java "Implementation of Unrolled LinkedList")
 
-**See** [UML representation of the project](https://drive.google.com/file/d/1Tkg_s7hORO8tBZhdNN2vn4CMqbKJWj44/view?usp=sharing "UML representation by Ferhad Mehdizade")
+**See** [UML representation of the project by me](https://drive.google.com/file/d/1Tkg_s7hORO8tBZhdNN2vn4CMqbKJWj44/view?usp=sharing "UML representation by Ferhad Mehdizade")
