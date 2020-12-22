@@ -8,7 +8,7 @@ public class Recursion {
     /**
      *  Towers of Hanoi puzzle (for description of puzzle refer to https://en.wikipedia.org/wiki/Tower_of_Hanoi )
     */
-    public void towersOfHanoi(int n, char fromRod, char toRod, char auxRod) {
+    public static void towersOfHanoi(int n, char fromRod, char toRod, char auxRod) {
         if (n == 1) {
             System.out.println("Move disk from rod " + fromRod + " to rod " + toRod);
             return;
@@ -30,7 +30,7 @@ public class Recursion {
      * @return true or false according to Array is sorted or not.
      * O(n) time complexity, and O(n) space complexity for recursive stack space
     */
-    public boolean isArrayInSortedOrder(int[] arr, int index) {
+    public static boolean isArrayInSortedOrder(int[] arr, int index) {
         if (index == arr.length - 1) {
             return true;
         }
@@ -41,7 +41,7 @@ public class Recursion {
      * Function for finding factorial of number
      * O(n) time complexity, O(n) space complexity
     */
-    public long factorial(int num) {
+    public static long factorial(int num) {
         if (num == 0) {
             return 1;
         }
@@ -55,10 +55,37 @@ public class Recursion {
      * @param index index of an element
      * @return product
      */
-    public int productOfArrElem(int[] arr, int index) {
+    public static int productOfArrElem(int[] arr, int index) {
         if (index == arr.length) {
             return 1;
         }
         return arr[index] * productOfArrElem(arr, ++index);
     }
+
+    /**
+     * Checks string is palindrome or not
+     * @param word string
+     * @return true if string is palindrome, otherwise false
+     */
+    public static boolean isPalindrome(String word) {
+        if (word.length() == 1)
+            return true;
+        if (word.charAt(0) != word.charAt(word.length() - 1))
+            return false;
+
+        return isPalindrome(word.substring(1, word.length() - 1));
+    }
+
+    /**
+     * Finds nth number of Fibonacci series
+     * @param n index of series
+     * @return number in nth index
+     */
+    public static int fibonacci(int n) {
+        if (n <= 2)
+            return 1;
+
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
 }
