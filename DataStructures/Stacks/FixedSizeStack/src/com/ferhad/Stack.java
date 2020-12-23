@@ -58,6 +58,14 @@ public class Stack<E> {
     }
 
     /**
+     * Checks stack is full or not
+     * @return true if stack is full, otherwise false
+     */
+    public boolean isFull() {
+        return top == elements.length - 1;
+    }
+
+    /**
      * Checks Stack contains specified element or not
      * @param e searched element
      * @return true if Stack contains specified element, otherwise false

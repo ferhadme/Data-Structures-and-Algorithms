@@ -11,6 +11,7 @@ public class Main {
         int topElem = stack.peek();
         int removedElem = stack.pop();
         boolean isEmpty = stack.isEmpty();
+        boolean isFull = stack.isFull();
         boolean contains5 = stack.contains(5);
         int size = stack.size();
         String stackStr = stack.toString();
@@ -30,5 +31,6 @@ public class Main {
         System.out.println(stack1);
         stack1.clear();
         System.out.println(stack1);
+
     }
 }
