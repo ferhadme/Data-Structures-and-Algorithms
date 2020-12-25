@@ -116,8 +116,8 @@ public class Queue<E> {
      * @return true if Queue contains specified element, false otherwise
      */
     public boolean contains(E elem) {
-        for (int i = 0; i < elements.length; i++) {
-            if (elements[i].equals(elem))
+        for (Object element : elements) {
+            if (element.equals(elem))
                 return true;
         }
         return false;
