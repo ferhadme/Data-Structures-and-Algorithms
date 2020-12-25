@@ -6,9 +6,9 @@ import java.util.NoSuchElementException;
  * @author Ferhad Mehdizade
  *
  * Implementation of Queue Data Structure using Circular Array
- * @param <T> Type of an element
+ * @param <E> Type of an element
  */
-public class Queue<T> {
+public class Queue<E> {
     private static final int CAPACITY;
     static {
         CAPACITY = 16; // default size for fixed size Queue
@@ -41,15 +41,15 @@ public class Queue<T> {
      * @param index index of an element in actual array
      * @return element with specific type
      */
-    private T getElement(int index) {
-        return (T) elements[index];
+    private E getElement(int index) {
+        return (E) elements[index];
     }
 
     /**
      * Enqueues new element to the Queue
      * @param elem inserted element
      */
-    public void enQueue(T elem) {
+    public void enQueue(E elem) {
         if (size == capacity)
             throw new IllegalStateException("Queue is full");
         elements[rear++] = elem;
@@ -61,10 +61,10 @@ public class Queue<T> {
      * Dequeues element from Queue
      * @return removed element from Queue
      */
-    public T deQueue() {
+    public E deQueue() {
         if (size == 0)
             throw new NoSuchElementException("Queue is empty");
-        T data = getElement(front % capacity);
+        E data = getElement(front % capacity);
         elements[front++] = null;
         front %= capacity;
         size--;
@@ -75,7 +75,7 @@ public class Queue<T> {
      * Gets front(or first) element of the Queue
      * @return front element
      */
-    public T getFront() {
+    public E getFront() {
         return getElement(front);
     }
 
@@ -83,7 +83,7 @@ public class Queue<T> {
      * Gets rear(or last) element of the Queue
      * @return rear element
      */
-    public T getRear() {
+    public E getRear() {
         return getElement(rear - 1);
     }
 
@@ -108,6 +108,19 @@ public class Queue<T> {
      */
     public boolean isFull() {
         return size == capacity;
+    }
+
+    /**
+     * Checks whether Queue contains element or not
+     * @param elem element
+     * @return true if Queue contains specified element, false otherwise
+     */
+    public boolean contains(E elem) {
+        for (int i = 0; i < elements.length; i++) {
+            if (elements[i].equals(elem))
+                return true;
+        }
+        return false;
     }
 
     /**
