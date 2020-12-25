@@ -44,6 +44,6 @@ size() - O(1)
 The maximum size of the Queue should be defined before creating and can't be changed. Trying to *EnQueue* a new element into full Queue causes exception.
 
 For Queue implementation with flexible size ***refer to:***
-1. TODO
-2. TODO
+
+***[Implementation of Queue with LinkedList](https://github.com/ferhad2207/Data-Structures-and-Algorithms/tree/master/DataStructures/Queues/LinkedQueue 'Go to the LinkedQueue')***
 
