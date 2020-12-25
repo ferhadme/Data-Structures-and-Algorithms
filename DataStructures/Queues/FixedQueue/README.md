@@ -35,9 +35,12 @@ Space Complexity - O(n) for n sized Array
 Time Complexity
 enQueue() - O(1)
 deQueue() - O(1)
+getFront() - O(1)
+getRear() - O(1)
 isEmpty() - O(1)
 isFull() - O(1)
 size() - O(1)
+contains() - O(n)
 ```
 
 ### Limitations
