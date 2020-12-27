@@ -2,8 +2,12 @@ package com.ferhad;
 
 public class Node<T> {
     private T data;
-    private T left;
-    private T right;
+    private Node<T> left;
+    private Node<T> right;
+
+    public Node(T data) {
+        this.data = data;
+    }
 
     public T getData() {
         return data;
@@ -13,19 +17,19 @@ public class Node<T> {
         this.data = data;
     }
 
-    public T getLeft() {
+    public Node<T> getLeft() {
         return left;
     }
 
-    public void setLeft(T left) {
+    public void setLeft(Node<T> left) {
         this.left = left;
     }
 
-    public T getRight() {
+    public Node<T> getRight() {
         return right;
     }
 
-    public void setRight(T right) {
+    public void setRight(Node<T> right) {
         this.right = right;
     }
 
