@@ -13,13 +13,8 @@ public class Recursion {
             System.out.println("Move disk from rod " + fromRod + " to rod " + toRod);
             return;
         }
-        // Move top n-1 disks from A to B, using C as auxiliary
         towersOfHanoi(n - 1, fromRod, auxRod, toRod);
-
-        // Move remaining disks from A to C
         System.out.println("Move disk from rod " + fromRod + " to rod " + toRod);
-
-        // Move n-1 disks from B to C using A as auxiliary
         towersOfHanoi(n - 1, auxRod, toRod, fromRod);
     }
 
@@ -28,7 +23,6 @@ public class Recursion {
      * @param arr Array
      * @param index Index of elements of Array. Index should be 0 while function is calling.
      * @return true or false according to Array is sorted or not.
-     * O(n) time complexity, and O(n) space complexity for recursive stack space
     */
     public static boolean isArrayInSortedOrder(int[] arr, int index) {
         if (index == arr.length - 1) {
@@ -39,7 +33,6 @@ public class Recursion {
 
     /**
      * Function for finding factorial of number
-     * O(n) time complexity, O(n) space complexity
     */
     public static long factorial(int num) {
         if (num == 0) {
@@ -98,6 +91,18 @@ public class Recursion {
         if (row == 1 || row == column)
             return 1;
         return pascalTriangle(column - 1, row - 1) + pascalTriangle(column - 1, row);
+    }
+
+    /**
+     * Euclid's algorithm for finding GCD of two numbers
+     * @param a first number
+     * @param b second number
+     * @return GCD of the numbers
+     */
+    public static int gcd(int a, int b) {
+        if (b == 0)
+            return a;
+        return gcd(b, a % b);
     }
 
 }
