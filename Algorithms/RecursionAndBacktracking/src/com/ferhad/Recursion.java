@@ -91,7 +91,7 @@ public class Recursion {
     /**
      * Gets number of the Pascal Triangle according to column and row
      * @param column column of the Pascal Triangle
-     * @param row row of the Pascal Triangle Triangle
+     * @param row row of the Pascal Triangle
      * @return number
      */
     public static int pascalTriangle(int column, int row) {
