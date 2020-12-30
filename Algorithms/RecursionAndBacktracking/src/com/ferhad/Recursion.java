@@ -88,4 +88,16 @@ public class Recursion {
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
+    /**
+     * Gets number of the Pascal Triangle according to column and row
+     * @param column column of the Pascal Triangle
+     * @param row row of the Pascal Triangle Triangle
+     * @return number
+     */
+    public static int pascalTriangle(int column, int row) {
+        if (row == 1 || row == column)
+            return 1;
+        return pascalTriangle(column - 1, row - 1) + pascalTriangle(column - 1, row);
+    }
+
 }
