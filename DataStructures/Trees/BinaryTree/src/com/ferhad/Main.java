@@ -4,35 +4,27 @@ public class Main {
 
     public static void main(String[] args) {
         // Building Tree
-        var node1 = new Node<>(1);
-        var node2 = new Node<>(2);
-        var node3 = new Node<>(3);
-        node1.setLeft(node2);
-        node1.setRight(node3);
-        var node4 = new Node<>(4);
-        var node5 = new Node<>(5);
-        node2.setLeft(node4);
-        node2.setRight(node5);
-        var node6 = new Node<>(6);
-        var node7 = new Node<>(7);
-        node3.setLeft(node6);
-        node3.setRight(node7);
-        var binaryTree = new BinaryTree<>(node1);
+        BinaryTree<Integer> binaryTree = new BinaryTree<>(10);
+        binaryTree.insert(6);
+        binaryTree.insert(15);
+        binaryTree.insert(4);
+        binaryTree.insert(8);
+        binaryTree.insert(12);
+        binaryTree.insert(20);
+
+        System.out.println(binaryTree.contains(8)); // true
+        System.out.println(binaryTree.contains(100)); // false
 
         // Inorder Traversals
         System.out.println(binaryTree.inOrderTraverse());
-        System.out.println(binaryTree.inOrderTraverseI());
         System.out.println("======================================");
 
         // Preorder Traversals
         System.out.println(binaryTree.preOrderTraverse());
-        System.out.println(binaryTree.preOrderTraverseI());
-        System.out.println(binaryTree.preOrderTraverseI2());
         System.out.println("======================================");
 
         // Postorder Traversals
         System.out.println(binaryTree.postOrderTraverse());
-        System.out.println(binaryTree.postOrderTraverseI());
         System.out.println("======================================");
 
     }
@@ -41,13 +33,13 @@ public class Main {
 
 /*
 Tree Representation
-        1
-      /   \
-    2       3
+        10
+      /    \
+    6       15
    / \     / \
-  4   5   6   7
+  4   8   12   20
 
-Inorder Traversal --> 4, 2, 5, 1, 6, 3, 7
-Preorder Traversal --> 1, 2, 4, 5, 3, 6, 7
-Postorder Traversal --> 4, 5, 2, 6, 7, 3, 1
+Inorder Traversal --> 4, 6, 8, 10, 12, 15, 20
+Preorder Traversal --> 10, 6, 4, 8, 15, 12, 20
+Postorder Traversal --> 4, 8, 6, 12, 20, 15, 10
  */

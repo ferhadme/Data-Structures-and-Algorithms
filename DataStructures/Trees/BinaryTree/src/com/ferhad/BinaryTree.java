@@ -7,8 +7,8 @@ import java.util.Stack;
 /**
  * @author Ferhad Mehdizade
  *
- * Binary Tree Functions
- * @param <E>
+ * Implementation of Binary Tree Data Structure
+ * @param <E> Type of an element
  */
 public class BinaryTree<E extends Comparable<E>> {
     private Node<E> root;
@@ -27,6 +27,79 @@ public class BinaryTree<E extends Comparable<E>> {
      */
     public BinaryTree(Node<E> root) {
         this.root = root;
+    }
+
+    /**
+     * Inserts new data into the binary tree
+     * @param data inserted data
+     */
+    public void insert(E data) {
+        if (contains(data))
+            throw new IllegalArgumentException("Duplicate is not allowed");
+        if (root == null) {
+            root = new Node<>(data);
+        } else {
+            Node<E> current = root;
+            Node<E> parent = current;
+            while (current != null) {
+                parent = current;
+                if (data.compareTo(current.data) < 0)
+                    current = current.left;
+                else
+                    current = current.right;
+            }
+            if (data.compareTo(parent.data) < 0)
+                parent.left = new Node<>(data);
+            else
+                parent.right = new Node<>(data);
+        }
+    }
+
+    /**
+     * Inserts new data into the binary tree by using recursive method
+     * @param data inserted data
+     */
+    public void insertR(E data) {
+        if (contains(data))
+            throw new IllegalArgumentException("Duplicate is not allowed");
+        else
+            root = insertR(data, root);
+    }
+
+    /**
+     * Recursive method for inserting new data into the binary tree
+     * @param data inserted data
+     * @param node next node(left/right) of the previous node for each recursive call
+     * @return next node(left/right) of the previous node
+     */
+    private Node<E> insertR(E data, Node<E> node) {
+        if (node == null)
+            return new Node<>(data);
+        if (data.compareTo(node.data) < 0)
+            node.left = insertR(data, node.left);
+        else
+            node.right = insertR(data, node.right);
+        return node;
+    }
+
+    /**
+     * Checks binary tree contains specified data or not
+     * @param data searched data
+     * @return true if binary tree contains searched data
+     */
+    public boolean contains(E data) {
+        if (root == null)
+            return false;
+        Node<E> current = root;
+        while (current != null) {
+            if (data.compareTo(current.data) < 0)
+                current = current.left;
+            else if (data.compareTo(current.data) > 0)
+                current = current.right;
+            else
+                return true;
+        }
+        return false;
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -50,9 +123,9 @@ public class BinaryTree<E extends Comparable<E>> {
      */
     private void inOrderTraverse(Node<E> root, List<E> elements) {
         if (root != null) {
-            inOrderTraverse(root.getLeft(), elements);
-            elements.add(root.getData());
-            inOrderTraverse(root.getRight(), elements);
+            inOrderTraverse(root.left, elements);
+            elements.add(root.data);
+            inOrderTraverse(root.right, elements);
         }
     }
 
@@ -67,11 +140,11 @@ public class BinaryTree<E extends Comparable<E>> {
         while (!stack.isEmpty() || current != null) {
             if (current != null) {
                 stack.push(current);
-                current = current.getLeft();
+                current = current.left;
             } else {
                 current = stack.pop();
-                elements.add(current.getData());
-                current = current.getRight();
+                elements.add(current.data);
+                current = current.right;
             }
         }
         return elements;
@@ -94,9 +167,9 @@ public class BinaryTree<E extends Comparable<E>> {
      */
     private void preOrderTraverse(Node<E> root, List<E> elements) {
         if (root != null) {
-            elements.add(root.getData());
-            preOrderTraverse(root.getLeft(), elements);
-            preOrderTraverse(root.getRight(), elements);
+            elements.add(root.data);
+            preOrderTraverse(root.left, elements);
+            preOrderTraverse(root.right, elements);
         }
     }
 
@@ -112,12 +185,12 @@ public class BinaryTree<E extends Comparable<E>> {
         stack.push(root);
         while (!stack.isEmpty()) {
             Node<E> current = stack.pop();
-            elements.add(current.getData());
-            if (current.getRight() != null) {
-                stack.push(current.getRight());
+            elements.add(current.data);
+            if (current.right != null) {
+                stack.push(current.right);
             }
-            if (current.getLeft() != null) {
-                stack.push(current.getLeft());
+            if (current.left != null) {
+                stack.push(current.left);
             }
         }
         return elements;
@@ -136,11 +209,11 @@ public class BinaryTree<E extends Comparable<E>> {
         Node<E> current = root;
         while (!stack.isEmpty()) {
             if (current != null) {
-                elements.add(current.getData());
-                if (current.getRight() != null) {
-                    stack.push(current.getRight());
+                elements.add(current.data);
+                if (current.right != null) {
+                    stack.push(current.right);
                 }
-                current = current.getLeft();
+                current = current.left;
             } else {
                 current = stack.pop();
             }
@@ -165,9 +238,9 @@ public class BinaryTree<E extends Comparable<E>> {
      */
     private void postOrderTraverse(Node<E> root, List<E> elements) {
         if (root != null) {
-            postOrderTraverse(root.getLeft(), elements);
-            postOrderTraverse(root.getRight(), elements);
-            elements.add(root.getData());
+            postOrderTraverse(root.left, elements);
+            postOrderTraverse(root.right, elements);
+            elements.add(root.data);
         }
     }
 
@@ -184,12 +257,12 @@ public class BinaryTree<E extends Comparable<E>> {
         stack.push(root);
         while (!stack.isEmpty()) {
             Node<E> current = stack.pop();
-            out.push(current.getData());
-            if (current.getLeft() != null) {
-                stack.push(current.getLeft());
+            out.push(current.data);
+            if (current.left != null) {
+                stack.push(current.left);
             }
-            if (current.getRight() != null) {
-                stack.push(current.getRight());
+            if (current.right != null) {
+                stack.push(current.right);
             }
         }
 
@@ -199,4 +272,20 @@ public class BinaryTree<E extends Comparable<E>> {
         return elements;
     }
 
+    /**
+     * Class for Nodes of Binary Tree
+     * @param <E> Type of an element
+     */
+    private static class Node<E> {
+        E data;
+        Node<E> left;
+        Node<E> right;
+
+        Node(E data) {
+            this.data = data;
+        }
+    }
 }
+
+// TODO: 1/4/2021 Implement remove() function
+// TODO: 1/4/2021 Implement balancing system after each inserting
