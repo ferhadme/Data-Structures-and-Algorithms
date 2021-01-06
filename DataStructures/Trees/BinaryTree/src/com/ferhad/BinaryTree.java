@@ -7,14 +7,14 @@ import java.util.Stack;
 /**
  * @author Ferhad Mehdizade
  *
- * Implementation of Binary Tree Data Structure
+ * Implementation of Binary Search Tree Data Structure
  * @param <E> Type of an element
  */
 public class BinaryTree<E extends Comparable<E>> {
     private Node<E> root;
 
     /**
-     * Creates root of the Binary Tree with specified value
+     * Creates root of the BST with specified value
      * @param rootData value of the root
      */
     public BinaryTree(E rootData) {
@@ -22,15 +22,15 @@ public class BinaryTree<E extends Comparable<E>> {
     }
 
     /**
-     * Creates Binary Tree with existed specified root
-     * @param root root of the Binary Tree
+     * Creates BST with existed specified root
+     * @param root root of the BST
      */
     public BinaryTree(Node<E> root) {
         this.root = root;
     }
 
     /**
-     * Inserts new data into the binary tree
+     * Inserts new data into the BST
      * @param data inserted data
      */
     public void insert(E data) {
@@ -56,7 +56,7 @@ public class BinaryTree<E extends Comparable<E>> {
     }
 
     /**
-     * Inserts new data into the binary tree by using recursive method
+     * Inserts new data into the BST by using recursive method
      * @param data inserted data
      */
     public void insertR(E data) {
@@ -67,7 +67,7 @@ public class BinaryTree<E extends Comparable<E>> {
     }
 
     /**
-     * Recursive method for inserting new data into the binary tree
+     * Recursive method for inserting new data into the BST
      * @param data inserted data
      * @param node next node(left/right) of the previous node for each recursive call
      * @return next node(left/right) of the previous node
@@ -83,9 +83,9 @@ public class BinaryTree<E extends Comparable<E>> {
     }
 
     /**
-     * Checks binary tree contains specified data or not
+     * Checks BST contains specified data or not
      * @param data searched data
-     * @return true if binary tree contains searched data
+     * @return true if BST contains searched data
      */
     public boolean contains(E data) {
         if (root == null)
