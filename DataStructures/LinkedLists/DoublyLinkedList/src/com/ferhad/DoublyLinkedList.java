@@ -280,14 +280,14 @@ public class DoublyLinkedList<T> {
      */
     @Override
     public String toString() {
-        String result = "[";
+        StringBuilder result = new StringBuilder("[");
         ListNode<T> temp = null;
         if (head != null) {
-            result += head.getData();
+            result.append(head.getData());
             temp = head.getNext();
         }
         while (temp != null) {
-            result += ", " + temp.getData();
+            result.append(", ").append(temp.getData());
             temp = temp.getNext();
         }
         return result + "]";

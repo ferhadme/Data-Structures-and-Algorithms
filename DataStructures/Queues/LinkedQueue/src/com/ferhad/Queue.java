@@ -109,14 +109,14 @@ public class Queue<E> {
     public String toString() {
         if (front == null)
             return "[]";
-        String queueRep = "[";
+        StringBuilder queueRep = new StringBuilder("[");
         Node temp = front;
         for (int i = 0; i < size - 1; i++) {
-            queueRep += temp.data + ", ";
+            queueRep.append(temp.data).append(", ");
             temp = temp.next;
         }
-        queueRep += temp.data + "]";
-        return queueRep;
+        queueRep.append(temp.data).append("]");
+        return queueRep.toString();
     }
 
 }

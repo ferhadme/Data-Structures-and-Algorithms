@@ -141,12 +141,12 @@ public class Stack<E> {
     public String toString() {
         if (isEmpty())
             return "[]";
-        String stackStr = "[";
+        StringBuilder stackStr = new StringBuilder("[");
         for (int i = 0; i < top; i++) {
-            stackStr += getElement(i) + ", ";
+            stackStr.append(getElement(i)).append(", ");
         }
-        stackStr += getElement(top) + "]";
-        return stackStr;
+        stackStr.append(getElement(top)).append("]");
+        return stackStr.toString();
     }
 
 }

@@ -128,12 +128,12 @@ public class Queue<E> {
      */
     @Override
     public String toString() {
-        String queueRep = "[";
+        StringBuilder queueRep = new StringBuilder("[");
         int i; // needed for the last element
         for (i = 0; i < size - 1; i++) {
-            queueRep += elements[(front + i) % capacity] + ", ";
+            queueRep.append(elements[(front + i) % capacity]).append(", ");
         }
-        queueRep += elements[(front + i) % capacity] + "]";
-        return queueRep;
+        queueRep.append(elements[(front + i) % capacity]).append("]");
+        return queueRep.toString();
     }
 }

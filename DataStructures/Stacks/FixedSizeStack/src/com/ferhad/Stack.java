@@ -129,13 +129,12 @@ public class Stack<E> {
     public String toString() {
         if (isEmpty())
             return "[]";
-
-        String stack = "[";
+        StringBuilder stack = new StringBuilder("[");
         for (int i = 0; i < top; i++) {
-            stack += getElement(i) + ", ";
+            stack.append(getElement(i)).append(", ");
         }
-        stack += getElement(top) + "]";
-        return stack;
+        stack.append(getElement(top)).append("]");
+        return stack.toString();
     }
 
 }

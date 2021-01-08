@@ -126,14 +126,13 @@ public class Stack<E> {
      */
     @Override
     public String toString() {
-        String stackStr = "[";
+        StringBuilder stackStr = new StringBuilder("[");
         Element temp = top;
         while (temp != null) {
-            if (temp.next == null) {
-                stackStr += temp.data;
-            } else {
-                stackStr += temp.data + ", ";
-            }
+            if (temp.next == null)
+                stackStr.append(temp.data);
+            else
+                stackStr.append(temp.data).append(", ");
             temp = temp.next;
         }
         return stackStr + "]";

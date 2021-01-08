@@ -165,15 +165,14 @@ public class CircularLinkedList<T> {
      */
     @Override
     public String toString() {
-        String result = "[";
-        if (tail == null) {
+        StringBuilder result = new StringBuilder("[");
+        if (tail == null)
             return result + "]";
-        }
-        result += tail.getData();
+        result.append(tail.getData());
         ListNode<T> temp = tail.getNext();
 
         while (temp != tail) {
-            result += ", " + temp.getData();
+            result.append(", ").append(temp.getData());
             temp = temp.getNext();
         }
         return result + "]";
