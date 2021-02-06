@@ -37,6 +37,7 @@ Time Complexities
 
 Bubble Sort - Ω(n), Θ(n^2), O(n^2)
 Insertion Sort - Ω(n), Θ(n^2), O(n^2)
+Binary Insertion Sort - Ω(n), Θ(n^2), O(n^2) (Average is still Θ(n^2))
 Selection Sort - Ω(n^2), Θ(n^2), O(n^2)
 ```
 
@@ -114,3 +115,18 @@ Counting Sort - Ω(n+k), Θ(n+k), O(n+k)
 Space Complexity
 Counting Sort - O(k)
 ```
+
+<br />
+
+### BogoSort
+Bogosort (also known as permutation sort, stupid sort, slowsort, random sort, monkey sort, bobosort or shuffle sort) is a highly inefficient sorting algorithm based on the generate and test paradigm. The function successively generates permutations of its input until it finds one that is sorted.
+
+***Refer to the implementation of [BogoSort](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/Algorithms/Sorting/src/com/ferhad/BogoSort.java 'BogoSort.java file')***
+
+```
+There is no any exact Time or Space complexity for Bogo Sort. But, Θ(n · n!) can be considered.
+```
+
+
+
+
