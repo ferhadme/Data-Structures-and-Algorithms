@@ -1,7 +1,7 @@
 # In-Place Sorting Algorithms
 Sorts the list only by modifying the order of the elements within the list.
 ### Bubble Sort Algorithm
-Repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted
+Repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted.
 
 ***Refer to the implementation of [Bubble Sort](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/Algorithms/Sorting/src/com/ferhad/BubbleSort.java 'BubbleSort.java file')***
 
@@ -11,6 +11,13 @@ Repeatedly steps through the list, compares adjacent elements and swaps them if 
 Starts iterating from the second element of array till last element and for every element insert at its correct position in the subarray before it.
 
 ***Refer to the implementation of [Insertion Sort](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/Algorithms/Sorting/src/com/ferhad/InsertionSort.java 'InsertionSort.java file')***
+
+<br/>
+
+### Binary Insertion Sort Algorithm
+Almost, the same algorithm as original Insertion Sort(which uses [Linear Search Algorithm](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/Algorithms/Searching/src/com/ferhad/LinearSearch.java 'LinearSearch.java file') for finding the right position), but this one uses [Binary Search Algorithm](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/Algorithms/Searching/src/com/ferhad/BinarySearch.java 'BinarySearch.java file') for finding the right position. Binary Insertion Sort is faster than original Insertion Sort because of binary search.
+
+***Refer to the implementation of [Binary Insertion Sort](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/Algorithms/Sorting/src/com/ferhad/BinaryInsertionSort.java 'BinaryInsertionSort.java file')***
 
 <br/>
 
