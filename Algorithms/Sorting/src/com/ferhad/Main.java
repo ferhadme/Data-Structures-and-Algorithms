@@ -26,6 +26,11 @@ public class Main {
 
         shuffle(arr);
 
+        BinaryInsertionSort.binaryInsertionSort(arr);
+        System.out.println(Arrays.toString(arr));
+
+        shuffle(arr);
+
         SelectionSort.selectionSort(arr);
         System.out.println(Arrays.toString(arr));
 
@@ -44,7 +49,9 @@ public class Main {
         int[] sortedArr = CountingSort.countingSort(arr, 5); // my input array is range(0..5)
         System.out.println(Arrays.toString(sortedArr));
 
-
+        shuffle(arr);
+        BogoSort.bogoSort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     /**
