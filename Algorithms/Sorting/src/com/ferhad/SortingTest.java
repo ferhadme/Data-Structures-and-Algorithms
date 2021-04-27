@@ -81,5 +81,15 @@ public class SortingTest {
         assertArrayEquals(actualPersons, expectedPersons);
     }
 
-    
+    @Test
+    public void bogoSortTest() {
+        Person[] actualPersons = new Person[] {
+                farhad, namiq, cemil, emin
+        };
+        Person[] expectedPersons = new Person[] {
+                cemil, emin, farhad, namiq
+        };
+        BogoSort.bogoSort(actualPersons);
+        assertArrayEquals(actualPersons, expectedPersons);
+    }
 }
