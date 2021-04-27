@@ -14,7 +14,7 @@ public class SortingTest {
     private static final Person emin = new Person("Emin", 12);
 
     @Test
-    public void mergesortTest() {
+    public void mergeSortTest() {
         Person[] actualPersons = new Person[] {
                 farhad, namiq, cemil, emin
         };
@@ -46,6 +46,18 @@ public class SortingTest {
                 cemil, emin, farhad, namiq
         };
         BubbleSort.bubbleSort(actualPersons);
+        assertArrayEquals(actualPersons, expectedPersons);
+    }
+
+    @Test
+    public void selectionSortTest() {
+        Person[] actualPersons = new Person[] {
+                farhad, namiq, cemil, emin
+        };
+        Person[] expectedPersons = new Person[] {
+                cemil, emin, farhad, namiq
+        };
+        SelectionSort.selectionSort(actualPersons);
         assertArrayEquals(actualPersons, expectedPersons);
     }
 }
