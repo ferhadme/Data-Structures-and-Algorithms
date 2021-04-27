@@ -10,8 +10,9 @@ public class QuickSort {
     /**
      * Function calls recursive quick sort
      * @param arr array
+     * @param <T> generic type
      */
-    public static void quickSort(int[] arr) {
+    public static <T extends Comparable<T>> void quickSort(T[] arr) {
         quickSort(arr, 0, arr.length - 1);
     }
 
@@ -21,8 +22,9 @@ public class QuickSort {
      * @param arr array
      * @param begin begin index of the sub array
      * @param end end index of the sub array
+     * @param <T> generic type
      */
-    private static void quickSort(int[] arr, int begin, int end) {
+    private static <T extends Comparable<T>> void quickSort(T[] arr, int begin, int end) {
         if (begin < end) {
             int partition = partition(arr, begin, end);
 
@@ -37,25 +39,26 @@ public class QuickSort {
      * @param arr array
      * @param begin begin index of the sub array
      * @param end end index of the sub array
+     * @param <T> generic type
      * @return new partition index which indicates this element is in the correct place, do the same process for left
      * and right side
      */
-    private static int partition(int[] arr, int begin, int end) {
-        int pivot = arr[end];
+    private static <T extends Comparable<T>> int partition(T[] arr, int begin, int end) {
+        T pivot = arr[end];
         int i = begin - 1;
 
         for (int j = begin; j < end; j++) {
-            if (arr[j] <= pivot) {
+            if (arr[j].compareTo(pivot) <= 0) {
                 i++;
 
-                int temp = arr[j];
+                T temp = arr[j];
                 arr[j] = arr[i];
                 arr[i] = temp;
             }
         }
         i++;
 
-        int temp = arr[i];
+        T temp = arr[i];
         arr[i] = arr[end];
         arr[end] = temp;
 

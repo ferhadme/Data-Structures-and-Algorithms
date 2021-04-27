@@ -92,4 +92,16 @@ public class SortingTest {
         BogoSort.bogoSort(actualPersons);
         assertArrayEquals(actualPersons, expectedPersons);
     }
+
+    @Test
+    public void quickSortTest() {
+        Person[] actualPersons = new Person[] {
+                farhad, namiq, cemil, emin
+        };
+        Person[] expectedPersons = new Person[] {
+                cemil, emin, farhad, namiq
+        };
+        QuickSort.quickSort(actualPersons);
+        assertArrayEquals(actualPersons, expectedPersons);
+    }
 }
