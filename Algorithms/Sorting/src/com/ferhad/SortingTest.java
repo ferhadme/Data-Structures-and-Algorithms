@@ -25,17 +25,17 @@ public class SortingTest {
         assertArrayEquals(actualPersons, expectedPersons);
     }
 
-    @Test
-    public void binaryInsertionSortTest() {
-        Person[] actualPersons = new Person[] {
-                farhad, namiq, cemil, emin
-        };
-        Person[] expectedPersons = new Person[] {
-                cemil, emin, farhad, namiq
-        };
-        BinaryInsertionSort.binaryInsertionSort(actualPersons);
-        assertArrayEquals(actualPersons, expectedPersons);
-    }
+//    @Test
+//    public void binaryInsertionSortTest() {
+//        Person[] actualPersons = new Person[] {
+//                farhad, namiq, cemil, emin
+//        };
+//        Person[] expectedPersons = new Person[] {
+//                cemil, emin, farhad, namiq
+//        };
+//        BinaryInsertionSort.binaryInsertionSort(actualPersons);
+//        assertArrayEquals(actualPersons, expectedPersons);
+//    }
 
     @Test
     public void bubbleSortTest() {
