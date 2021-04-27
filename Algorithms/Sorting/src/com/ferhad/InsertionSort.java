@@ -10,12 +10,13 @@ public class InsertionSort {
     /**
      * Places the current element in each iteration at its suitable place in sorted part of array in each pass
      * @param arr array
+     * @param <T> generic type
      */
-    public static void insertionSort(int[] arr) {
+    public static <T extends Comparable<T>> void insertionSort(T[] arr) {
         for (int i = 1; i < arr.length; i++) {
-            int current = arr[i];
+            T current = arr[i];
             int j = i - 1;
-            while (j >= 0 && current < arr[j]) {
+            while (j >= 0 && current.compareTo(arr[j]) < 0) {
                 arr[j + 1] = arr[j];
                 j--;
             }

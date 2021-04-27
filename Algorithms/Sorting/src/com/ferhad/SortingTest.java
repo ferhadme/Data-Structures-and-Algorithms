@@ -68,5 +68,18 @@ public class SortingTest {
         int[] sortedArr = CountingSort.countingSort(actualArr, 5);
         assertArrayEquals(sortedArr, expectedArr);
     }
+
+    @Test
+    public void insertionSortTest() {
+        Person[] actualPersons = new Person[] {
+                farhad, namiq, cemil, emin
+        };
+        Person[] expectedPersons = new Person[] {
+                cemil, emin, farhad, namiq
+        };
+        InsertionSort.insertionSort(actualPersons);
+        assertArrayEquals(actualPersons, expectedPersons);
+    }
+
     
 }
