@@ -11,14 +11,15 @@ public class BinaryInsertionSort {
      * Places the current element in each iteration at its suitable place in sorted part of array in each pass by using
      * Binary Search Algorithm
      * @param arr array
+     * @param <T> generic type
      *
      * Time Complexity --> O(n) * (O(logn) + O(n)) ==> O(n) * O(n) ==> O(n^2)
      * Almost the same as original Insertion Sort(which uses Linear Search for finding right position) by Time complexity
      * side, but in practise, it is much faster than original Insertion Sort(because of binary search algorithm)
      */
-    public static void binaryInsertionSort(int[] arr) {
+    public static <T extends Comparable<T>> void binaryInsertionSort(T[] arr) {
         for (int i = 1; i < arr.length; i++) {
-            int current = arr[i];
+            T current = arr[i];
             int index = binarySearch(arr, i - 1, current);
             // shifting i --> index
             for (int j = i; j > index; j--) {
@@ -33,20 +34,25 @@ public class BinaryInsertionSort {
      * @param arr array
      * @param high last index of sorted part of the array
      * @param element inserted element
+     * @param <T> generic type
      * @return position of inserted element
      */
-    private static int binarySearch(int[] arr, int high, int element) {
-        if (element < arr[0])
+    private static <T extends Comparable<T>> int binarySearch(T[] arr, int high, T element) {
+        if (element.compareTo(arr[0]) < 0) {
             return 0;
+        }
+
         int low = 1;
         while (low < high) {
             int middle = low + (low + high) / 2;
-            if (element > arr[middle - 1] && element < arr[middle])
+
+            if (element.compareTo(arr[middle - 1]) > 0 && element.compareTo(arr[middle]) < 0) {
                 return middle;
-            else if (element > arr[middle])
+            } else if (element.compareTo(arr[middle]) > 0) {
                 low = middle + 1;
-            else
+            } else {
                 high = middle - 1;
+            }
         }
         return high + 1;
     }
