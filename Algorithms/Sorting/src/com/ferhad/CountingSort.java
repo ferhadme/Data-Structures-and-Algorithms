@@ -4,8 +4,11 @@ package com.ferhad;
  * @author Ferhad Mehdizade
  *
  * Counting Sort Algorithm
- * Note: Counting Sort Algorithm is not general purpose sorting algorithm
+ * Note 1: Counting Sort Algorithm is not general purpose sorting algorithm
  * it is for (elements --> 0..k), where k should be defined in the function call
+ *
+ * Note 2: Counting sorting isn't implemented with generic. Becuases as noted in Note 1
+ * counting sort is good for arrays like (0..k)
  */
 public class CountingSort {
 

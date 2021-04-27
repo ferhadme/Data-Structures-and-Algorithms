@@ -10,6 +10,7 @@ public class SelectionSort {
     /**
      * Finds minimum element in unsorted sub array(after current index), then swaps this min element with current element
      * @param arr array
+     * @param <T> generic type
      */
     public static <T extends Comparable<T>> void selectionSort(T[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {

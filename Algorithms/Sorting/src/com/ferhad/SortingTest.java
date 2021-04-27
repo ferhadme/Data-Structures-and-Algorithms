@@ -60,4 +60,13 @@ public class SortingTest {
         SelectionSort.selectionSort(actualPersons);
         assertArrayEquals(actualPersons, expectedPersons);
     }
+
+    @Test
+    public void countingSortTest() {
+        int[] actualArr = new int[] {5, 4, 3, 2, 1};
+        int[] expectedArr = new int[] {1, 2, 3, 4, 5};
+        int[] sortedArr = CountingSort.countingSort(actualArr, 5);
+        assertArrayEquals(sortedArr, expectedArr);
+    }
+    
 }

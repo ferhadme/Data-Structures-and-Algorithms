@@ -10,6 +10,7 @@ public class BubbleSort {
     /**
      * Repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order
      * @param arr array
+     * @param <T> generic type
      */
     public static <T extends Comparable<T>> void bubbleSort(T[] arr) {
         int n = arr.length;
