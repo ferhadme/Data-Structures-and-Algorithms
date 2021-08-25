@@ -1,0 +1,61 @@
+Generic implementation of Data Structures and Algorithms
+--------------------------------------------------------
+
+.
+|-- Algorithms
+|   |-- Bit Manipulation
+|       |-- Bit Addition
+|   
+|   |-- Drawing
+|       |-- Simple ASCII Art
+|   
+|   |-- Recursion and Backtracking
+|       |-- Recursion
+|       |-- Backtracking
+|
+|   |-- Searching
+|       |-- Linear Search
+|       |-- Binary Search
+|       |-- Ternary Search
+|
+|   |-- Sorting
+|       |-- In-Place Sorting
+|           |-- Bubble Sort
+|           |-- Insertion Sort
+|           |-- Binary Insertion Sort
+|           |-- Selection Sort
+|
+|       |-- Divide and Conquer Sorting
+|           |-- Merge Sort
+|           |-- Quick Sort
+|
+|       |-- Other Sortings
+|           |-- Counting Sort
+|           |-- Bogo Sort
+|
+|-- Data Structures And Algorithms
+|   |-- Linkedlists
+|       |-- Circular Linkedlist
+|       |-- Doubly Linkedlist
+|       |-- Singly Linkedlist
+|       |-- Skiplist
+|       |-- Problems
+|
+|   |-- Queues
+|       |-- Fixed Queue
+|       |-- Linked Queue
+|
+|   |-- Sets
+|       |-- Set Calculator
+|
+|   |-- Stacks
+|       |-- Dynamic Stack
+|       |-- Fixed Size Stack
+|       |-- Linked Stack
+|       |-- Problems
+|
+|   |-- Trees
+|       |-- Binary Tree
+|
+|-- README
+
