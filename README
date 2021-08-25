@@ -44,6 +44,7 @@ Generic implementation of Data Structures and Algorithms
 |   |-- Queues
 |       |-- Fixed Queue
 |       |-- Linked Queue
+|       |-- Lispy Queue
 |
 |   |-- Sets
 |       |-- Set Calculator
@@ -52,6 +53,7 @@ Generic implementation of Data Structures and Algorithms
 |       |-- Dynamic Stack
 |       |-- Fixed Size Stack
 |       |-- Linked Stack
+|       |-- Lispy Stack
 |       |-- Problems
 |
 |   |-- Trees
