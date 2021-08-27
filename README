@@ -9,6 +9,9 @@ Generic implementation of Data Structures and Algorithms
 |   |-- Drawing
 |       |-- Simple ASCII Art
 |   
+|   |-- Number Theory and Cryptography
+|       |-- Luhn Algorithm
+|
 |   |-- Recursion and Backtracking
 |       |-- Recursion
 |       |-- Backtracking
