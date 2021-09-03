@@ -1,2 +1,2 @@
 ### Close Addressing Dictionary
-[Implementation in C](https://github.com/ferhadme/minimal-dictionary)
+[Visit my other repo for Close Addressing Dictionary](https://github.com/ferhadme/minimal-dictionary)
