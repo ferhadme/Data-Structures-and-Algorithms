@@ -57,13 +57,14 @@ Merge Sort and Quick Sort based on divide and conquer technique
 ### Merge Sort Algorithm
 Merge sort is a stable divide-and-conquer algorithm based on the idea of breaking down a list into several sub-lists until each sublist consists of a single element and merging those sublists in a manner that results into a sorted list
 
-***Refer to the implementation of [Merge Sort](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/Algorithms/Sorting/src/com/ferhad/MergeSort.java 'MergeSort.java file')***
+***Refer to the implementation of [Merge Sort in Java](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/Algorithms/Sorting/src/com/ferhad/MergeSort.java 'MergeSort.java file')***
+***Refer to the implementation of [Merge Sort in C](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/Algorithms/Sorting/src/com/ferhad/merge_sort.c 'merge_sort.c file')***
 
 <br />
 
 ### Quick Sort Algorithm
-Works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot. 
-The sub-arrays are then sorted recursively. This can be done in-place, requiring small additional amounts of memory to perform the sorting. 
+Works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot.
+The sub-arrays are then sorted recursively. This can be done in-place, requiring small additional amounts of memory to perform the sorting.
 
 Selection of 'pivot' is very important thing, that makes sorting faster, or slower. Pivot usually is selected, in 4 ways:
 - First element as pivot
@@ -95,11 +96,11 @@ Quick Sort - O(n*logn)
 
 # Additional Sorting Algorithms
 ### Counting Sort
-Counting Sort is not general purpose sorting algorithm. Counting sort is efficient if the range of input data is not significantly greater than the number of objects to be 
-sorted. This sorting technique is based on keys between a specific range. It works by counting the number of objects having distinct key values (kind of hashing). Then doing 
+Counting Sort is not general purpose sorting algorithm. Counting sort is efficient if the range of input data is not significantly greater than the number of objects to be
+sorted. This sorting technique is based on keys between a specific range. It works by counting the number of objects having distinct key values (kind of hashing). Then doing
 some arithmetic to calculate the position of each object in the output sequence.
 
-My counting sort works for only 0..k range input **yet**. But it can be extended to use with negative values. The main point should be considered here is counting sort 
+My counting sort works for only 0..k range input **yet**. But it can be extended to use with negative values. The main point should be considered here is counting sort
 must be used if the range of input values isn't greater than the number of values to be sorted
 
 ***Refer to the implementation of [Counting Sort](https://github.com/ferhad2207/Data-Structures-and-Algorithms/blob/master/Algorithms/Sorting/src/com/ferhad/CountingSort.java 'CountingSort.java file')***

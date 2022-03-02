@@ -5,10 +5,10 @@ Generic implementation of Data Structures and Algorithms
 |-- Algorithms
 |   |-- Bit Manipulation
 |       |-- Bit Addition
-|   
+|
 |   |-- Drawing
 |       |-- Simple ASCII Art
-|   
+|
 |   |-- Number Theory and Cryptography
 |       |-- Luhn Algorithm
 |
