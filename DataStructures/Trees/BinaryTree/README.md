@@ -1,2 +1,2 @@
 # Binary Tree
-***NOT COMPLETED YET***
+Simple Binary Tree that supports different traversals and insertion
