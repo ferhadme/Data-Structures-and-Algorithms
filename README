@@ -61,6 +61,7 @@ Generic implementation of Data Structures and Algorithms
 |
 |   |-- Trees
 |       |-- Binary Tree
+|       |-- Binary Indexed Tree
 |
 |   |-- Dictionary
 |       |-- CloseAddressing
