@@ -5,6 +5,7 @@ Generic implementation of Data Structures and Algorithms
 |-- Algorithms
 |   |-- Bit Manipulation
 |       |-- Bit Addition
+|       |-- Techniques
 |
 |   |-- Drawing
 |       |-- Simple ASCII Art
