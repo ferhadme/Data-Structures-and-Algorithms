@@ -4,12 +4,11 @@ int getbit(int n, int i);
 void setbit(int *n, int i);
 void togglebit(int *n, int i);
 void cleanbit(int *n, int i);
+int is_power_of_two(int n);
 
 int main(void) {
-    int n = 0b000000010;
-    printf("%d\n", getbit(n, 1));
-    cleanbit(&n, 1);
-    printf("%d\n", getbit(n, 1));
+    int n = 0b000000011;
+    printf("Res: %d\n", is_power_of_two(n));
     return 0;
 }
 
@@ -26,7 +25,6 @@ int getbit(int n, int i)
  */
 void setbit(int *n, int i)
 {
-    // 00110000
     *n |= (1 << i);
 }
 
@@ -35,9 +33,6 @@ void setbit(int *n, int i)
  */
 void cleanbit(int *n, int i)
 {
-    // 101
-    // AND 011
-    // 001
     *n &= ~(1 << i);
 }
 
@@ -48,3 +43,9 @@ void togglebit(int *n, int i)
 {
     *n ^= (1 << i);
 }
+
+int is_power_of_two(int n)
+{
+    return (n >= 0) && (n & (n - 1)) == 0;
+}
+
