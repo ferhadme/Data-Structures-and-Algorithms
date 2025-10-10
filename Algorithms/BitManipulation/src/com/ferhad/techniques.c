@@ -60,9 +60,9 @@ int reverseBits(int n) {
     int res = 0;
 
     while (n > 0) {
-	int last = n & 1;
-	res |= (last << --k);
-	n >>= 1;
+        int last = n & 1;
+        res |= (last << --k);
+        n >>= 1;
     }
 
     return res;
@@ -74,11 +74,11 @@ int reverseBits(int n) {
 int missingNumber(int* nums, int len) {
     int res = 0;
     for (int i = 1; i <= len; i++) {
-	res ^= i;
+        res ^= i;
     }
 
     for (int i = 0; i < len; i++) {
-	res ^= nums[i];
+        res ^= nums[i];
     }
 
     return res;
