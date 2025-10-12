@@ -24,6 +24,7 @@ bool is_power_of_two(int n);
 int getbits(int x, int p, int n);
 void setbits(int *x, int p, int n);
 void invert(int *x, int p, int n);
+int countbit(int x);
 
 int main(void) {
 	int a, b;
@@ -69,6 +70,9 @@ int main(void) {
 	invert(&b, 3, 4);
 	assert(a == 0b00000000);
 	assert(b == 0b10010000);
+
+	int c = countbit(0b11001100);
+	assert(c == 4);
 
     return 0;
 }
@@ -169,3 +173,16 @@ void invert(int *x, int p, int n)
 	*x ^= ((1 << n) - 1) << (p + 1 - n);
 }
 
+/*
+ * Counts set bits in number x
+ */
+int countbit(int x)
+{
+	int c = 0;
+
+	for (; x != 0; x >>= 1) {
+		c += (x & 1);
+	}
+
+	return c;
+}
