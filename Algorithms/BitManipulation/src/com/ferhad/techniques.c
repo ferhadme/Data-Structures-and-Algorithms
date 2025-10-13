@@ -25,6 +25,7 @@ int getbits(int x, int p, int n);
 void setbits(int *x, int p, int n);
 void invert(int *x, int p, int n);
 int countbit(int x);
+int countbit_v2(int x);
 
 int main(void) {
 	int a, b;
@@ -72,6 +73,8 @@ int main(void) {
 	assert(b == 0b10010000);
 
 	int c = countbit(0b11001100);
+	assert(c == 4);
+	c = countbit_v2(0b11001100);
 	assert(c == 4);
 
     return 0;
@@ -186,3 +189,18 @@ int countbit(int x)
 
 	return c;
 }
+
+/*
+ * Faster version of countbit since it doesn't use shift operation
+ * x & (x-1) -> removes last bit
+ */
+int countbit_f(int x)
+{
+	int c = 0;
+	for (; x != 0; x &= (x - 1)) {
+		c++;
+	}
+	
+	return c;
+}
+
