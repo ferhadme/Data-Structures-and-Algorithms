@@ -28,6 +28,7 @@ Generic implementation of Data Structures and Algorithms
 |           |-- Insertion Sort
 |           |-- Binary Insertion Sort
 |           |-- Selection Sort
+|			|-- Shell Sort
 |
 |       |-- Divide and Conquer Sorting
 |           |-- Merge Sort
